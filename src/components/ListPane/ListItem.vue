@@ -1,16 +1,16 @@
 <template>
   <div @click="loadChat" class="userbox shared shadow">
     <img :class="[user.sex == 1 ? 'male' : 'female']" class="icon shadow" />
-    <p class="username shared">
-      {{ trimName }}
-      <span class="condensed">{{ trimUsername }}</span>
-    </p>
+    <div class="container">
+      <p class="username shared">{{ fullname }}</p>
+      <p class="username condensed">{{ "@" + user.username }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "chatItem",
+  name: "listItem",
   data: function() {
     return {
       fullname: this.user.fname + " " + this.user.lname
@@ -25,27 +25,22 @@ export default {
     }
   },
   computed: {
-    trimUsername() {
-      var username = this.user.username;
-      if (username.length > 15) {
-        username = username.substring(0, 12) + "...";
-      }
-      return "(@" + username + ")";
-    },
-    trimName() {
-      var fullname = this.user.fname + " " + this.user.lname;
-      if (fullname.length > 24) {
-        fullname = fullname.substring(0, 24) + "...";
-      }
-      return fullname;
+    trim(string) {
+      return string.substring(0, 32) + "...";
     }
   }
 };
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
 .shared {
   font-family: Roboto;
+  font-weight: bold;
   color: #555;
   user-select: none;
 }
@@ -62,6 +57,7 @@ export default {
   color: #268bd2;
   font-family: Roboto Condensed;
   font-weight: bold;
+  font-size: 0.8rem;
 }
 .userbox {
   display: flex;
@@ -73,16 +69,18 @@ export default {
   background: #eee;
   height: 4rem;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 .userbox:hover {
+  cursor: pointer;
+}
+.userbox:active {
   background: #ddd;
   border: 1px solid #eee;
   border-bottom: 0;
-  cursor: pointer;
 }
 .username {
-  font-size: 0.9rem;
-  padding-left: 1rem;
+  margin: 0;
 }
 .online {
   border: 0.2rem solid #2aa198;

@@ -83,7 +83,7 @@ export default {
   font-size: 0.85rem;
 }
 .input_bar:focus {
-  margin: 0 0rem;
+  margin: 0;
   transition: 0.2s;
 }
 ::placeholder {
@@ -100,9 +100,6 @@ export default {
   text-align: center;
   -webkit-tap-highlight-color: transparent;
 }
-.button:hover {
-  color: #555;
-}
 .button:active {
   transform: scale(0.85);
 }
@@ -111,13 +108,13 @@ export default {
     padding: 0;
   }
   .input_bar {
-    margin-left: 2rem;
+    margin-left: 1rem;
+    margin-right: 0rem;
   }
   .input_bar:focus {
     margin-left: 1rem;
   }
   .button {
-    height: 2.5rem;
     margin-right: 1rem;
     margin-left: 0.5;
   }

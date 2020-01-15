@@ -1,7 +1,10 @@
 <template>
   <div class="list_pane">
-    <div class="info">
-      <input type="text" v-model="searchText" class="search shadow" placeholder="Search" />
+    <div class="search_pane">
+      <button class="button" @click="toggleList">
+        <font-awesome icon="arrow-left" />
+      </button>
+      <input type="text" v-$model="searchText" class="search shadow" placeholder="Search" />
     </div>
     <div class="user_list">
       <UserBox @load-chat="loadChat" v-for="user in filterUsers" :key="user.id" :user="user" />
@@ -10,7 +13,7 @@
 </template>
 
 <script>
-import UserBox from "./UserBox";
+import UserBox from "./ListItem";
 export default {
   name: "listPane",
   data: function() {
@@ -28,15 +31,19 @@ export default {
   methods: {
     loadChat: function(id) {
       this.$emit("load-chat", id);
+    },
+    toggleList: function() {
+      this.$emit("toggle-list");
     }
   },
   computed: {
     filterUsers() {
       return this.usersArray.filter(
         item =>
-          item.username.includes(this.searchText) == true ||
-          item.fname.toLowerCase().includes(this.searchText) ||
-          item.lname.toLowerCase().includes(this.searchText)
+          item.username.includes(this.searchText.toLowerCase()) ||
+          (item.fname.toLowerCase() + " " + item.lname.toLowerCase()).includes(
+            this.searchText.toLowerCase()
+          )
       );
     }
   }
@@ -48,7 +55,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex: 0 1 auto;
-  min-width: 27rem;
+  width: 27rem;
   background: #ddd;
 }
 .user_list {
@@ -64,7 +71,7 @@ export default {
   padding: 0 1rem;
 }
 .search {
-  font-family: Roboto Condensed;
+  font-family: Roboto;
   font-weight: bold;
   height: 2rem;
   font-size: 1rem;
@@ -84,22 +91,48 @@ export default {
   margin: 0;
   transition: 0.2s;
 }
-.info {
+.search_pane {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   height: 3rem;
 }
 .shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+}
+.button {
+  display: none;
+  background: #ddd;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  color: #888;
+  transition: 0.2s;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.button:active {
+  background: #c8c8c8;
 }
 ::placeholder {
   color: #888;
 }
 @media screen and (max-width: 700px) {
   .list_pane {
-    display: none;
+    width: 100%;
+  }
+  .search {
+    margin: 0;
+  }
+  .button {
+    display: block;
   }
 }
 </style>

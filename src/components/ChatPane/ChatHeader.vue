@@ -1,17 +1,18 @@
 <template>
   <div class="chat_header shared">
-    <button class="button shared" id="chats">
+    <button @click="loadList" class="button shared" id="chats">
       <font-awesome icon="comments" />
     </button>
-    <p class="name shared">{{ trimName }}</p>
+    <p class="name shared">{{ trim }}</p>
     <div>
       <button
         class="button"
         id="settings"
         @click="toggleMenu"
+        v-click-outside="closePopup"
         :class="[showMenu == true ? 'active' : 'inactive']"
       >
-        <font-awesome icon="chevron-down" />
+        <font-awesome icon="bars" />
       </button>
       <div class="dropdown-content" :class="[showMenu == true ? 'show' : 'hide']">
         <p class="option">Profile</p>
@@ -31,18 +32,23 @@ export default {
   methods: {
     toggleMenu: function() {
       this.showMenu = !this.showMenu;
+    },
+    closePopup: function() {
+      this.showMenu = false;
+    },
+    loadList: function() {
+      this.$emit("load-list");
     }
   },
   computed: {
-    trimName() {
-      var fullname;
+    trim() {
       if (this.selectedUser.fname != undefined)
-        fullname = this.selectedUser.fname + " " + this.selectedUser.lname;
-      else fullname = "Empty";
-      if (fullname.length > 24) {
-        fullname = fullname.substring(0, 24) + "...";
-      }
-      return fullname;
+        return (
+          this.selectedUser.fname +
+          " " +
+          this.selectedUser.lname
+        ).substring(0, 32);
+      else return "Empty";
     }
   },
   props: {
@@ -61,7 +67,7 @@ export default {
   visibility: hidden;
 }
 .active {
-  background: #cfcfcf;
+  background: #c8c8c8;
 }
 .shared {
   font-family: Roboto;
@@ -80,9 +86,9 @@ export default {
   height: 3rem;
 }
 .name {
-  color: #555;
+  color: #777;
   flex: 1 0 auto;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -91,7 +97,7 @@ export default {
   height: 2.5rem;
   width: 2.5rem;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   transition: 0.2s;
   margin: 0 1rem;
   text-align: center;
@@ -142,6 +148,9 @@ export default {
   .dropdown-content {
     margin-left: -1rem;
     margin-top: 1rem;
+  }
+  .button {
+    font-size: 1.5rem;
   }
 }
 @media screen and (min-width: 700px) {

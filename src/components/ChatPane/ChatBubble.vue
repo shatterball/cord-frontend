@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 .shared {
-  font-family: Roboto;
+  font-family: Arial;
   color: #93a1a1;
   margin: 0;
   padding: 0;
@@ -41,9 +41,8 @@ export default {
   border-radius: 0 1rem 1rem 1rem;
 }
 .message {
-  color: #fdf6e3;
-  padding: 0.5rem 1rem;
-  /* word-wrap: break-word; */
+  color: #fff;
+  padding: 0.5rem 0.8rem;
   word-break: break-all;
 }
 @media screen and (max-width: 700px) {

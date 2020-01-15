@@ -1,6 +1,6 @@
 <template>
   <div class="chat_pane">
-    <ChatHeader :selectedUser="selectedUser" />
+    <ChatHeader @load-list="loadList" :selectedUser="selectedUser" />
     <ChatBubblePane :chatArray="chatArray" :currentUser="currentUser" :selectedUser="selectedUser" />
     <InputPane @send-message="sendMessage" :currentUser="currentUser" :selectedUser="selectedUser" />
   </div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     sendMessage: function(message) {
       this.$emit("send-message", message);
+    },
+    loadList: function() {
+      this.$emit("load-list");
     }
   }
 };

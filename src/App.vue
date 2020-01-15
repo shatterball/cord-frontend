@@ -1,6 +1,8 @@
 <template>
   <div class="app">
+    <router-vue></router-vue>
     <MainPane
+      class="main_pane"
       @load-chat="loadChat"
       @send-message="sendMessage"
       :currentUser="currentUser"
@@ -12,7 +14,7 @@
 </template>
 
 <script>
-import MainPane from "./components/MainPane";
+import MainPane from "@/components/MainPane";
 import Axios from "axios";
 import Hash from "sha256";
 import io from "socket.io-client";
@@ -28,7 +30,7 @@ export default {
       chatArray: [],
       selectedUser: {},
       currentUser: {},
-      socket: io("localhost:3000")
+      socket: io("1.1.0.11:3000")
     };
   },
   methods: {
@@ -39,7 +41,7 @@ export default {
         src = this.currentUser.id,
         dest = this.selectedUser.id;
 
-      Axios.post("http://localhost:3000/api/chats/", {
+      Axios.post("http://1.1.0.11:3000/api/chats/", {
         username: username,
         hash: hash,
         src: src,
@@ -55,22 +57,24 @@ export default {
     }
   },
   created: function() {
-    Axios.post("http://localhost:3000/api/login/", {
+    Axios.post("http://1.1.0.11:3000/api/login/", {
       username: "kepsake550",
       hash: Hash("kepsake550")
     }).then(res => {
       this.currentUser = res.data;
       this.socket.emit("login", this.currentUser.id);
     });
-    Axios.post("http://localhost:3000/api/users", {
+    Axios.post("http://1.1.0.11:3000/api/users", {
       username: "kepsake550",
       hash: Hash("kepsake550")
     }).then(res => {
       this.usersArray = res.data;
     });
-    // io.on("message-recv", data => {
-    //   this.chatArray.push(data);
-    // });
+    this.socket.on("message-recv", data => {
+      if (data.sender_id == this.selectedUser.id) {
+        this.chatArray.push(data);
+      }
+    });
   }
 };
 </script>
