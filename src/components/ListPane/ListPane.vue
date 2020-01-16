@@ -4,7 +4,7 @@
       <button class="button" @click="toggleList">
         <font-awesome icon="arrow-left" />
       </button>
-      <input type="text" v-$model="searchText" class="search shadow" placeholder="Search" />
+      <input type="text" v-model="searchText" class="search shadow" placeholder="Search" />
     </div>
     <div class="user_list">
       <UserBox @load-chat="loadChat" v-for="user in filterUsers" :key="user.id" :user="user" />

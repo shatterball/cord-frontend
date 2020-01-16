@@ -63,10 +63,10 @@ let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
 <style >
-@font-face {
+/* @font-face {
   font-family: Roboto;
   src: url("../assets/din.ttf");
-}
+} */
 .main_pane {
   display: flex;
   height: 100vh;

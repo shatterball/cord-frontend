@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import router from "./router";
+import Router from "vue-router";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faPaperPlane,
@@ -10,10 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+import MainPane from "@/components/MainPane";
+
 library.add(faPaperPlane, faBars, faComments, faArrowLeft);
 
 Vue.component("font-awesome", FontAwesomeIcon);
-Vue.use(router);
 
 Vue.directive("click-outside", {
   bind: function(el, binding, vnode) {
@@ -50,8 +51,19 @@ Vue.directive("$model", {
   }
 });
 
+const router = new Router({
+  routes: [
+    {
+      path: "/main",
+      component: MainPane
+    }
+  ]
+});
+
 Vue.config.productionTip = false;
 
 new Vue({
+  el: "#app",
+  router: router,
   render: h => h(App)
 }).$mount("#app");

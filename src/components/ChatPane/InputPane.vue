@@ -54,7 +54,7 @@ export default {
   border: none;
   border-radius: 2rem;
   outline: none;
-  font-family: Roboto;
+  font-family: Arial, Helvetica, sans-serif;
   background: #ccc;
 }
 .shadow {
