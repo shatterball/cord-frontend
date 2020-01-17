@@ -63,7 +63,6 @@ export default {
   display: flex;
   align-items: center;
   margin: 1rem;
-  border: 1px solid #ddd;
   border-bottom: 0;
   border-radius: 2rem;
   background: #eee;
@@ -76,7 +75,6 @@ export default {
 }
 .userbox:active {
   background: #ddd;
-  border: 1px solid #eee;
   border-bottom: 0;
 }
 .username {
@@ -87,11 +85,11 @@ export default {
   background: #2aa198;
 }
 .icon {
-  border-radius: 2.5rem;
   border: 0.2rem solid #aaa;
   background: #aaa;
   width: 2.5rem;
   height: 2.5rem;
+  border-radius: 50%;
   margin-left: 0.5rem;
 }
 </style>

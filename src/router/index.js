@@ -1,15 +1,21 @@
 import Vue from "vue";
-import Router from "vue-router";
-import MainPane from "@/components/MainPane";
+import VueRouter from "vue-router";
+import LoginPane from "@/components/LoginPane.vue";
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
-  routes: [
-    {
-      path: "/main",
-      name: "mainPane",
-      component: MainPane
-    }
-  ]
+const routes = [
+  {
+    path: "/login",
+    name: "loginPane",
+    component: LoginPane
+  }
+];
+
+const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes
 });
+
+export default router;
