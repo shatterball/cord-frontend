@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <router-link to="/login">Link</router-link>
-    <!-- <MainPane
+    <!-- <router-view /> -->
+    <MainPane
       class="main_pane"
       @load-chat="loadChat"
       @send-message="sendMessage"
@@ -9,12 +9,12 @@
       :selectedUser="selectedUser"
       :chatArray="chatArray"
       :usersArray="usersArray"
-    />-->
+    />
   </div>
 </template>
 
 <script>
-// import MainPane from "@/components/MainPane";
+import MainPane from "@/components/MainPane";
 import Axios from "axios";
 import Hash from "sha256";
 import io from "socket.io-client";
@@ -22,7 +22,7 @@ import io from "socket.io-client";
 export default {
   name: "app",
   components: {
-    // MainPane
+    MainPane
   },
   data() {
     return {

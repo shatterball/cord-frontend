@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import LoginPane from "@/components/LoginPane.vue";
+import LoginPane from "@/views/LoginPane.vue";
 
 Vue.use(VueRouter);
 

@@ -9,9 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import router from "./router";
-library.add(faPaperPlane, faBars, faComments, faArrowLeft);
-
-Vue.component("font-awesome", FontAwesomeIcon);
+import store from './store'
 
 Vue.directive("click-outside", {
   bind: function (el, binding, vnode) {
@@ -42,16 +40,16 @@ Vue.directive("click-outside", {
     el.removeAttribute("data-dragging");
   }
 });
-Vue.directive("$model", {
-  bind: function (el, binding, vnode) {
-    el.oninput = () => (vnode.context[binding.expression] = el.value);
-  }
-});
+
+library.add(faPaperPlane, faBars, faComments, faArrowLeft);
+
+Vue.component("font-awesome", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
 new Vue({
   el: "#app",
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");
