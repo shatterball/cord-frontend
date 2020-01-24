@@ -35,7 +35,6 @@ export default {
 
 <style scoped>
 .chat_bubble_pane {
-  /* scroll-behavior: smooth; */
   background: #eee;
   padding: 1rem 3rem;
   border-radius: 1rem;
@@ -51,6 +50,7 @@ export default {
 }
 @media screen and (max-width: 700px) {
   .chat_bubble_pane {
+    height: 50rem;
     margin: 0;
     padding: 1rem;
     border-radius: 0;

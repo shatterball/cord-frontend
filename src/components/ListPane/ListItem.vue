@@ -1,6 +1,6 @@
 <template>
   <div @click="loadChat" class="userbox shared shadow">
-    <img :class="[user.sex == 1 ? 'male' : 'female']" class="icon shadow" />
+    <img :class="[user.sex == 1 ? 'male' : 'female']" class="icon shadow offline" />
     <div class="container">
       <p class="username shared">{{ fullname }}</p>
       <p class="username condensed">{{ "@" + user.username }}</p>
@@ -77,16 +77,22 @@ export default {
   background: #ddd;
   border-bottom: 0;
 }
+.userbox:first-child {
+  margin-top: 0;
+}
 .username {
   margin: 0;
 }
 .online {
-  border: 0.2rem solid #2aa198;
-  background: #2aa198;
+  border: 0.2rem solid #268bd2;
+  background: #268bd2;
 }
-.icon {
+.offline {
   border: 0.2rem solid #aaa;
   background: #aaa;
+}
+.icon {
+  vertical-align: middle;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;

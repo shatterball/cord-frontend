@@ -57,9 +57,6 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   background: #ccc;
 }
-.shadow {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
-}
 .enable {
   color: #888;
 }

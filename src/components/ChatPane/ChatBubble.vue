@@ -1,5 +1,5 @@
 <template>
-  <div :class="[type == true ? 'send' : 'recv']" class="bubble reset">
+  <div :class="[type == true ? 'send' : 'recv']" class="bubble shadow shared">
     <p class="message shared">{{ msg.content }}</p>
   </div>
 </template>
@@ -23,7 +23,6 @@ export default {
 }
 .bubble {
   margin: 0.3rem 0;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
   font-size: 0.85rem;
   max-width: 30rem;
   margin-left: auto;

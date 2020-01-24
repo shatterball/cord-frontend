@@ -1,6 +1,6 @@
 <template>
   <div class="chat_header shared">
-    <button @click="loadList" class="button shared" id="chats">
+    <button @click="showList" class="button shared" id="chats">
       <font-awesome icon="comments" />
     </button>
     <p class="name shared">{{ trim }}</p>
@@ -14,9 +14,8 @@
       >
         <font-awesome icon="bars" />
       </button>
-      <div class="dropdown-content" :class="[showMenu == true ? 'show' : 'hide']">
-        <p class="option">Profile</p>
-        <p class="option">Logout</p>
+      <div class="dropdown-content shadow" :class="[showMenu == true ? 'show' : 'hide']">
+        <p @click="logout" class="option">Logout</p>
       </div>
     </div>
   </div>
@@ -36,8 +35,13 @@ export default {
     closePopup: function() {
       this.showMenu = false;
     },
-    loadList: function() {
-      this.$emit("load-list");
+    showList: function() {
+      this.$emit("show-list");
+    },
+    logout() {
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("last");
+      this.$router.push({ name: "login" });
     }
   },
   computed: {
@@ -83,12 +87,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3rem;
+  height: 3.5rem;
 }
 .name {
   color: #777;
+  font-weight: 500;
   flex: 1 0 auto;
-  font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -118,11 +122,11 @@ export default {
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
   min-width: 5rem;
 }
 .option {
   padding: 0.5rem 1rem;
+  cursor: pointer;
   margin: 0.25rem 0;
 
   text-align: left;

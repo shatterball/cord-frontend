@@ -1,7 +1,7 @@
 <template>
   <div class="list_pane">
     <div class="search_pane">
-      <button class="button" @click="toggleList">
+      <button class="button" @click="hideList">
         <font-awesome icon="arrow-left" />
       </button>
       <input type="text" v-model="searchText" class="search shadow" placeholder="Search" />
@@ -32,8 +32,8 @@ export default {
     loadChat: function(id) {
       this.$emit("load-chat", id);
     },
-    toggleList: function() {
-      this.$emit("toggle-list");
+    hideList: function() {
+      this.$emit("hide-list");
     }
   },
   computed: {
@@ -96,10 +96,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  height: 3rem;
-}
-.shadow {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  height: 3.5rem;
 }
 .button {
   display: none;
