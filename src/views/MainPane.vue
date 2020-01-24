@@ -78,6 +78,9 @@ export default {
     if (this.$store.getters.token == undefined) {
       this.$router.push({ name: "login" });
     }
+    if (Date.now() >= jwtDecode(this.$store.getters.token).exp * 1000) {
+      this.$router.push({ name: "login" });
+    }
     this.$store.commit(
       "setCurrentUser",
       jwtDecode(this.$store.getters.token).user
@@ -88,27 +91,24 @@ export default {
     if (this.currentUser.username == undefined) {
       this.$router.push({ name: "login" });
     }
-    if (window.innerWidth < 700) {
-      this.showChat();
-    }
-    this.socket.emit("login", this.currentUser.id);
     Axios.post("http://1.1.0.10:3000/api/users", {
       token: this.token
     }).then(res => {
-      if (res.status != 200) {
-        this.$router.push("login");
-      }
       this.usersArray = res.data;
       var lastSelectedUser = localStorage.getItem("last");
       if (lastSelectedUser != undefined) {
         this.loadChat(parseInt(lastSelectedUser, 10));
       }
     });
+    this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
       if (data.sender_id == this.selectedUser.id) {
         this.chatArray.push(data);
       }
     });
+    if (window.innerWidth < 700) {
+      this.showChat();
+    }
   }
 };
 
