@@ -9,17 +9,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import router from "./router";
-import store from './store'
+import store from "./store";
 
 Vue.directive("click-outside", {
-  bind: function (el, binding, vnode) {
-    el.eventSetDrag = function () {
+  bind: function(el, binding, vnode) {
+    el.eventSetDrag = function() {
       el.setAttribute("data-dragging", "yes");
     };
-    el.eventClearDrag = function () {
+    el.eventClearDrag = function() {
       el.removeAttribute("data-dragging");
     };
-    el.eventOnClick = function (event) {
+    el.eventOnClick = function(event) {
       var dragging = el.getAttribute("data-dragging");
       // Check that the click was outside the el and its children, and wasn't a drag
       if (!(el == event.target || el.contains(event.target)) && !dragging) {
@@ -32,12 +32,17 @@ Vue.directive("click-outside", {
     document.addEventListener("click", el.eventOnClick);
     document.addEventListener("touchend", el.eventOnClick);
   },
-  unbind: function (el) {
+  unbind: function(el) {
     document.removeEventListener("touchstart", el.eventClearDrag);
     document.removeEventListener("touchmove", el.eventSetDrag);
     document.removeEventListener("click", el.eventOnClick);
     document.removeEventListener("touchend", el.eventOnClick);
     el.removeAttribute("data-dragging");
+  }
+});
+Vue.directive("$model", {
+  bind: function(el, binding, vnode) {
+    el.oninput = () => (vnode.context[binding.expression] = el.value);
   }
 });
 

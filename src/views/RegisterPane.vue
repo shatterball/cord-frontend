@@ -3,18 +3,16 @@
     <div class="container">
       <h1 class="banner">Register</h1>
       <label>Name:</label>
-      <div class="inputs_name">
-        <input v-model="fname" class="inp shadow" type="text" placeholder="Firstname" />
-        <input v-model="lname" class="inp shadow" type="text" placeholder="Lastname" />
-      </div>
+      <input v-model="fname" class="inp shadow" type="text" placeholder="Firstname" />
+      <input v-model="lname" class="inp shadow" type="text" placeholder="Lastname" />
       <label>Email:</label>
       <input v-model="email" class="inp2 shadow" type="email" placeholder="someone@mail.com" />
       <label>Username:</label>
       <input v-model="username" class="inp2 shadow" type="text" placeholder="username" />
       <label>Password:</label>
-      <input v-model="passwd" class="inp2 shadow" type="password" placeholder="Enter password" />
+      <input v-$model="passwd" class="inp2 shadow" type="password" placeholder="Enter password" />
       <input
-        v-model="passwd_re"
+        v-$model="passwd_re"
         class="inp2 shadow"
         type="password"
         placeholder="Enter password again"
@@ -69,7 +67,7 @@ export default {
         this.errorMode = true;
         this.error = "Please fill out all the spaces!";
       } else if (this.passwd == this.passwd_re) {
-        Axios.post("http://1.1.0.11:3000/api/register", {
+        Axios.post("http://localhost:3000/api/register", {
           fname: this.fname,
           lname: this.lname,
           username: this.username,
@@ -78,12 +76,17 @@ export default {
           sex: parseInt(this.sex)
         })
           .catch(err => {
-            if (err.response.status == 500) {
+            if (err.response.status == 409) {
               this.error = "Username or email already registered!";
               this.errorMode = true;
+              this.passwd = "";
+              this.passwd_re = "";
+              this.username = "";
             }
           })
-          .then(() => {
+          .then(res => {
+            // eslint-disable-next-line no-console
+            console.log(res.status);
             if (!this.errorMode) this.$router.push({ name: "login" });
           });
       }
@@ -98,6 +101,9 @@ export default {
 </script>
 
 <style scoped>
+body {
+  font-family: Roboto;
+}
 .banner {
   color: #444;
   font-size: 2.5rem;
@@ -116,9 +122,8 @@ export default {
   align-items: center;
 }
 .inp {
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   height: 2rem;
-  width: 45%;
   border-radius: 2rem;
   outline: none;
   border: none;
@@ -130,7 +135,7 @@ export default {
   border-radius: 2rem;
   outline: none;
   border: none;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 }
 .sex {
   margin: 0.5rem 0;
@@ -173,11 +178,30 @@ export default {
   border: none;
   outline: none;
   border-radius: 2rem;
-  padding: 0.5rem;
+  height: 2rem;
   transition: 0.2s;
   background: #268bd2;
+  -webkit-tap-highlight-color: transparent;
 }
 .button:active {
   transform: scale(0.9);
+}
+@media screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+  }
+  .radio {
+    width: 60%;
+  }
+  .inp {
+    width: 90%;
+    height: 2.5rem;
+  }
+  .inp2 {
+    height: 2.5rem;
+  }
+  .button {
+    height: 2.5rem;
+  }
 }
 </style>

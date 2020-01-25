@@ -37,7 +37,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("1.1.0.11:3000")
+      socket: io("localhost:3000")
     };
   },
   components: {
@@ -51,7 +51,7 @@ export default {
       }
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
-      Axios.post("http://1.1.0.11:3000/api/chats/", {
+      Axios.post("http://localhost:3000/api/chats/", {
         token: this.token,
         target
       }).then(jsonData => {
@@ -91,7 +91,7 @@ export default {
     if (this.currentUser.username == undefined) {
       this.$router.push({ name: "login" });
     }
-    Axios.post("http://1.1.0.11:3000/api/users", {
+    Axios.post("http://localhost:3000/api/users", {
       token: this.token
     }).then(res => {
       this.usersArray = res.data;
