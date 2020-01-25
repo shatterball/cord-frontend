@@ -5,12 +5,19 @@
         <h1>Login</h1>
       </div>
       <div class="inputs">
-        <input v-model="username" class="input shadow" placeholder="username" type="text" />
-        <input v-model="passwd" class="input shadow" placeholder="password" type="password" />
+        <input v-model="username" class="input shadow" placeholder="username" type="text" required />
+        <input
+          v-model="passwd"
+          class="input shadow"
+          placeholder="password"
+          type="password"
+          required
+        />
       </div>
-      <div class="container">
+      <div v-if="showError" class="error shadow">{{ errorMessage }}</div>
+      <div class="button_container">
         <button id="login" @click="login" class="button shadow">Login</button>
-        <button id="register" @click="login" class="button shadow">Register</button>
+        <button id="register" @click="register" class="button shadow">Register</button>
       </div>
     </div>
   </div>
@@ -25,31 +32,60 @@ export default {
     return {
       username: "",
       passwd: "",
-      tmp: undefined
+      tmp: undefined,
+      errorMessage: undefined,
+      showError: false,
+      processRequest: true
     };
   },
   methods: {
     login() {
-      Axios.post("http://1.1.0.10:3000/api/login/", {
+      if (this.username == "" || this.passwd == "") {
+        this.showError = true;
+        this.errorMessage = "Please enter valid username and password";
+        return;
+      }
+      Axios.post("http://1.1.0.11:3000/api/login/", {
         username: this.username,
         passwd: this.passwd
-      }).then(res => {
-        if (res.status == 401) {
-          // TODO
-        }
-        var decoded = jwtDecode(res.data.token);
-        this.$store.commit("setCurrentUser", decoded.user);
-        this.$store.commit("setToken", res.data.token);
-        localStorage.setItem("jwt", res.data.token);
-        this.$router.push({ name: "main" });
-      });
+      })
+        .catch(error => {
+          if (error.response.status == 401) {
+            this.showError = true;
+            this.errorMessage = "Username or password incorrect";
+            this.processRequest = false;
+          }
+        })
+        .then(res => {
+          if (this.processRequest) {
+            var decoded = jwtDecode(res.data.token);
+            this.$store.commit("setCurrentUser", decoded.user);
+            this.$store.commit("setToken", res.data.token);
+            localStorage.setItem("jwt", res.data.token);
+            this.$router.push({ name: "main" });
+          }
+        });
       this.passwd = "";
+    },
+    register() {
+      this.$router.push({ name: "register" });
     }
   }
 };
 </script>
 
 <style scoped>
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dc322f;
+  margin: 1rem 1.5rem;
+  font-size: 0.8rem;
+  border-radius: 2rem;
+  min-height: 2rem;
+  color: #eee;
+}
 .login_pane {
   height: 100vh;
   width: 100vw;
@@ -66,28 +102,29 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+.button_container {
+  display: flex;
+  justify-content: space-between;
+}
 .container {
   flex: 0 1 auto;
   display: flex;
-  justify-content: space-evenly;
 }
 .container h1 {
   color: #666;
   font-family: Roboto;
+  font-size: 2.5rem;
   font-weight: 500;
 }
 .inputs input {
   border-radius: 2rem;
-  width: 85%;
+  width: 100%;
   padding: 0 1rem;
   margin: 1rem;
   border: none;
   outline: none;
   height: 2.5rem;
   transition: 0.2s;
-}
-.inputs input:focus {
-  width: 90%;
 }
 .button {
   cursor: pointer;
@@ -101,6 +138,7 @@ export default {
   width: 45%;
   border-radius: 2rem;
   transition: 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 .button:active {
   transform: scale(0.9);
@@ -113,7 +151,7 @@ export default {
 }
 .top {
   width: 30%;
-  height: 80%;
+  height: 60%;
   display: flex;
   flex-direction: column;
 }
@@ -131,7 +169,7 @@ export default {
     height: 2.5rem;
   }
   .top {
-    width: 100%;
+    width: 80%;
   }
 }
 </style>

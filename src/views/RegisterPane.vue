@@ -1,0 +1,183 @@
+<template>
+  <div class="register_pane">
+    <div class="container">
+      <h1 class="banner">Register</h1>
+      <label>Name:</label>
+      <div class="inputs_name">
+        <input v-model="fname" class="inp shadow" type="text" placeholder="Firstname" />
+        <input v-model="lname" class="inp shadow" type="text" placeholder="Lastname" />
+      </div>
+      <label>Email:</label>
+      <input v-model="email" class="inp2 shadow" type="email" placeholder="someone@mail.com" />
+      <label>Username:</label>
+      <input v-model="username" class="inp2 shadow" type="text" placeholder="username" />
+      <label>Password:</label>
+      <input v-model="passwd" class="inp2 shadow" type="password" placeholder="Enter password" />
+      <input
+        v-model="passwd_re"
+        class="inp2 shadow"
+        type="password"
+        placeholder="Enter password again"
+      />
+      <div class="error shadow" v-if="noMatch">Passwords do not match</div>
+      <div class="sex">
+        <label>Sex:</label>
+        <div class="radio">
+          <div>
+            <input v-model="sex" type="radio" value="1" />
+            <label>Male</label>
+          </div>
+          <div>
+            <input v-model="sex" type="radio" value="0" />
+            <label>Female</label>
+          </div>
+        </div>
+      </div>
+      <div v-if="errorMode" class="error shadow">{{error}}</div>
+      <button class="button shadow" @click="register">Register</button>
+    </div>
+  </div>
+</template>
+
+<script>
+import Axios from "axios";
+export default {
+  data: function() {
+    return {
+      fname: "",
+      lname: "",
+      email: "",
+      username: "",
+      passwd: "",
+      passwd_re: "",
+      sex: "",
+      errorMode: false,
+      error: ""
+    };
+  },
+  methods: {
+    register() {
+      if (
+        this.sex == "" ||
+        this.fname == "" ||
+        this.lname == "" ||
+        this.email == "" ||
+        this.username == "" ||
+        this.passwd_re == "" ||
+        this.passwd == ""
+      ) {
+        this.errorMode = true;
+        this.error = "Please fill out all the spaces!";
+      } else if (this.passwd == this.passwd_re) {
+        Axios.post("http://1.1.0.11:3000/api/register", {
+          fname: this.fname,
+          lname: this.lname,
+          username: this.username,
+          email: this.email,
+          passwd: this.passwd,
+          sex: parseInt(this.sex)
+        })
+          .catch(err => {
+            if (err.response.status == 500) {
+              this.error = "Username or email already registered!";
+              this.errorMode = true;
+            }
+          })
+          .then(() => {
+            if (!this.errorMode) this.$router.push({ name: "login" });
+          });
+      }
+    }
+  },
+  computed: {
+    noMatch() {
+      return this.passwd != this.passwd_re;
+    }
+  }
+};
+</script>
+
+<style scoped>
+.banner {
+  color: #444;
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding: 0;
+  margin-top: 0;
+}
+.error {
+  color: #eee;
+  background: #dc322f;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inp {
+  padding: 0 0.5rem;
+  height: 2rem;
+  width: 45%;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  margin: 0.5rem 0;
+}
+.inp2 {
+  margin: 0.5rem 0;
+  height: 2rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  padding: 0 0.5rem;
+}
+.sex {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.radio {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.register_pane {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background: #eee;
+  align-items: center;
+}
+.inputs_name {
+  display: flex;
+  justify-content: space-between;
+}
+.container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container label {
+  margin: 0 0.5rem;
+}
+.button {
+  cursor: pointer;
+  user-select: none;
+  margin-top: 0.5rem;
+  color: #eee;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  transition: 0.2s;
+  background: #268bd2;
+}
+.button:active {
+  transform: scale(0.9);
+}
+</style>
