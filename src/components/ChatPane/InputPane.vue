@@ -1,23 +1,41 @@
 <template>
   <div class="input_pane">
+    <div>
+      <div class="emoji_picker" :class="[showEmojiPicker == true ? 'show' : 'hide']">
+        <VEmoji @select="appendEmoji" class="shadow" />
+      </div>
+      <button class="button" @click="showEmojiPicker = !showEmojiPicker" id="emojiButton">
+        <font-awesome icon="laugh" />
+      </button>
+    </div>
     <input
       v-model="text"
       placeholder="Write something..."
       class="input_bar shared shadow"
       @keyup.enter="sendMessage"
     />
-    <button @click="sendMessage" :class="{ 'enable': this.text.length > 0}" class="button shared">
+    <button
+      @click="sendMessage"
+      :class="{ 'enable': this.text.length > 0}"
+      class="button shared"
+      id="sendButton"
+    >
       <font-awesome icon="paper-plane" />
     </button>
   </div>
 </template>
 <script>
+import VEmoji from "v-emoji-picker";
 export default {
   name: "inputPane",
   data: function() {
     return {
-      text: ""
+      text: "",
+      showEmojiPicker: false
     };
+  },
+  components: {
+    VEmoji
   },
   props: {
     selectedUser: {},
@@ -44,27 +62,41 @@ export default {
         }
       }
       this.text = "";
+    },
+    appendEmoji: function(emoji) {
+      this.text = this.text + emoji.data;
     }
   }
 };
 </script>
 
 <style scoped>
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
 .shared {
   border: none;
   border-radius: 2rem;
   outline: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto;
   background: #ccc;
 }
 .enable {
   color: #888;
 }
+.emoji_picker {
+  position: absolute;
+  margin-top: -30rem;
+  margin-left: 2rem;
+}
 .input_pane {
   display: flex;
   height: 4rem;
-  padding: 0 3rem;
-  justify-content: space-between;
+  padding: 0 1rem;
+  justify-content: space-evenly;
   align-items: center;
 }
 .input_bar {
@@ -72,7 +104,7 @@ export default {
   color: #555;
   background: #eee;
   border: none;
-  margin: 0 2rem;
+  margin: 0 1rem;
   padding: 0 1rem;
   transition: 0.2s;
   color: #222;
@@ -88,9 +120,11 @@ export default {
 }
 .button {
   background: #ddd;
+  border: none;
+  outline: none;
   cursor: pointer;
   font-size: 1.5rem;
-  margin-left: 1rem;
+  margin: 0 0.5rem;
   height: 2.5rem;
   color: #888;
   transition: 0.2s;
@@ -105,15 +139,24 @@ export default {
     padding: 0;
   }
   .input_bar {
+    margin: 0 0.5rem;
+  }
+  .input_bar:focus {
+    margin: 0 0.5rem;
+  }
+  .button {
+    margin: 0 0.5rem;
+  }
+  .emoji_picker {
+    margin-left: 1rem;
+  }
+  #emojiButton {
     margin-left: 1rem;
     margin-right: 0rem;
   }
-  .input_bar:focus {
-    margin-left: 1rem;
-  }
-  .button {
+  #sendButton {
     margin-right: 1rem;
-    margin-left: 0.5;
+    margin-left: 0rem;
   }
 }
 </style>

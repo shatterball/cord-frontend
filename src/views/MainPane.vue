@@ -5,6 +5,7 @@
       v-if="showListPane"
       @load-chat="loadChat"
       @hide-list="showChat"
+      :connectedUsers="connectedUsers"
       :usersArray="usersArray"
       :currentUser="currentUser"
     />
@@ -13,6 +14,7 @@
       v-if="showChatPane"
       @send-message="sendMessage"
       @show-list="showList"
+      @logout="logout"
       :currentUser="currentUser"
       :selectedUser="selectedUser"
       :chatArray="chatArray"
@@ -33,11 +35,12 @@ export default {
       showChatPane: true,
       showListPane: true,
       usersArray: [],
+      connectedUsers: [],
       chatArray: [],
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("localhost:3000")
+      socket: io("1.1.0.10:3000")
     };
   },
   components: {
@@ -51,7 +54,7 @@ export default {
       }
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
-      Axios.post("http://localhost:3000/api/chats/", {
+      Axios.post("http://1.1.0.10:3000/api/chats/", {
         token: this.token,
         target
       }).then(jsonData => {
@@ -71,6 +74,9 @@ export default {
       msg.msg_id = this.chatArray.length;
       this.chatArray.push(msg);
       this.socket.emit("message-send", msg);
+    },
+    logout: function() {
+      this.socket.disconnect();
     }
   },
   created: function() {
@@ -91,7 +97,7 @@ export default {
     if (this.currentUser.username == undefined) {
       this.$router.push({ name: "login" });
     }
-    Axios.post("http://localhost:3000/api/users", {
+    Axios.post("http://1.1.0.10:3000/api/users", {
       token: this.token
     }).then(res => {
       this.usersArray = res.data;
@@ -105,6 +111,11 @@ export default {
       if (data.sender_id == this.selectedUser.id) {
         this.chatArray.push(data);
       }
+    });
+    this.socket.on("online-list", users => {
+      this.connectedUsers = users;
+      // eslint-disable-next-line no-console
+      console.log(this.connectedUsers);
     });
     if (window.innerWidth < 700) {
       this.showChat();

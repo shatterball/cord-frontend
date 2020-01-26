@@ -7,7 +7,13 @@
       <input type="text" v-$model="searchText" class="search shadow" placeholder="Search" />
     </div>
     <div class="user_list">
-      <UserBox @load-chat="loadChat" v-for="user in filterUsers" :key="user.id" :user="user" />
+      <UserBox
+        @load-chat="loadChat"
+        v-for="user in filterUsers"
+        :online="connectedUsers.includes(user.id)"
+        :key="user.id"
+        :user="user"
+      />
     </div>
   </div>
 </template>
@@ -23,7 +29,8 @@ export default {
   },
   props: {
     usersArray: [],
-    currentUser: {}
+    currentUser: {},
+    connectedUsers: []
   },
   components: {
     UserBox

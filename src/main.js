@@ -5,7 +5,8 @@ import {
   faPaperPlane,
   faBars,
   faComments,
-  faArrowLeft
+  faArrowLeft,
+  faLaugh
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import router from "./router";
@@ -46,7 +47,7 @@ Vue.directive("$model", {
   }
 });
 
-library.add(faPaperPlane, faBars, faComments, faArrowLeft);
+library.add(faPaperPlane, faBars, faComments, faArrowLeft, faLaugh);
 
 Vue.component("font-awesome", FontAwesomeIcon);
 

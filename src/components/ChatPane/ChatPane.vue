@@ -1,6 +1,6 @@
 <template>
   <div class="chat_pane">
-    <ChatHeader @show-list="showList" :selectedUser="selectedUser" />
+    <ChatHeader @logout="logout" @show-list="showList" :selectedUser="selectedUser" />
     <ChatBubblePane :chatArray="chatArray" :currentUser="currentUser" :selectedUser="selectedUser" />
     <InputPane @send-message="sendMessage" :currentUser="currentUser" :selectedUser="selectedUser" />
   </div>
@@ -28,6 +28,9 @@ export default {
     },
     showList: function() {
       this.$emit("show-list");
+    },
+    logout: function() {
+      this.$emit("logout");
     }
   }
 };

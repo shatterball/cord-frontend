@@ -67,7 +67,7 @@ export default {
         this.errorMode = true;
         this.error = "Please fill out all the spaces!";
       } else if (this.passwd == this.passwd_re) {
-        Axios.post("http://localhost:3000/api/register", {
+        Axios.post("http://1.1.0.10:3000/api/register", {
           fname: this.fname,
           lname: this.lname,
           username: this.username,
@@ -84,9 +84,7 @@ export default {
               this.username = "";
             }
           })
-          .then(res => {
-            // eslint-disable-next-line no-console
-            console.log(res.status);
+          .then(() => {
             if (!this.errorMode) this.$router.push({ name: "login" });
           });
       }

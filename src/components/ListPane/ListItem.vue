@@ -1,6 +1,9 @@
 <template>
   <div @click="loadChat" class="userbox shared shadow">
-    <img :class="[user.sex == 1 ? 'male' : 'female']" class="icon shadow offline" />
+    <img
+      :class="{male: user.sex == 1,female: user.sex == 0, online: online == true, offline: online == false}"
+      class="icon shadow"
+    />
     <div class="container">
       <p class="username shared">{{ fullname }}</p>
       <p class="username condensed">{{ "@" + user.username }}</p>
@@ -17,7 +20,8 @@ export default {
     };
   },
   props: {
-    user: {}
+    user: {},
+    online: Boolean
   },
   methods: {
     loadChat: function() {

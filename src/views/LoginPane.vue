@@ -45,7 +45,7 @@ export default {
         this.errorMessage = "Please enter valid username and password";
         return;
       }
-      Axios.post("http://localhost:3000/api/login/", {
+      Axios.post("http://1.1.0.10:3000/api/login/", {
         username: this.username,
         passwd: this.passwd
       })

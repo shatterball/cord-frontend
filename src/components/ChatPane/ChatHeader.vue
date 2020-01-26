@@ -41,6 +41,7 @@ export default {
     logout() {
       localStorage.removeItem("jwt");
       localStorage.removeItem("last");
+      this.$emit("logout");
       this.$router.push({ name: "login" });
     }
   },
@@ -108,9 +109,6 @@ export default {
   border: none;
   border-radius: 50%;
   outline: none;
-}
-.dropdown {
-  position: relative;
 }
 .dropdown-content {
   transition: 0.2s;

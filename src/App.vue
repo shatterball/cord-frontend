@@ -19,6 +19,7 @@ body {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 }
 .app {
+  transition: 0.2s;
   font-family: Roboto;
   display: flex;
   flex-direction: column;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[type == true ? 'send' : 'recv']" class="bubble shadow shared">
+  <div :class="[type ? 'send' : 'recv']" class="bubble shadow shared">
     <p class="message shared">{{ msg.content }}</p>
   </div>
 </template>
