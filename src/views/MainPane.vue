@@ -79,7 +79,7 @@ export default {
       this.socket.disconnect();
     }
   },
-  created: function() {
+  beforeCreate: function() {
     this.$store.commit("setToken", localStorage.getItem("jwt"));
     if (this.$store.getters.token == undefined) {
       this.$router.push({ name: "login" });
@@ -106,6 +106,8 @@ export default {
         this.loadChat(parseInt(lastSelectedUser, 10));
       }
     });
+  },
+  created: function() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
       if (data.sender_id == this.selectedUser.id) {
@@ -114,8 +116,11 @@ export default {
     });
     this.socket.on("online-list", users => {
       this.connectedUsers = users;
-      // eslint-disable-next-line no-console
-      console.log(this.connectedUsers);
+      Axios.post("http://1.1.0.10:3000/api/users", {
+        token: this.token
+      }).then(res => {
+        this.usersArray = res.data;
+      });
     });
     if (window.innerWidth < 700) {
       this.showChat();

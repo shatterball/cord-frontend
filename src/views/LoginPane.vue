@@ -50,11 +50,9 @@ export default {
         passwd: this.passwd
       })
         .catch(error => {
-          if (error.response.status == 401) {
-            this.showError = true;
-            this.errorMessage = "Username or password incorrect";
-            this.processRequest = false;
-          }
+          this.showError = true;
+          this.errorMessage = error.response.data.error;
+          this.processRequest = false;
         })
         .then(res => {
           if (this.processRequest) {
