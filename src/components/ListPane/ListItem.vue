@@ -1,8 +1,8 @@
 <template>
-  <div @click="loadChat" class="userbox shared shadow">
+  <div @click="loadChat" class="userbox shared">
     <img
       :class="{male: user.sex == 1,female: user.sex == 0, online: online == true, offline: online == false}"
-      class="icon shadow"
+      class="icon"
     />
     <div class="container">
       <p class="username shared">{{ fullname }}</p>
@@ -68,17 +68,18 @@ export default {
   align-items: center;
   margin: 1rem;
   border-bottom: 0;
-  border-radius: 2rem;
+  border-radius: 1rem;
   background: #eee;
   height: 4rem;
   overflow: hidden;
+  transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
 .userbox:hover {
   cursor: pointer;
 }
 .userbox:active {
-  background: #ddd;
+  background: #ccc;
   border-bottom: 0;
 }
 .userbox:first-child {

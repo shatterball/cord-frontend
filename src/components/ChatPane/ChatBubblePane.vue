@@ -2,8 +2,8 @@
   <div class="chat_bubble_pane">
     <ChatBubble
       v-for="msg in chatArray"
-      :type="msg.sender_id == currentUser.id"
-      :key="msg.id"
+      :type="msg.from == currentUser.id"
+      :key="msg._id"
       :msg="msg"
     />
   </div>

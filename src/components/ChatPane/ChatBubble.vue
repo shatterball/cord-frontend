@@ -9,7 +9,7 @@ export default {
   name: "chatBubble",
   props: {
     msg: {},
-    type: Number
+    type: Boolean
   }
 };
 </script>
@@ -26,18 +26,17 @@ export default {
   font-size: 0.85rem;
   max-width: 30rem;
   margin-left: auto;
+  border-radius: 1.5rem;
 }
 .send {
   align-self: flex-end;
   background: #0087ff;
   padding: 0;
-  border-radius: 1rem 0 1rem 1rem;
 }
 .recv {
   align-self: flex-start;
   background: #d33682;
   margin-left: 0;
-  border-radius: 0 1rem 1rem 1rem;
 }
 .message {
   color: #fff;

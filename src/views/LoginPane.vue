@@ -5,14 +5,8 @@
         <h1>Login</h1>
       </div>
       <div class="inputs">
-        <input v-model="username" class="input shadow" placeholder="username" type="text" required />
-        <input
-          v-model="passwd"
-          class="input shadow"
-          placeholder="password"
-          type="password"
-          required
-        />
+        <input v-model="username" class="input" placeholder="username" type="text" required />
+        <input v-model="passwd" class="input" placeholder="password" type="password" required />
       </div>
       <div v-if="showError" class="error shadow">{{ errorMessage }}</div>
       <div class="button_container">
@@ -45,7 +39,7 @@ export default {
         this.errorMessage = "Please enter valid username and password";
         return;
       }
-      Axios.post("http://1.1.0.10:3000/api/login/", {
+      Axios.post("https://api-cord.herokuapp.com/api/login/", {
         username: this.username,
         passwd: this.passwd
       })
@@ -57,6 +51,8 @@ export default {
         .then(res => {
           if (this.processRequest) {
             var decoded = jwtDecode(res.data.token);
+            // eslint-disable-next-line no-console
+            console.log(decoded);
             this.$store.commit("setCurrentUser", decoded.user);
             this.$store.commit("setToken", res.data.token);
             localStorage.setItem("jwt", res.data.token);
@@ -87,7 +83,7 @@ export default {
 .login_pane {
   height: 100vh;
   width: 100vw;
-  background: #eee;
+  background: #ddd;
   display: flex;
   flex-direction: column;
   justify-content: center;

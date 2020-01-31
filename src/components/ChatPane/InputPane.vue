@@ -11,7 +11,7 @@
     <input
       v-model="text"
       placeholder="Write something..."
-      class="input_bar shared shadow"
+      class="input_bar shared"
       @keyup.enter="sendMessage"
     />
     <button
@@ -49,10 +49,9 @@ export default {
   methods: {
     sendMessage: function() {
       var message = {
-        users: this.currentUser.id + "-" + this.selectedUser.id,
-        msg_id: Number,
-        sender_id: this.currentUser.id,
-        dest_id: this.selectedUser.id,
+        from: this.currentUser.id,
+        to: this.selectedUser.id,
+        date: Date.now(),
         content: ""
       };
       if (this.text !== "") {
@@ -106,14 +105,9 @@ export default {
   border: none;
   margin: 0 1rem;
   padding: 0 1rem;
-  transition: 0.2s;
   color: #222;
   height: 2.5rem;
   font-size: 0.85rem;
-}
-.input_bar:focus {
-  margin: 0;
-  transition: 0.2s;
 }
 ::placeholder {
   color: #888;

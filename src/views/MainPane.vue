@@ -40,7 +40,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("1.1.0.10:3000")
+      socket: io("api-cord.herokuapp.com")
     };
   },
   components: {
@@ -54,7 +54,8 @@ export default {
       }
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
-      Axios.post("http://1.1.0.10:3000/api/chats/", {
+      this.chatArray = [];
+      Axios.post("https://api-cord.herokuapp.com/api/messages/", {
         token: this.token,
         target
       }).then(jsonData => {
@@ -71,7 +72,6 @@ export default {
       this.showChatPane = false;
     },
     sendMessage: function(msg) {
-      msg.msg_id = this.chatArray.length;
       this.chatArray.push(msg);
       this.socket.emit("message-send", msg);
     },
@@ -97,26 +97,22 @@ export default {
     if (this.currentUser.username == undefined) {
       this.$router.push({ name: "login" });
     }
-    Axios.post("http://1.1.0.10:3000/api/users", {
+    Axios.post("https://api-cord.herokuapp.com/api/users", {
       token: this.token
     }).then(res => {
       this.usersArray = res.data;
-      var lastSelectedUser = localStorage.getItem("last");
-      if (lastSelectedUser != undefined) {
-        this.loadChat(parseInt(lastSelectedUser, 10));
-      }
     });
   },
   created: function() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
-      if (data.sender_id == this.selectedUser.id) {
+      if (data.from == this.selectedUser.id) {
         this.chatArray.push(data);
       }
     });
     this.socket.on("online-list", users => {
       this.connectedUsers = users;
-      Axios.post("http://1.1.0.10:3000/api/users", {
+      Axios.post("https://api-cord.herokuapp.com/api/users", {
         token: this.token
       }).then(res => {
         this.usersArray = res.data;

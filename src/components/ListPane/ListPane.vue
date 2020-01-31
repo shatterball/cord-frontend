@@ -4,7 +4,7 @@
       <button class="button" @click="hideList">
         <font-awesome icon="arrow-left" />
       </button>
-      <input type="text" v-$model="searchText" class="search shadow" placeholder="Search" />
+      <input type="text" v-$model="searchText" class="search" placeholder="Search" />
     </div>
     <div class="user_list">
       <UserBox
@@ -79,11 +79,9 @@ export default {
 }
 .search {
   font-family: Roboto;
-  font-weight: bold;
   height: 2rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0 1rem;
-  margin: 0 2rem;
   width: auto;
   flex: 1 0 auto;
   text-align: center;
@@ -91,12 +89,7 @@ export default {
   outline: none;
   border: none;
   background: #eee;
-  transition: 0.2s;
   color: #555;
-}
-.search:focus {
-  margin: 0;
-  transition: 0.2s;
 }
 .search_pane {
   display: flex;

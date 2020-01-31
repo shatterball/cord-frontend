@@ -40,7 +40,6 @@ export default {
     },
     logout() {
       localStorage.removeItem("jwt");
-      localStorage.removeItem("last");
       this.$emit("logout");
       this.$router.push({ name: "login" });
     }
@@ -72,7 +71,7 @@ export default {
   visibility: hidden;
 }
 .active {
-  background: #c8c8c8;
+  background: #eee;
 }
 .shared {
   font-family: Roboto;
@@ -116,6 +115,7 @@ export default {
   color: #555;
   font-weight: bold;
   margin-left: -2rem;
+  margin-top: 0.2rem;
   position: absolute;
   background-color: #eee;
   border: 1px solid #ccc;

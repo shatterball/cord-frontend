@@ -3,21 +3,16 @@
     <div class="container">
       <h1 class="banner">Register</h1>
       <label>Name:</label>
-      <input v-model="fname" class="inp shadow" type="text" placeholder="Firstname" />
-      <input v-model="lname" class="inp shadow" type="text" placeholder="Lastname" />
+      <input v-model="fname" class="inp" type="text" placeholder="Firstname" />
+      <input v-model="lname" class="inp" type="text" placeholder="Lastname" />
       <label>Email:</label>
-      <input v-model="email" class="inp2 shadow" type="email" placeholder="someone@mail.com" />
+      <input v-model="email" class="inp2" type="email" placeholder="someone@mail.com" />
       <label>Username:</label>
-      <input v-model="username" class="inp2 shadow" type="text" placeholder="username" />
+      <input v-model="username" class="inp2" type="text" placeholder="username" />
       <label>Password:</label>
-      <input v-$model="passwd" class="inp2 shadow" type="password" placeholder="Enter password" />
-      <input
-        v-$model="passwd_re"
-        class="inp2 shadow"
-        type="password"
-        placeholder="Enter password again"
-      />
-      <div class="error shadow" v-if="noMatch">Passwords do not match</div>
+      <input v-$model="passwd" class="inp2" type="password" placeholder="Enter password" />
+      <input v-$model="passwd_re" class="inp2" type="password" placeholder="Enter password again" />
+      <div class="error" v-if="noMatch">Passwords do not match</div>
       <div class="sex">
         <label>Sex:</label>
         <div class="radio">
@@ -67,7 +62,7 @@ export default {
         this.errorMode = true;
         this.error = "Please fill out all the spaces!";
       } else if (this.passwd == this.passwd_re) {
-        Axios.post("http://1.1.0.10:3000/api/register", {
+        Axios.post("https://api-cord.herokuapp.com/api/register", {
           fname: this.fname,
           lname: this.lname,
           username: this.username,
@@ -76,13 +71,11 @@ export default {
           sex: parseInt(this.sex)
         })
           .catch(err => {
-            if (err.response.status == 409) {
-              this.error = "Username or email already registered!";
-              this.errorMode = true;
-              this.passwd = "";
-              this.passwd_re = "";
-              this.username = "";
-            }
+            this.error = err.response.data.error;
+            this.errorMode = true;
+            this.passwd = "";
+            this.passwd_re = "";
+            this.username = "";
           })
           .then(() => {
             if (!this.errorMode) this.$router.push({ name: "login" });
@@ -151,7 +144,7 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
-  background: #eee;
+  background: #ddd;
   align-items: center;
 }
 .inputs_name {
