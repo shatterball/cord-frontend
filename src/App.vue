@@ -11,6 +11,9 @@ export default {
 </script>
 
 <style>
+* {
+  font-family: sans-serif;
+}
 body {
   margin: 0;
   padding: 0;
