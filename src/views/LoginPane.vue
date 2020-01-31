@@ -106,7 +106,6 @@ export default {
 }
 .container h1 {
   color: #666;
-  font-family: Roboto;
   font-size: 2.5rem;
   font-weight: 500;
 }
