@@ -74,7 +74,7 @@ export default {
   background: #eee;
 }
 .shared {
-  font-family: Roboto;
+  font-family: sans-serif;
   color: #aaa;
   margin: 0;
   padding: 0;
