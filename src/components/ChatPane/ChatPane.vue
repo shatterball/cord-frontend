@@ -34,6 +34,8 @@ export default {
     }
   }
 };
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
 
 <style scoped>
@@ -42,5 +44,11 @@ export default {
   flex-direction: column;
   background: #ddd;
   flex: 1;
+  overflow: auto;
+}
+@media screen and (max-width: 700px) {
+  .chat_pane {
+    height: calc(var(--vh, 1vh) * 100);
+  }
 }
 </style>

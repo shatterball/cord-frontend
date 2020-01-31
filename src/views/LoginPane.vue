@@ -1,9 +1,7 @@
 <template>
   <div class="login_pane">
     <div class="top">
-      <div class="container">
-        <h1>Login</h1>
-      </div>
+      <h1 class="banner">Login</h1>
       <div class="inputs">
         <input v-model="username" class="input" placeholder="username" type="text" required />
         <input v-model="passwd" class="input" placeholder="password" type="password" required />
@@ -58,8 +56,8 @@ export default {
             localStorage.setItem("jwt", res.data.token);
             this.$router.push({ name: "main" });
           }
+          this.passwd = "";
         });
-      this.passwd = "";
     },
     register() {
       this.$router.push({ name: "register" });
@@ -81,6 +79,7 @@ export default {
   color: #eee;
 }
 .login_pane {
+  overflow: auto;
   height: 100vh;
   width: 100vw;
   background: #ddd;
@@ -100,24 +99,24 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.container {
-  flex: 0 1 auto;
-  display: flex;
-}
-.container h1 {
+.banner {
   color: #666;
+  text-align: center;
   font-size: 2.5rem;
-  font-weight: 500;
+  font-weight: 300;
 }
 .inputs input {
   border-radius: 2rem;
+  border: 0.1rem solid #fff;
   width: 100%;
   padding: 0 1rem;
   margin: 1rem;
-  border: none;
   outline: none;
   height: 2.5rem;
   transition: 0.2s;
+}
+.inputs input:focus {
+  border: 0.1rem solid #268bd2;
 }
 .button {
   cursor: pointer;
@@ -152,6 +151,7 @@ export default {
 @media screen and (max-width: 700px) {
   .login_pane {
     width: 100vw;
+    justify-content: flex-start;
   }
   .container {
     flex: 0 1 auto;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[type ? 'send' : 'recv']" class="bubble shadow shared">
+  <div :class="[type ? 'send' : 'recv']" class="bubble shared">
     <p class="message shared">{{ msg.content }}</p>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
 }
 .recv {
   align-self: flex-start;
-  background: #d33682;
+  background: #2aa198;
   margin-left: 0;
 }
 .message {

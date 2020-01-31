@@ -13,6 +13,8 @@
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
+      id="inputBar"
+      autofocus
     />
     <button
       @click="sendMessage"
@@ -44,6 +46,7 @@ export default {
   watch: {
     selectedUser: function() {
       this.text = "";
+      document.getElementById("inputBar").focus();
     }
   },
   methods: {

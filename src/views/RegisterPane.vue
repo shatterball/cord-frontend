@@ -3,8 +3,8 @@
     <div class="container">
       <h1 class="banner">Register</h1>
       <label>Name:</label>
-      <input v-model="fname" class="inp" type="text" placeholder="Firstname" />
-      <input v-model="lname" class="inp" type="text" placeholder="Lastname" />
+      <input v-model="fname" class="inp2" type="text" placeholder="Firstname" />
+      <input v-model="lname" class="inp2" type="text" placeholder="Lastname" />
       <label>Email:</label>
       <input v-model="email" class="inp2" type="email" placeholder="someone@mail.com" />
       <label>Username:</label>
@@ -97,10 +97,9 @@ body {
 }
 .banner {
   color: #444;
+  text-align: center;
   font-size: 2.5rem;
-  font-weight: 500;
-  padding: 0;
-  margin-top: 0;
+  font-weight: 300;
 }
 .error {
   color: #eee;
@@ -112,21 +111,17 @@ body {
   justify-content: center;
   align-items: center;
 }
-.inp {
-  padding: 0 1rem;
-  height: 2rem;
-  border-radius: 2rem;
-  outline: none;
-  border: none;
-  margin: 0.5rem 0;
-}
 .inp2 {
+  transition: 0.2s;
   margin: 0.5rem 0;
   height: 2rem;
   border-radius: 2rem;
   outline: none;
-  border: none;
+  border: 0.1rem solid #fff;
   padding: 0 1rem;
+}
+.inp2:focus {
+  border: 0.1rem solid #268bd2;
 }
 .sex {
   margin: 0.5rem 0;
@@ -178,6 +173,10 @@ body {
   transform: scale(0.9);
 }
 @media screen and (max-width: 700px) {
+  .register_pane {
+    align-items: flex-start;
+    overflow: auto;
+  }
   .container {
     width: 90%;
   }

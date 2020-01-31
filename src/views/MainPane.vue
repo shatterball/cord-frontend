@@ -123,8 +123,7 @@ export default {
     }
   }
 };
-
-let vh = window.innerHeight;
+let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
 <style >
@@ -133,14 +132,13 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   height: 100vh;
   width: 100vw;
   flex-direction: row;
-  /* flex: 1; */
 }
 @media screen and (max-width: 700px) {
   #list_pane {
     flex: 1;
   }
   .main_pane {
-    min-height: calc(var(--vh, 1vh));
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
 </style>
