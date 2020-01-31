@@ -73,12 +73,12 @@ export default {
   display: none;
 }
 .reset {
-  font-family: Roboto;
+  font-family: sans-serif;
   color: #93a1a1;
   padding: 0 1rem;
 }
 .search {
-  font-family: Roboto;
+  font-family: sans-serif;
   height: 2rem;
   font-size: 0.9rem;
   padding: 0 1rem;
