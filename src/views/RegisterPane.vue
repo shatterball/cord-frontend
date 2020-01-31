@@ -93,7 +93,7 @@ export default {
 
 <style scoped>
 body {
-  font-family: Roboto;
+  font-family: sans-serif;
 }
 .banner {
   color: #444;
