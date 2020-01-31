@@ -91,7 +91,7 @@ export default {
 }
 .name {
   color: #444;
-  font-weight: 500;
+  font-weight: 300;
   flex: 1 0 auto;
   font-size: 1.5rem;
   text-align: center;

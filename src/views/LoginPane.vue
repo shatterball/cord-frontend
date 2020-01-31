@@ -72,7 +72,7 @@ export default {
   align-items: center;
   justify-content: center;
   background: #dc322f;
-  margin: 1rem 1.5rem;
+  margin: 1rem 0rem;
   font-size: 0.8rem;
   border-radius: 2rem;
   min-height: 2rem;

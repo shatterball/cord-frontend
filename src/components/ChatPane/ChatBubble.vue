@@ -26,20 +26,23 @@ export default {
   font-size: 0.85rem;
   max-width: 30rem;
   margin-left: auto;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
 }
 .send {
   align-self: flex-end;
-  background: #0087ff;
+  color: #333;
+  /* background: #0087ff; */
+  border: 0.1rem solid #0087ff;
   padding: 0;
 }
 .recv {
   align-self: flex-start;
-  background: #2aa198;
+  /* background: #2aa198; */
+  border: 0.1rem solid #d33682;
   margin-left: 0;
 }
 .message {
-  color: #fff;
+  color: #333;
   padding: 0.5rem 0.8rem;
   word-break: break-all;
 }

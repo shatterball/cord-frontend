@@ -13,7 +13,7 @@
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
-      id="inputBar"
+      ref="inputBar"
       autofocus
     />
     <button
@@ -46,11 +46,11 @@ export default {
   watch: {
     selectedUser: function() {
       this.text = "";
-      document.getElementById("inputBar").focus();
     }
   },
   methods: {
     sendMessage: function() {
+      this.$refs.inputBar.focus();
       var message = {
         from: this.currentUser.id,
         to: this.selectedUser.id,
