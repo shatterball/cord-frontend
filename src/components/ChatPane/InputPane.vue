@@ -99,6 +99,7 @@ export default {
   align-items: center;
 }
 .input_bar {
+  font-family: sans-serif
   flex: 1 0 auto;
   color: #555;
   background: #eee;

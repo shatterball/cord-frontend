@@ -43,7 +43,7 @@ export default {
   padding: 0 1rem;
 }
 .shared {
-  font-family: Roboto;
+  font-family: sans-serif;
   font-weight: bold;
   color: #555;
   user-select: none;
