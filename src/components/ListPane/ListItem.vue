@@ -86,6 +86,7 @@ export default {
   margin-top: 0;
 }
 .username {
+  font-family: sans-serif;
   margin: 0;
 }
 .online {
