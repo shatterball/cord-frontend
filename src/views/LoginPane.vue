@@ -144,6 +144,7 @@ export default {
   background: #d33682;
 }
 .top {
+  font-family: sans-serif;
   width: 30%;
   height: 60%;
   display: flex;
