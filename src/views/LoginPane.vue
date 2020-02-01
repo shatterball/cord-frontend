@@ -37,7 +37,7 @@ export default {
         this.errorMessage = "Please enter valid username and password";
         return;
       }
-      Axios.post("https://api-cord.herokuapp.com/api/login/", {
+      Axios.post("https://apicord.herokuapp.com/api/login/", {
         username: this.username,
         passwd: this.passwd
       })

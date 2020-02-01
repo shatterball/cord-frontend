@@ -40,7 +40,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("api-cord.herokuapp.com")
+      socket: io("apicord.herokuapp.com")
     };
   },
   components: {
@@ -55,7 +55,7 @@ export default {
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
       this.chatArray = [];
-      Axios.post("https://api-cord.herokuapp.com/api/messages/", {
+      Axios.post("https://apicord.herokuapp.com/api/messages/", {
         token: this.token,
         target
       }).then(jsonData => {
@@ -97,7 +97,7 @@ export default {
     if (this.currentUser.username == undefined) {
       this.$router.push({ name: "login" });
     }
-    Axios.post("https://api-cord.herokuapp.com/api/users", {
+    Axios.post("https://apicord.herokuapp.com/api/users", {
       token: this.token
     }).then(res => {
       this.usersArray = res.data;
@@ -112,7 +112,7 @@ export default {
     });
     this.socket.on("online-list", users => {
       this.connectedUsers = users;
-      Axios.post("https://api-cord.herokuapp.com/api/users", {
+      Axios.post("https://apicord.herokuapp.com/api/users", {
         token: this.token
       }).then(res => {
         this.usersArray = res.data;
