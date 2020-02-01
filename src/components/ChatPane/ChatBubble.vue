@@ -1,7 +1,9 @@
 <template>
-  <div :class="[type ? 'send' : 'recv']" class="bubble shared">
-    <p class="message shared">{{ msg.content }}</p>
-  </div>
+  <transition name="fade" mode="out-in">
+    <div :class="[type ? 'send' : 'recv']" class="bubble shared">
+      <p class="message shared">{{ msg.content }}</p>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -16,7 +18,7 @@ export default {
 
 <style scoped>
 .shared {
-  font-family: Arial;
+  font-family: sans-serif;
   color: #93a1a1;
   margin: 0;
   padding: 0;

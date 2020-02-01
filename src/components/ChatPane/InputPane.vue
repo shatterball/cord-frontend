@@ -98,7 +98,7 @@ export default {
   display: flex;
   height: 4rem;
   padding: 0 1rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .input_bar {
