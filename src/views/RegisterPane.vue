@@ -60,7 +60,7 @@ export default {
         this.passwd == ""
       ) {
         this.errorMode = true;
-        this.error = "Please fill out all the spaces!";
+        this.error = "Please fill out all the required!";
       } else if (this.passwd == this.passwd_re) {
         Axios.post("https://apicord.herokuapp.com/api/register", {
           fname: this.fname,
