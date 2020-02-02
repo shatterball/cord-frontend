@@ -70,7 +70,7 @@ export default {
   border-bottom: 0;
   border-radius: 2rem;
   background: #eee;
-  height: 3.5rem;
+  height: 4rem;
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
@@ -99,9 +99,9 @@ export default {
 }
 .icon {
   vertical-align: middle;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
-  /* margin-left: 0.5rem; */
+  margin-left: 0.05rem;
 }
 </style>
