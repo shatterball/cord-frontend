@@ -18,9 +18,9 @@
           @keyup.enter="login"
         />
       </div>
-      <div v-if="showError" class="error shadow">{{ errorMessage }}</div>
+      <div v-if="showError" class="error">{{ errorMessage }}</div>
       <div class="button_container">
-        <button id="login" @click="login" class="button shadow">Login</button>
+        <button id="login" @click="login" class="button">Login</button>
       </div>
       <div>
         <p class="register">

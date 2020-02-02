@@ -58,6 +58,7 @@ export default {
       };
       if (this.text !== "") {
         this.$refs.inputBar.focus();
+        this.showEmojiPicker = false;
         if (this.selectedUser.id != undefined) {
           message.content = this.text.trim();
           this.$emit("send-message", message);
@@ -74,10 +75,12 @@ export default {
 
 <style scoped>
 .show {
-  display: block;
+  transition: 0.2s;
+  visibility: visible;
 }
 .hide {
-  display: none;
+  transition: 0.2s;
+  visibility: hidden;
 }
 .shared {
   border: none;

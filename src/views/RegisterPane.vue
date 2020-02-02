@@ -8,7 +8,7 @@
       <label>Email:</label>
       <input v-model="email" class="inp2" type="email" placeholder="someone@mail.com" />
       <label>Username:</label>
-      <input v-model="username" class="inp2" type="text" placeholder="username" />
+      <input v-model="username" class="inp2" type="text" placeholder="Username" />
       <label>Password:</label>
       <input v-$model="passwd" class="inp2" type="password" placeholder="Enter password" />
       <input v-$model="passwd_re" class="inp2" type="password" placeholder="Enter password again" />
@@ -26,8 +26,8 @@
           </div>
         </div>
       </div>
-      <div v-if="errorMode" class="error shadow">{{error}}</div>
-      <button class="button shadow" @click="register">Register</button>
+      <div v-if="errorMode" class="error">{{error}}</div>
+      <button class="button" @click="register">Register</button>
     </div>
   </div>
 </template>
