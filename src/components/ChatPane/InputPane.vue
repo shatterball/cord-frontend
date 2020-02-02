@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     sendMessage: function() {
-      this.$refs.inputBar.focus();
       var message = {
         from: this.currentUser.id,
         to: this.selectedUser.id,
@@ -58,6 +57,7 @@ export default {
         content: ""
       };
       if (this.text !== "") {
+        this.$refs.inputBar.focus();
         if (this.selectedUser.id != undefined) {
           message.content = this.text.trim();
           this.$emit("send-message", message);
