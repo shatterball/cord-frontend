@@ -21,7 +21,6 @@ body {
   padding: 0;
 }
 .app {
-  transition: 0.2s;
   display: flex;
   flex-direction: column;
   position: fixed;

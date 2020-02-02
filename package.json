@@ -1,6 +1,6 @@
 {
-  "name": "cord-front",
-  "version": "0.1.0",
+  "name": "devcord",
+  "version": "0.1.9",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
