@@ -13,6 +13,9 @@ export default {
 </script>
 
 <style>
+.shadow {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+}
 * {
   font-family: sans-serif;
 }

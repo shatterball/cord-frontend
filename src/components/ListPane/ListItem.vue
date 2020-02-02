@@ -68,9 +68,9 @@ export default {
   align-items: center;
   margin: 1rem;
   border-bottom: 0;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: #eee;
-  height: 4rem;
+  height: 3.5rem;
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
@@ -99,9 +99,9 @@ export default {
 }
 .icon {
   vertical-align: middle;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 }
 </style>
