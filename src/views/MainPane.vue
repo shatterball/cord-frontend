@@ -78,6 +78,8 @@ export default {
     },
     logout: function() {
       this.socket.disconnect();
+      localStorage.removeItem("jwt");
+      this.$router.push({ name: "login" });
     }
   },
   beforeCreate: function() {
