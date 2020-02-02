@@ -39,9 +39,7 @@ export default {
       this.$emit("show-list");
     },
     logout() {
-      localStorage.removeItem("jwt");
       this.$emit("logout");
-      this.$router.push({ name: "login" });
     }
   },
   computed: {

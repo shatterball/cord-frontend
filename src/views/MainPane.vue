@@ -35,6 +35,7 @@ export default {
       showChatPane: true,
       showListPane: true,
       focused: Boolean,
+      windowHeight: Number,
       usersArray: [],
       connectedUsers: [],
       chatArray: [],
@@ -105,6 +106,18 @@ export default {
     }).then(res => {
       this.usersArray = res.data;
     });
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", () => {
+        this.windowHeight = window.innerHeight;
+        let vh = this.windowHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      });
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
   },
   created: function() {
     this.socket.emit("login", this.currentUser.id);
