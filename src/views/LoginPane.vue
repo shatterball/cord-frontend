@@ -18,16 +18,16 @@
           @keyup.enter="login"
         />
       </div>
+      <div v-if="showError" class="error shadow">{{ errorMessage }}</div>
       <div class="button_container">
         <button id="login" @click="login" class="button shadow">Login</button>
       </div>
       <div>
         <p class="register">
           Don't have an account?
-          <router-link to="register">Register!</router-link>
+          <router-link to="register">Register</router-link>
         </p>
       </div>
-      <div v-if="showError" class="error shadow">{{ errorMessage }}</div>
       <div id="loader" class="loader"></div>
     </div>
   </div>
@@ -172,7 +172,6 @@ export default {
 .top {
   font-family: sans-serif;
   width: 30%;
-  /* height: 60%; */
   display: flex;
   flex-direction: column;
 }
