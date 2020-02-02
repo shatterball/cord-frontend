@@ -34,6 +34,7 @@ export default {
     return {
       showChatPane: true,
       showListPane: true,
+      focused: Boolean,
       usersArray: [],
       connectedUsers: [],
       chatArray: [],

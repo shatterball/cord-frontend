@@ -84,7 +84,7 @@ export default {
       this.$router.push({ name: "register" });
     }
   },
-  mounted() {
+  beforeCreate() {
     if (localStorage.getItem("jwt") != undefined) {
       this.$router.push({ name: "root" });
     }
