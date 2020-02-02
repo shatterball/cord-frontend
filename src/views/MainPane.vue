@@ -129,16 +129,13 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 <style >
 .main_pane {
   display: flex;
-  height: 100vh;
   width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
   flex-direction: row;
 }
 @media screen and (max-width: 700px) {
   #list_pane {
     flex: 1;
-  }
-  .main_pane {
-    height: calc(var(--vh, 1vh) * 100);
   }
 }
 </style>

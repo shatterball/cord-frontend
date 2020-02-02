@@ -43,7 +43,7 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .chat_bubble_pane::-webkit-scrollbar {
   display: none;

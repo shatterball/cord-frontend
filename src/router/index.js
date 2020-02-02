@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: "/",
-    name: "main",
+    name: "root",
     component: MainPane
   }
 ];
