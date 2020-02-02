@@ -90,6 +90,7 @@ export default {
 }
 .inputs {
   flex: 0 1 auto;
+  min-height: 9rem;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -98,6 +99,7 @@ export default {
 .button_container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 .banner {
   color: #666;
@@ -112,7 +114,7 @@ export default {
   padding: 0 1rem;
   margin: 1rem;
   outline: none;
-  height: 2.5rem;
+  height: 2rem;
   transition: 0.2s;
 }
 .inputs input:focus {
