@@ -89,14 +89,14 @@ export default {
   font-family: sans-serif;
   margin: 0;
 }
-.offline {
+.online {
   border: 0.2rem solid #268bd2;
   background: #268bd2;
 }
-/* .offline {
+.offline {
   border: 0.2rem solid #aaa;
   background: #aaa;
-} */
+}
 .icon {
   vertical-align: middle;
   width: 3rem;
