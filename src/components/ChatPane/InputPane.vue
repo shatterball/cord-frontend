@@ -4,36 +4,44 @@
       <div class="emoji_picker" :class="[showEmojiPicker == true ? 'show' : 'hide']">
         <VEmoji @select="appendEmoji" class="shadow" />
       </div>
-      <button class="button" @click="showEmojiPicker = !showEmojiPicker" id="emojiButton">
-        <font-awesome icon="laugh" />
-      </button>
+      <img
+        class="button shared"
+        @click="showEmojiPicker = !showEmojiPicker"
+        src="../../assets/emoji.svg"
+        id="emojiButton"
+      />
     </div>
     <input
       v-model="text"
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
+      @keydown="onKeyDownNotEnter"
       ref="inputBar"
       autofocus
     />
-    <button
+    <img
       @click="sendMessage"
       :class="{ 'enable': this.text.length > 0}"
       class="button shared"
       id="sendButton"
-    >
-      <font-awesome icon="paper-plane" />
-    </button>
+      src="../../assets/send.svg"
+    />
+    <!-- <font-awesome icon="paper-plane" /> -->
+    <!-- <img class="icon" src="../../assets/send.svg" alt="Send" /> -->
   </div>
 </template>
 <script>
 import VEmoji from "v-emoji-picker";
+
 export default {
   name: "inputPane",
   data: function() {
     return {
       text: "",
-      showEmojiPicker: false
+      showEmojiPicker: false,
+      typing: false,
+      timeout: undefined
     };
   },
   components: {
@@ -68,6 +76,22 @@ export default {
     },
     appendEmoji: function(emoji) {
       this.text = this.text + emoji.data;
+    },
+    timeoutFunction: function() {
+      this.typing = false;
+      // eslint-disable-next-line no-console
+      console.log("Stopped typing...");
+    },
+    onKeyDownNotEnter: function(event) {
+      if (this.typing == false && event.key != "Enter") {
+        this.typing = true;
+        // eslint-disable-next-line no-console
+        console.log("Started typing...");
+        this.timeout = setTimeout(this.timeoutFunction, 1000);
+      } else {
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(this.timeoutFunction, 1000);
+      }
     }
   }
 };
@@ -75,12 +99,14 @@ export default {
 
 <style scoped>
 .show {
-  transition: 0.2s;
   visibility: visible;
 }
 .hide {
-  transition: 0.2s;
   visibility: hidden;
+}
+.icon {
+  height: 2rem;
+  width: 2rem;
 }
 .shared {
   border: none;
@@ -109,7 +135,6 @@ export default {
   flex: 1 0 auto;
   color: #555;
   background: #eee;
-  border: none;
   margin: 0 1rem;
   padding: 0 1rem;
   color: #222;
@@ -121,16 +146,20 @@ export default {
 }
 .button {
   background: #ddd;
-  border: none;
-  outline: none;
+  border-radius: 0;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
-  font-size: 1.5rem;
   margin: 0 0.5rem;
-  height: 2.5rem;
   color: #888;
   transition: 0.2s;
-  text-align: center;
   -webkit-tap-highlight-color: transparent;
+}
+#sendButton {
+  margin-left: 0;
+}
+#emojiButton {
+  margin-right: 0;
 }
 .button:active {
   transform: scale(0.85);

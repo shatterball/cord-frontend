@@ -1,22 +1,19 @@
 <template>
   <div class="chat_header shared">
-    <button @click="showList" class="button shared" id="chats">
-      <font-awesome icon="comments" />
-    </button>
+    <img @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats" />
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
       <p v-if="typing" class="typing">Typing...</p>
     </div>
     <div>
-      <button
+      <img
+        src="@/assets/hamburger.svg"
         class="button"
-        id="settings"
+        id="hamburger"
         @click="toggleMenu"
         v-click-outside="closePopup"
         :class="[showMenu == true ? 'active' : 'inactive']"
-      >
-        <font-awesome icon="bars" />
-      </button>
+      />
       <div class="dropdown-content shadow" :class="[showMenu == true ? 'show' : 'hide']">
         <p @click="logout" class="option">Logout</p>
       </div>
@@ -78,6 +75,7 @@ export default {
 .shared {
   font-family: sans-serif;
   color: #aaa;
+  outline: none;
   margin: 0;
   padding: 0;
   font-weight: 600;
@@ -114,17 +112,20 @@ export default {
 }
 .button {
   color: #888;
-  height: 2.5rem;
-  width: 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  height: 1.6rem;
+  width: 1.6rem;
   cursor: pointer;
-  font-size: 1.25rem;
   transition: 0.2s;
   margin: 0 1rem;
-  text-align: center;
-  border: none;
-  border-radius: 50%;
-  outline: none;
 }
+/* #hamburger {
+  height: 2rem;
+  width: 2rem;
+} */
 .dropdown-content {
   transition: 0.2s;
   font-size: 0.8rem;

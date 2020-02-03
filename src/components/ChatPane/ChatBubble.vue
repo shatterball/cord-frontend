@@ -16,12 +16,9 @@ export default {
   },
   computed: {
     date() {
-      return (
-        new Date(this.msg.date)
-          .toLocaleTimeString("en-IN", {
-            timeStyle: "short"
-          })
-      );
+      return new Date(this.msg.date).toLocaleTimeString("en-IN", {
+        timeStyle: "short"
+      });
     }
   }
 };
@@ -47,6 +44,8 @@ export default {
   border: 0.1rem solid #0087ff;
   border-radius: 1rem 1rem 0.2rem 1rem;
   padding: 0;
+}
+.send .time {
   text-align: right;
 }
 .recv {
@@ -54,6 +53,8 @@ export default {
   border: 0.1rem solid #d33682;
   border-radius: 1rem 1rem 1rem 0.2rem;
   margin-left: 0;
+}
+.recv .time {
   text-align: left;
 }
 .message {

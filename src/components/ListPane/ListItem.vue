@@ -1,5 +1,5 @@
 <template>
-  <div @click="loadChat" class="userbox shared">
+  <div @click="loadChat" class="userbox shared" :class="{selected: selected == true}">
     <img
       :class="{male: user.sex == 1,female: user.sex == 0, online: online == true, offline: online == false}"
       class="icon"
@@ -21,7 +21,8 @@ export default {
   },
   props: {
     user: {},
-    online: Boolean
+    online: Boolean,
+    selected: Boolean
   },
   methods: {
     loadChat: function() {
@@ -31,6 +32,9 @@ export default {
   computed: {
     trim(string) {
       return string.substring(0, 32) + "...";
+    },
+    checkSelected() {
+      return this.selected == true;
     }
   }
 };
@@ -74,6 +78,9 @@ export default {
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
+}
+.selected {
+  background: #ccc;
 }
 .userbox:hover {
   cursor: pointer;

@@ -13,6 +13,7 @@
         :online="connectedUsers.includes(user.id)"
         :key="user.id"
         :user="user"
+        :selected="selectedUser.id == user.id"
       />
     </div>
   </div>
@@ -29,8 +30,9 @@ export default {
   },
   props: {
     usersArray: [],
+    connectedUsers: [],
     currentUser: {},
-    connectedUsers: []
+    selectedUser: {}
   },
   components: {
     UserBox

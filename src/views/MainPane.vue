@@ -8,6 +8,7 @@
       :connectedUsers="connectedUsers"
       :usersArray="usersArray"
       :currentUser="currentUser"
+      :selectedUser="selectedUser"
     />
     <ChatPane
       id="chat_pane"
@@ -42,7 +43,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("apicord.herokuapp.com")
+      socket: io("http://apicord.herokuapp.com")
     };
   },
   components: {
@@ -116,9 +117,6 @@ export default {
       });
     });
   },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
-  },
   created: function() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
@@ -137,21 +135,28 @@ export default {
     if (window.innerWidth < 700) {
       this.showChat();
     }
+  },
+  beforeDestroy() {
+    this.socket.emit("disconnect");
+    window.removeEventListener("resize", this.onResize);
   }
 };
-let vh = window.innerHeight * 0.01;
+var vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
 <style >
 .main_pane {
   display: flex;
   width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
   flex-direction: row;
 }
 @media screen and (max-width: 700px) {
   #list_pane {
     flex: 1;
+  }
+  .main_pane {
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
 </style>
