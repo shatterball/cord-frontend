@@ -16,7 +16,7 @@
         <font-awesome icon="bars" />
       </button>
       <div class="dropdown-content shadow" :class="[showMenu == true ? 'show' : 'hide']">
-        <p @click.native="logout" class="option">Logout</p>
+        <p @click="logout" class="option">Logout</p>
       </div>
     </div>
   </div>
