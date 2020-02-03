@@ -42,8 +42,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      // socket: io("apicord.herokuapp.com", { secure: true })
-      socket: io("apicord.herokuapp.com")
+      socket: io("apicord.herokuapp.com", { secure: true })
     };
   },
   components: {
