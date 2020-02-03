@@ -115,11 +115,27 @@ export default {
       });
     });
   },
-  created: function() {
+  created() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
+      var sentBy;
+      for (let i = 0; i < this.usersArray.length; i++) {
+        if (this.usersArray[i].id == data.from) {
+          sentBy = this.usersArray[i].fname;
+        }
+      }
+      // eslint-disable-next-line no-console
       if (data.from == this.selectedUser.id) {
         this.chatArray.push(data);
+      } else {
+        Notification.requestPermission().then(function(result) {
+          if (result == "granted") {
+            new Notification(sentBy, {
+              body: data.content,
+              icon: undefined
+            });
+          }
+        });
       }
     });
     this.socket.on("online-list", users => {
