@@ -3,7 +3,10 @@
     <button @click="showList" class="button shared" id="chats">
       <font-awesome icon="comments" />
     </button>
-    <p class="name shared">{{ trim }}</p>
+    <div class="contact">
+      <p class="name shared">{{ trim }}</p>
+      <p v-if="typing" class="typing">Typing...</p>
+    </div>
     <div>
       <button
         class="button"
@@ -25,7 +28,8 @@ export default {
   name: "chatHeader",
   data: function() {
     return {
-      showMenu: false
+      showMenu: false,
+      typing: false
     };
   },
   methods: {
@@ -66,7 +70,7 @@ export default {
 }
 .hide {
   opacity: 0;
-  visibility: hidden;
+  display: none;
 }
 .active {
   background: #eee;
@@ -87,12 +91,26 @@ export default {
   justify-content: space-between;
   height: 3.5rem;
 }
-.name {
-  color: #555;
-  font-weight: 500;
+.contact {
+  margin-left: 1rem;
+  transition: 0.2s;
   flex: 1 0 auto;
-  font-size: 1.5rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.name {
+  color: #444;
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-align: left;
+}
+.typing {
+  transition: 0.2s;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 .button {
   color: #888;
@@ -138,9 +156,12 @@ export default {
   margin-bottom: 0.5rem;
 }
 @media screen and (max-width: 700px) {
+  .contact {
+    margin-left: 0;
+  }
   .name {
     font-size: 1rem;
-    /* padding-left: 1rem; */
+    margin-bottom: 0.2rem;
   }
   .chat_header {
     height: 3rem;
@@ -155,7 +176,7 @@ export default {
 }
 @media screen and (min-width: 700px) {
   #chats {
-    visibility: hidden;
+    display: none;
   }
 }
 </style>

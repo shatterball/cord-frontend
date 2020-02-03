@@ -37,7 +37,7 @@ export default {
 .chat_bubble_pane {
   background: #eee;
   padding: 1rem 3rem;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   margin: 0 1rem;
   overflow: auto;
   flex: 1;

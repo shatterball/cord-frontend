@@ -21,7 +21,6 @@ export default {
           .toLocaleTimeString("en-IN", {
             timeStyle: "short"
           })
-          .substring(0, 5) + "PM"
       );
     }
   }
@@ -45,7 +44,6 @@ export default {
 .send {
   align-self: flex-end;
   color: #333;
-  /* background: #0087ff; */
   border: 0.1rem solid #0087ff;
   border-radius: 1rem 1rem 0.2rem 1rem;
   padding: 0;
@@ -53,7 +51,6 @@ export default {
 }
 .recv {
   align-self: flex-start;
-  /* background: #2aa198; */
   border: 0.1rem solid #d33682;
   border-radius: 1rem 1rem 1rem 0.2rem;
   margin-left: 0;
@@ -66,7 +63,7 @@ export default {
   word-break: break-word;
 }
 .time {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   padding: 0.5rem 0.6rem;
   padding-top: 0;
 }

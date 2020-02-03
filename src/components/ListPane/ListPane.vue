@@ -79,8 +79,8 @@ export default {
 }
 .search {
   font-family: sans-serif;
-  height: 2rem;
-  font-size: 0.9rem;
+  height: 3rem;
+  font-size: 1.2rem;
   padding: 0 1rem;
   width: auto;
   flex: 1 0 auto;
@@ -88,7 +88,7 @@ export default {
   border-radius: 2rem;
   outline: none;
   border: none;
-  background: #eee;
+  background: #ddd;
   color: #555;
 }
 .search_pane {
