@@ -27,8 +27,6 @@
       id="sendButton"
       src="../../assets/send.svg"
     />
-    <!-- <font-awesome icon="paper-plane" /> -->
-    <!-- <img class="icon" src="../../assets/send.svg" alt="Send" /> -->
   </div>
 </template>
 <script>

@@ -35,7 +35,6 @@ export default {
     return {
       showChatPane: true,
       showListPane: true,
-      focused: Boolean,
       windowHeight: Number,
       usersArray: [],
       connectedUsers: [],
@@ -63,7 +62,6 @@ export default {
         target
       }).then(jsonData => {
         this.chatArray = jsonData.data;
-        localStorage.setItem("last", this.selectedUser.id);
       });
     },
     showChat: function() {
@@ -125,6 +123,7 @@ export default {
       }
     });
     this.socket.on("online-list", users => {
+      new Notification("User online");
       this.connectedUsers = users;
       Axios.post("https://apicord.herokuapp.com/api/users", {
         token: this.token

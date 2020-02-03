@@ -6,16 +6,17 @@
       <p v-if="typing" class="typing">Typing...</p>
     </div>
     <div>
-      <img
-        src="@/assets/hamburger.svg"
+      <button
         class="button"
         id="hamburger"
         @click="toggleMenu"
         v-click-outside="closePopup"
         :class="[showMenu == true ? 'active' : 'inactive']"
-      />
+      >
+        <font-awesome icon="bars" />
+      </button>
       <div class="dropdown-content shadow" :class="[showMenu == true ? 'show' : 'hide']">
-        <p @click="logout" class="option">Logout</p>
+        <p @click.native="logout" class="option">Logout</p>
       </div>
     </div>
   </div>
@@ -115,17 +116,17 @@ export default {
   border: none;
   outline: none;
   border-radius: 50%;
-  padding: 0.5rem;
-  height: 1.6rem;
-  width: 1.6rem;
+  height: 1.8rem;
+  width: 1.8rem;
   cursor: pointer;
   transition: 0.2s;
   margin: 0 1rem;
 }
-/* #hamburger {
-  height: 2rem;
-  width: 2rem;
-} */
+#hamburger {
+  font-size: 1.4rem;
+  height: 2.5rem;
+  width: 2.5rem;
+}
 .dropdown-content {
   transition: 0.2s;
   font-size: 0.8rem;

@@ -114,24 +114,25 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.inputs {
-  flex: 0 1 auto;
-  min-height: 5rem;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .button_container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .banner {
   color: #666;
   text-align: center;
   font-size: 2.5rem;
   font-weight: 300;
+}
+.inputs {
+  flex: 0 1 auto;
+  min-height: 5rem;
+  padding: 1rem;
+  padding-bottom: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .inputs input {
   border-radius: 2rem;
@@ -149,7 +150,6 @@ export default {
 .button {
   cursor: pointer;
   user-select: none;
-  margin-top: 0.5rem;
   color: #eee;
   font-size: 1rem;
   border: none;
