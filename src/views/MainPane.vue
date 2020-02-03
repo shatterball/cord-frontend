@@ -42,7 +42,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("http://apicord.herokuapp.com")
+      socket: io("http://apicord.herokuapp.com", { secure: true })
     };
   },
   components: {
@@ -123,12 +123,12 @@ export default {
       }
     });
     this.socket.on("online-list", users => {
-      this.connectedUsers = users;
       Axios.post("https://apicord.herokuapp.com/api/users", {
         token: this.token
       }).then(res => {
         this.usersArray = res.data;
       });
+      this.connectedUsers = users;
     });
     if (window.innerWidth < 700) {
       this.showChat();
