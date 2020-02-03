@@ -123,7 +123,6 @@ export default {
       }
     });
     this.socket.on("online-list", users => {
-      new Notification("User online");
       this.connectedUsers = users;
       Axios.post("https://apicord.herokuapp.com/api/users", {
         token: this.token
