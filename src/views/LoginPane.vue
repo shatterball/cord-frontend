@@ -57,7 +57,7 @@ export default {
       }
       document.getElementById("loader").style = "visibility:visible";
       Axios.post("https://apicord.herokuapp.com/api/login/", {
-        username: this.username,
+        username: this.username.trim(),
         passwd: this.passwd
       })
         .catch(error => {

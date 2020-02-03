@@ -16,9 +16,11 @@
       @send-message="sendMessage"
       @show-list="showList"
       @logout="logout"
+      @typing="typingEmit"
       :currentUser="currentUser"
       :selectedUser="selectedUser"
       :chatArray="chatArray"
+      :typing="typing"
     />
   </div>
 </template>
@@ -36,6 +38,7 @@ export default {
       showChatPane: true,
       showListPane: true,
       windowHeight: Number,
+      typing: false,
       usersArray: [],
       connectedUsers: [],
       chatArray: [],
@@ -73,13 +76,20 @@ export default {
       this.showChatPane = false;
     },
     sendMessage: function(msg) {
-      this.chatArray.push(msg);
       this.socket.emit("message-send", msg);
+      this.chatArray.push(msg);
     },
     logout: function() {
       this.socket.disconnect();
       localStorage.removeItem("jwt");
       this.$router.push({ name: "login" });
+    },
+    typingEmit: function(status) {
+      this.socket.emit("typing", {
+        from: this.currentUser.id,
+        to: this.selectedUser.id,
+        status
+      });
     }
   },
   beforeCreate: function() {
@@ -124,7 +134,6 @@ export default {
           sentBy = this.usersArray[i].fname;
         }
       }
-      // eslint-disable-next-line no-console
       if (data.from == this.selectedUser.id) {
         this.chatArray.push(data);
       } else {
@@ -145,6 +154,11 @@ export default {
         this.usersArray = res.data;
       });
       this.connectedUsers = users;
+    });
+    this.socket.on("typing", data => {
+      if (this.selectedUser.id == data.from) {
+        this.typing = data.status;
+      }
     });
     if (window.innerWidth < 700) {
       this.showChat();

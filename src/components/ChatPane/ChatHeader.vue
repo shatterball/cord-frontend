@@ -3,7 +3,7 @@
     <img @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats" />
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
-      <p v-if="typing" class="typing">Typing...</p>
+      <p :class="[typing == true ? 'show' : 'hide' ]" class="typing">Typing...</p>
     </div>
     <div>
       <button
@@ -24,10 +24,13 @@
 <script>
 export default {
   name: "chatHeader",
+  props: {
+    selectedUser: {},
+    typing: Boolean
+  },
   data: function() {
     return {
-      showMenu: false,
-      typing: false
+      showMenu: false
     };
   },
   methods: {
@@ -54,9 +57,6 @@ export default {
         ).substring(0, 32);
       else return "Empty";
     }
-  },
-  props: {
-    selectedUser: {}
   }
 };
 </script>

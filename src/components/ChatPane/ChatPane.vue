@@ -1,8 +1,18 @@
 <template>
   <div class="chat_pane">
-    <ChatHeader @logout="logout" @show-list="showList" :selectedUser="selectedUser" />
+    <ChatHeader
+      @logout="logout"
+      @show-list="showList"
+      :selectedUser="selectedUser"
+      :typing="typing"
+    />
     <ChatBubblePane :chatArray="chatArray" :currentUser="currentUser" :selectedUser="selectedUser" />
-    <InputPane @send-message="sendMessage" :currentUser="currentUser" :selectedUser="selectedUser" />
+    <InputPane
+      @send-message="sendMessage"
+      @typing="typingEmit"
+      :currentUser="currentUser"
+      :selectedUser="selectedUser"
+    />
   </div>
 </template>
 
@@ -15,7 +25,8 @@ export default {
   props: {
     chatArray: [],
     currentUser: {},
-    selectedUser: {}
+    selectedUser: {},
+    typing: Boolean
   },
   components: {
     ChatBubblePane,
@@ -31,6 +42,9 @@ export default {
     },
     logout: function() {
       this.$emit("logout");
+    },
+    typingEmit: function(status) {
+      this.$emit("typing", status);
     }
   }
 };

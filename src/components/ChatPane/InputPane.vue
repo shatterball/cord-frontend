@@ -38,7 +38,6 @@ export default {
     return {
       text: "",
       showEmojiPicker: false,
-      typing: false,
       timeout: undefined
     };
   },
@@ -77,14 +76,12 @@ export default {
     },
     timeoutFunction: function() {
       this.typing = false;
-      // eslint-disable-next-line no-console
-      console.log("Stopped typing...");
+      this.$emit("typing", false);
     },
     onKeyDownNotEnter: function(event) {
       if (this.typing == false && event.key != "Enter") {
         this.typing = true;
-        // eslint-disable-next-line no-console
-        console.log("Started typing...");
+        this.$emit("typing", true);
         this.timeout = setTimeout(this.timeoutFunction, 1000);
       } else {
         clearTimeout(this.timeout);
@@ -148,16 +145,10 @@ export default {
   height: 2rem;
   width: 2rem;
   cursor: pointer;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
   color: #888;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
-}
-#sendButton {
-  margin-left: 0;
-}
-#emojiButton {
-  margin-right: 0;
 }
 .button:active {
   transform: scale(0.85);
@@ -167,10 +158,7 @@ export default {
     padding: 0;
   }
   .input_bar {
-    margin: 0 0.5rem;
-  }
-  .input_bar:focus {
-    margin: 0 0.5rem;
+    margin: 0 1rem;
   }
   .button {
     margin: 0 0.5rem;
