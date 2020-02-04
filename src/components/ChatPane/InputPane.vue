@@ -154,8 +154,8 @@ export default {
   transform: scale(0.85);
 }
 #sendButton {
-  height: 2rem;
-  width: 2rem;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 @media screen and (max-width: 700px) {
   .input_pane {
