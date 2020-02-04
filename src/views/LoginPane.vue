@@ -9,6 +9,7 @@
           placeholder="Username"
           type="text"
           @keyup.enter="login"
+          autofocus
         />
         <input
           v-model="passwd"
