@@ -80,11 +80,6 @@ export default {
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
-.selected {
-  background: #eee;
-  margin-right: 0;
-  border-radius: 2rem 0 0 2rem;
-}
 .userbox:hover {
   cursor: pointer;
 }
@@ -124,5 +119,11 @@ export default {
   border-radius: 50%;
   background: #268bd2;
   right: 1rem;
+}
+@media screen and (min-width: 700px) {
+  .selected {
+    margin-right: 0;
+    border-radius: 2rem 0 0 2rem;
+  }
 }
 </style>
