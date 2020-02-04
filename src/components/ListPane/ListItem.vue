@@ -81,13 +81,14 @@ export default {
   -webkit-tap-highlight-color: transparent;
 }
 .selected {
-  background: #ccc;
+  background: #eee;
+  margin-right: 0;
+  border-radius: 2rem 0 0 2rem;
 }
 .userbox:hover {
   cursor: pointer;
 }
 .userbox:active {
-  background: #ccc;
   border-bottom: 0;
 }
 .userbox:first-child {

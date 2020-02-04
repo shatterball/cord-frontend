@@ -38,7 +38,6 @@ export default {
   background: #eee;
   padding: 1rem 5rem;
   border-radius: 0.2rem;
-  margin: 0 1rem;
   overflow: auto;
   overscroll-behavior: none;
   flex: 1;

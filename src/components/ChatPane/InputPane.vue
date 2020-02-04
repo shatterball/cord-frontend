@@ -121,7 +121,7 @@ export default {
 .input_pane {
   display: flex;
   height: 4rem;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   justify-content: space-between;
   align-items: center;
 }
@@ -142,8 +142,8 @@ export default {
 .button {
   background: #ddd;
   border-radius: 0;
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
   margin: 0 1rem;
   color: #888;
@@ -152,6 +152,10 @@ export default {
 }
 .button:active {
   transform: scale(0.85);
+}
+#sendButton {
+  height: 2rem;
+  width: 2rem;
 }
 @media screen and (max-width: 700px) {
   .input_pane {

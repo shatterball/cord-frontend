@@ -74,11 +74,6 @@ export default {
 .user_list::-webkit-scrollbar {
   display: none;
 }
-.reset {
-  font-family: sans-serif;
-  color: #93a1a1;
-  padding: 0 1rem;
-}
 .search {
   font-family: sans-serif;
   height: 3rem;
