@@ -3,7 +3,7 @@ import App from "./App.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faPaperPlane,
-  faBars,
+  faSignOutAlt,
   faComments,
   faArrowLeft,
   faLaugh
@@ -47,7 +47,7 @@ Vue.directive("$model", {
   }
 });
 
-library.add(faPaperPlane, faBars, faComments, faArrowLeft, faLaugh);
+library.add(faPaperPlane, faSignOutAlt, faComments, faArrowLeft, faLaugh);
 
 Vue.component("font-awesome", FontAwesomeIcon);
 

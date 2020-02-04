@@ -84,10 +84,9 @@ export default {
   height: 3rem;
   font-size: 1.2rem;
   padding: 0 1rem;
-  width: auto;
-  flex: 1 0 auto;
+  width: 70%;
+  margin-right: 4rem;
   text-align: center;
-  border-radius: 2rem;
   outline: none;
   border: none;
   background: #ddd;
@@ -96,8 +95,9 @@ export default {
 .search_pane {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 1rem;
+  width: 100%;
   height: 3.5rem;
 }
 .button {
@@ -109,12 +109,11 @@ export default {
   cursor: pointer;
   font-size: 1.5rem;
   height: 2.5rem;
-  min-width: 2.5rem;
-  border-radius: 50%;
-  margin-right: 0.5rem;
+  width: 2.5rem;
   color: #888;
   transition: 0.2s;
   text-align: center;
+  margin-right: 0.5rem;
   -webkit-tap-highlight-color: transparent;
 }
 .button:active {
@@ -126,9 +125,6 @@ export default {
 @media screen and (max-width: 700px) {
   .list_pane {
     width: 100%;
-  }
-  .search {
-    margin: 0;
   }
   .button {
     display: block;

@@ -1,23 +1,16 @@
 <template>
   <div class="chat_header shared">
-    <img @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats" />
+    <button @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats">
+      <font-awesome icon="comments" />
+    </button>
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
       <p :class="[typing == true ? 'show' : 'hide' ]" class="typing">Typing...</p>
     </div>
     <div>
-      <button
-        class="button"
-        id="hamburger"
-        @click="toggleMenu"
-        v-click-outside="closePopup"
-        :class="[showMenu == true ? 'active' : 'inactive']"
-      >
-        <font-awesome icon="bars" />
+      <button class="button" id="hamburger" @click="logout">
+        <font-awesome icon="sign-out-alt" />
       </button>
-      <div class="dropdown-content shadow" :class="[showMenu == true ? 'show' : 'hide']">
-        <p @click="logout" class="option">Logout</p>
-      </div>
     </div>
   </div>
 </template>
@@ -44,7 +37,9 @@ export default {
       this.$emit("show-list");
     },
     logout() {
-      this.$emit("logout");
+      if (confirm("Logout?")) {
+        this.$emit("logout");
+      }
     }
   },
   computed: {
@@ -108,6 +103,7 @@ export default {
   transition: 0.2s;
   font-size: 0.7rem;
   font-weight: 500;
+  color: #555;
   margin: 0;
   padding: 0;
 }
@@ -127,36 +123,6 @@ export default {
   height: 2.5rem;
   width: 2.5rem;
 }
-.dropdown-content {
-  transition: 0.2s;
-  font-size: 0.8rem;
-  color: #555;
-  font-weight: bold;
-  margin-left: -2rem;
-  margin-top: 0.2rem;
-  position: absolute;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  min-width: 5rem;
-}
-.option {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  margin: 0.25rem 0;
-
-  text-align: left;
-}
-.option:hover {
-  background: #ddd;
-  color: #555;
-}
-.option:first-child {
-  margin-top: 0.5rem;
-}
-.option:last-child {
-  margin-bottom: 0.5rem;
-}
 @media screen and (max-width: 700px) {
   .contact {
     margin-left: 0;
@@ -166,11 +132,7 @@ export default {
     margin-bottom: 0.2rem;
   }
   .chat_header {
-    height: 3rem;
-  }
-  .dropdown-content {
-    margin-left: -1rem;
-    margin-top: 1rem;
+    height: 3.5rem;
   }
   .button {
     font-size: 1.5rem;

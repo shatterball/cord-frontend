@@ -1,9 +1,9 @@
 <template>
   <div @click="loadChat" class="userbox shared" :class="{selected: selected == true}">
-    <img
-      :class="{male: user.sex == 1,female: user.sex == 0, online: online == true, offline: online == false}"
-      class="icon"
-    />
+    <div class="image_container">
+      <div v-if="online" class="badge"></div>
+      <img :class="{male: user.sex == 1,female: user.sex == 0}" class="icon" />
+    </div>
     <div class="container">
       <p class="username shared">{{ fullname }}</p>
       <p class="username condensed">{{ "@" + user.username }}</p>
@@ -45,6 +45,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
+  padding-left: 0;
 }
 .shared {
   font-family: sans-serif;
@@ -104,11 +105,23 @@ export default {
   border: 0.2rem solid #aaa;
   background: #aaa;
 }
+.image_container {
+  position: relative;
+  padding-right: 1rem;
+}
 .icon {
   vertical-align: middle;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.8rem;
+  height: 3.8rem;
   border-radius: 50%;
-  margin-left: 0.05rem;
+  margin-left: 0.1rem;
+}
+.badge {
+  position: absolute;
+  height: 0.9rem;
+  width: 0.9rem;
+  border-radius: 50%;
+  background: #268bd2;
+  right: 1rem;
 }
 </style>

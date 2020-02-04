@@ -40,6 +40,7 @@ export default {
   border-radius: 0.2rem;
   margin: 0 1rem;
   overflow: auto;
+  overscroll-behavior: none;
   flex: 1;
   display: flex;
   flex-direction: column;
