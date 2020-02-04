@@ -117,7 +117,7 @@ export default {
 }
 .button_container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 .banner {
@@ -156,7 +156,7 @@ export default {
   border: none;
   outline: none;
   height: 2rem;
-  width: 100%;
+  width: 50%;
   border-radius: 2rem;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
