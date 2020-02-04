@@ -80,7 +80,7 @@ export default {
   font-size: 1.2rem;
   padding: 0 1rem;
   width: 70%;
-  margin-right: 4rem;
+  margin-right: 2rem;
   text-align: center;
   outline: none;
   border: none;
@@ -117,6 +117,9 @@ export default {
 @media screen and (max-width: 700px) {
   .list_pane {
     width: 100%;
+  }
+  .search {
+    margin-right: 4rem;
   }
   .button {
     display: block;
