@@ -116,9 +116,6 @@ export default {
   margin-right: 0.5rem;
   -webkit-tap-highlight-color: transparent;
 }
-.button:active {
-  background: #c8c8c8;
-}
 ::placeholder {
   color: #888;
 }

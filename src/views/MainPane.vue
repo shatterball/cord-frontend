@@ -38,6 +38,7 @@ export default {
       showChatPane: true,
       showListPane: true,
       windowHeight: Number,
+      tabFocus: Boolean,
       typing: false,
       usersArray: [],
       connectedUsers: [],
@@ -90,6 +91,9 @@ export default {
         to: this.selectedUser.id,
         status
       });
+    },
+    setFocus: function() {
+      this.tabFocus = document.hasFocus();
     }
   },
   beforeCreate: function() {
@@ -124,6 +128,9 @@ export default {
         document.documentElement.style.setProperty("--vh", `${vh}px`);
       });
     });
+    document.addEventListener("visibilitychange", this.setFocus);
+    // window.addEventListener("focus", this.setFocus);
+    // window.addEventListener("blur", this.setFocus);
   },
   created() {
     this.socket.emit("login", this.currentUser.id);
@@ -136,7 +143,8 @@ export default {
       }
       if (data.from == this.selectedUser.id) {
         this.chatArray.push(data);
-      } else {
+      }
+      if (data.from != this.selectedUser.id || !this.tabFocus) {
         Notification.requestPermission().then(function(result) {
           if (result == "granted") {
             new Notification(sentBy, {

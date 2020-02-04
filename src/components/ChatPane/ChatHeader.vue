@@ -1,17 +1,11 @@
 <template>
   <div class="chat_header shared">
-    <button @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats">
-      <font-awesome icon="comments" />
-    </button>
+    <img @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats" />
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
       <p :class="[typing == true ? 'show' : 'hide' ]" class="typing">Typing...</p>
     </div>
-    <div>
-      <button class="button" id="hamburger" @click="logout">
-        <font-awesome icon="sign-out-alt" />
-      </button>
-    </div>
+    <img @click="logout" class="button shared" src="@/assets/logout.svg" alt="Chats" id="logout" />
   </div>
 </template>
 <script>
@@ -109,19 +103,14 @@ export default {
 }
 .button {
   color: #888;
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
   transition: 0.2s;
   margin: 0 1rem;
 }
-#hamburger {
-  font-size: 1.4rem;
-  height: 2.5rem;
-  width: 2.5rem;
+.button:active {
+  transform: scale(0.85);
 }
 @media screen and (max-width: 700px) {
   .contact {
@@ -133,9 +122,6 @@ export default {
   }
   .chat_header {
     height: 3.5rem;
-  }
-  .button {
-    font-size: 1.5rem;
   }
 }
 @media screen and (min-width: 700px) {

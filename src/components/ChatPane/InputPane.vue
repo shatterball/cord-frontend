@@ -142,8 +142,8 @@ export default {
 .button {
   background: #ddd;
   border-radius: 0;
-  height: 2rem;
-  width: 2rem;
+  height: 1.8rem;
+  width: 1.8rem;
   cursor: pointer;
   margin: 0 1rem;
   color: #888;
