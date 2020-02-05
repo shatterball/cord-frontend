@@ -89,6 +89,9 @@ export default {
 .userbox:first-child {
   margin-top: 0;
 }
+.selected {
+  background: #cfcfcf;
+}
 .username {
   font-family: sans-serif;
   margin: 0;
@@ -119,11 +122,5 @@ export default {
   border-radius: 50%;
   background: #268bd2;
   right: 1rem;
-}
-@media screen and (min-width: 700px) {
-  .selected {
-    margin-right: 0;
-    border-radius: 2rem 0 0 2rem;
-  }
 }
 </style>
