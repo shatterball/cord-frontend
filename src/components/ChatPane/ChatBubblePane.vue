@@ -1,16 +1,14 @@
 <template>
-  <div class="overlay_pane">
+  <div class="chat_bubble_pane" id="chat_bubble_pane">
     <div class="overlay" v-if="loadingChat" id="loadingChat">
       <div id="loader" class="loader"></div>
     </div>
-    <div class="chat_bubble_pane" id="chat_bubble_pane">
-      <ChatBubble
-        v-for="msg in chatArray"
-        :type="msg.from == currentUser.id"
-        :key="msg._id"
-        :msg="msg"
-      />
-    </div>
+    <ChatBubble
+      v-for="msg in chatArray"
+      :type="msg.from == currentUser.id"
+      :key="msg._id"
+      :msg="msg"
+    />
   </div>
 </template>
 
@@ -41,6 +39,7 @@ export default {
 
 <style scoped>
 .chat_bubble_pane {
+  position: relative;
   background: #eee;
   padding: 1rem 5rem;
   overflow: auto;
@@ -52,12 +51,6 @@ export default {
 }
 .chat_bubble_pane::-webkit-scrollbar {
   display: none;
-}
-.overlay_pane {
-  position: relative;
-  flex: 1;
-  overflow: auto;
-  display: flex;
 }
 .overlay {
   position: absolute;
@@ -94,6 +87,7 @@ export default {
     height: 50rem;
     margin: 0;
     padding: 1rem;
+    padding-bottom: 1rem;
     border-radius: 0;
   }
 }
