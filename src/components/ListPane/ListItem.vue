@@ -1,5 +1,5 @@
 <template>
-  <div @click="loadChat" class="userbox shared" :class="{selected: selected == true}">
+  <div @click="loadChat" class="userbox shared" :class="{selected: selected}">
     <div class="image_container">
       <div v-if="online" class="badge"></div>
       <img :class="{male: user.sex == 1,female: user.sex == 0}" class="icon" />
@@ -21,8 +21,8 @@ export default {
   },
   props: {
     user: {},
-    online: Boolean,
-    selected: Boolean
+    selected: Boolean,
+    online: Boolean
   },
   methods: {
     loadChat: function() {

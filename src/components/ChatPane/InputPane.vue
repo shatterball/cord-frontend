@@ -16,7 +16,7 @@
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
-      @keydown="onKeyDownNotEnter"
+      @keyup="onKeyDownNotEnter"
       ref="inputBar"
       autofocus
     />
