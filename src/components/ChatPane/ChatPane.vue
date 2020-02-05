@@ -6,7 +6,12 @@
       :selectedUser="selectedUser"
       :typing="typing"
     />
-    <ChatBubblePane :chatArray="chatArray" :currentUser="currentUser" :selectedUser="selectedUser" />
+    <ChatBubblePane
+      :chatArray="chatArray"
+      :loadingChat="loadingChat"
+      :currentUser="currentUser"
+      :selectedUser="selectedUser"
+    />
     <InputPane
       @send-message="sendMessage"
       @typing="typingEmit"
@@ -26,7 +31,8 @@ export default {
     chatArray: [],
     currentUser: {},
     selectedUser: {},
-    typing: Boolean
+    typing: Boolean,
+    loadingChat: Boolean
   },
   components: {
     ChatBubblePane,

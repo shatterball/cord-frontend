@@ -1,5 +1,8 @@
 <template>
   <div class="main_pane">
+    <div class="overlay" id="overlay">
+      <div id="loader" class="loader"></div>
+    </div>
     <ListPane
       id="list_pane"
       v-if="showListPane"
@@ -21,6 +24,7 @@
       :selectedUser="selectedUser"
       :chatArray="chatArray"
       :typing="typing"
+      :loadingChat="loadingChat"
     />
   </div>
 </template>
@@ -40,6 +44,7 @@ export default {
       windowHeight: Number,
       tabFocus: Boolean,
       typing: false,
+      loadingChat: false,
       usersArray: [],
       connectedUsers: [],
       chatArray: [],
@@ -61,11 +66,13 @@ export default {
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
       this.chatArray = [];
+      this.loadingChat = true;
       Axios.post("https://apicord.herokuapp.com/api/messages/", {
         token: this.token,
         target
       }).then(jsonData => {
         this.chatArray = jsonData.data;
+        this.loadingChat = false;
       });
     },
     showChat: function() {
@@ -118,6 +125,7 @@ export default {
       token: this.token
     }).then(res => {
       this.usersArray = res.data;
+      document.getElementById("overlay").style.display = "none";
     });
   },
   mounted() {
@@ -183,9 +191,41 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 <style >
 .main_pane {
   display: flex;
+  /* position: relative; */
   width: 100vw;
   height: 100vh;
   flex-direction: row;
+}
+.overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #eee;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+.loader {
+  /* visibility: hidden; */
+  align-self: center;
+  border: 0.3rem solid #f3f3f3; /* Light grey */
+  border-top: 0.3rem solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @media screen and (max-width: 700px) {
   #list_pane {

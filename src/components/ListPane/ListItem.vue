@@ -113,7 +113,7 @@ export default {
   margin-left: 0.1rem;
 }
 .badge {
-  position: absolute;
+  position: fixed;
   height: 0.9rem;
   width: 0.9rem;
   border-radius: 50%;
