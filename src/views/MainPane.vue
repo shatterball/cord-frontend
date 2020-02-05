@@ -143,12 +143,12 @@ export default {
   created() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
-      var sentBy;
-      for (let i = 0; i < this.usersArray.length; i++) {
-        if (this.usersArray[i].id == data.from) {
-          sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
-        }
-      }
+      // var sentBy;
+      // for (let i = 0; i < this.usersArray.length; i++) {
+      //   if (this.usersArray[i].id == data.from) {
+      //     sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
+      //   }
+      // }
       if (
         data.from == this.selectedUser.id ||
         (data.from == this.currentUser.id && data.to == this.selectedUser.id)
