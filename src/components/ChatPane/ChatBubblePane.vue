@@ -3,7 +3,7 @@
     <div class="overlay" v-if="loadingChat" id="loadingChat">
       <div id="loader" class="loader"></div>
     </div>
-    <div class="chat_bubble_pane">
+    <div class="chat_bubble_pane" id="chat_bubble_pane">
       <ChatBubble
         v-for="msg in chatArray"
         :type="msg.from == currentUser.id"
@@ -33,8 +33,8 @@ export default {
     ChatBubble
   },
   updated() {
-    var elem = this.$el;
-    elem.scrollTop = elem.scrollHeight;
+    var chatBubblePane = document.getElementById("chat_bubble_pane");
+    chatBubblePane.scrollTop = chatBubblePane.scrollHeight;
   }
 };
 </script>
