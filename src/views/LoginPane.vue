@@ -156,7 +156,7 @@ export default {
   border: none;
   outline: none;
   height: 2rem;
-  width: 50%;
+  width: 100%;
   border-radius: 2rem;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
