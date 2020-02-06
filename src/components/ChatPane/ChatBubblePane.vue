@@ -41,7 +41,7 @@ export default {
 .chat_bubble_pane {
   position: relative;
   background: #eee;
-  padding: 1rem 5rem;
+  padding: 1rem 0rem;
   overflow: auto;
   overscroll-behavior: none;
   flex: 1;
@@ -60,6 +60,7 @@ export default {
   z-index: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .loader {
   border: 0.3rem solid #f3f3f3;

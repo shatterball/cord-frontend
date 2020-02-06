@@ -35,7 +35,7 @@ export default {
   margin: 0.3rem 0;
   font-size: 0.85rem;
   max-width: 30rem;
-  margin-left: auto;
+  /* margin-left: auto; */
   border-radius: 1rem;
 }
 .send {
@@ -44,6 +44,7 @@ export default {
   border: 0.1rem solid #0087ff;
   border-radius: 1rem 1rem 0.2rem 1rem;
   padding: 0;
+  margin-right: 5rem;
 }
 .send .time {
   text-align: right;
@@ -52,7 +53,7 @@ export default {
   align-self: flex-start;
   border: 0.1rem solid #d33682;
   border-radius: 1rem 1rem 1rem 0.2rem;
-  margin-left: 0;
+  margin-left: 5rem;
 }
 .recv .time {
   text-align: left;
