@@ -145,28 +145,28 @@ export default {
   created() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
-      var sentBy;
-      for (let i = 0; i < this.usersArray.length; i++) {
-        if (this.usersArray[i].id == data.from) {
-          sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
-        }
-      }
       if (
         data.from == this.selectedUser.id ||
         (data.from == this.currentUser.id && data.to == this.selectedUser.id)
       ) {
         this.chatArray.push(data);
       }
-      if (data.from != this.selectedUser.id || !this.tabFocus) {
-        Notification.requestPermission().then(function(result) {
-          if (result == "granted") {
-            new Notification(sentBy, {
-              body: data.content,
-              icon: undefined
-            });
-          }
-        });
-      }
+      // var sentBy;
+      // for (let i = 0; i < this.usersArray.length; i++) {
+      //   if (this.usersArray[i].id == data.from) {
+      //     sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
+      //   }
+      // }
+      // if (data.from != this.selectedUser.id || !this.tabFocus) {
+      //   Notification.requestPermission().then(function(result) {
+      //     if (result == "granted") {
+      //       new Notification(sentBy, {
+      //         body: data.content,
+      //         icon: undefined
+      //       });
+      //     }
+      //   });
+      // }
     });
     this.socket.on("online-list", users => {
       Axios.post("https://apicord.herokuapp.com/api/users", {
