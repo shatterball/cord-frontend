@@ -18,10 +18,10 @@
       @keyup.enter="sendMessage"
       @keyup="onKeyDownNotEnter"
       ref="inputBar"
-      @focus="scrollChat"
     />
     <img
       @click="sendMessage"
+      @focus="scrollChat"
       :class="{ 'enable': this.text.length > 0}"
       class="button shared"
       id="sendButton"
