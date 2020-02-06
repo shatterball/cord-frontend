@@ -157,12 +157,9 @@ export default {
         }
       }
       if (
-        (data.from == this.selectedUser.id && this.tabFocus) ||
-        data.from == this.currentUser.id
+        (data.from != this.selectedUser.id || !this.tabFocus) &&
+        data.from != this.currentUser.id
       ) {
-        // eslint-disable-next-line no-console
-        console.log("No notification for you");
-      } else {
         Notification.requestPermission().then(function(result) {
           if (result == "granted") {
             new Notification(sentBy, {
