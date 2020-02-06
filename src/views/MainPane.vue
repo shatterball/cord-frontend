@@ -35,7 +35,10 @@ import ChatPane from "../components/ChatPane/ChatPane";
 import Axios from "axios";
 import io from "socket.io-client";
 import jwtDecode from "jwt-decode";
-var apiUri = process.env.API_URI || "http://1.1.0.10:3000";
+var apiUri = "http://localhost:3000";
+if (process.env.NODE_ENV == "production") {
+  apiUri = "https://apicord.herokuapp.com";
+}
 export default {
   name: "mainPane",
   data() {
