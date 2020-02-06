@@ -70,8 +70,11 @@ export default {
   padding-top: 0;
 }
 @media screen and (max-width: 700px) {
-  .container {
-    padding: 0;
+  .send {
+    margin-right: 1rem;
+  }
+  .recv {
+    margin-left: 1rem;
   }
 }
 </style>

@@ -80,11 +80,7 @@ export default {
 }
 @media screen and (max-width: 700px) {
   .chat_bubble_pane {
-    height: 50rem;
     margin: 0;
-    padding: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 0;
   }
 }
 </style>
