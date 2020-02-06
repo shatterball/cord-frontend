@@ -35,9 +35,7 @@ import ChatPane from "../components/ChatPane/ChatPane";
 import Axios from "axios";
 import io from "socket.io-client";
 import jwtDecode from "jwt-decode";
-var apiUrl = "http://localhost:3000";
-if (process.env.NODE_ENV == "production")
-  apiUrl = "https://apicord.herokuapp.com";
+var apiUri = process.env.API_URI || "http://1.1.0.10:3000";
 export default {
   name: "mainPane",
   data() {
@@ -54,7 +52,7 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io(apiUrl, {
+      socket: io(apiUri, {
         secure: true
       })
     };
@@ -72,7 +70,7 @@ export default {
       var target = this.selectedUser.id;
       this.chatArray = [];
       this.loadingChat = true;
-      Axios.post(apiUrl + "/api/messages/", {
+      Axios.post(apiUri + "/api/messages/", {
         token: this.token,
         target
       }).then(jsonData => {
@@ -126,7 +124,7 @@ export default {
     if (this.currentUser.username == undefined) {
       this.$router.push({ name: "login" });
     }
-    Axios.post(apiUrl + "/api/users", {
+    Axios.post(apiUri + "/api/users", {
       token: this.token
     }).then(res => {
       this.usersArray = res.data;
@@ -170,7 +168,7 @@ export default {
       // }
     });
     this.socket.on("online-list", users => {
-      Axios.post(apiUrl + "/api/users", {
+      Axios.post(apiUri + "/api/users", {
         token: this.token
       }).then(res => {
         this.usersArray = res.data;

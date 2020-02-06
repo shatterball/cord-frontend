@@ -16,7 +16,7 @@
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
-      @keyup="onKeyDownNotEnter"
+      @keyup="typingEvent"
       ref="inputBar"
     />
     <img
@@ -78,7 +78,7 @@ export default {
       this.typing = false;
       this.$emit("typing", false);
     },
-    onKeyDownNotEnter: function(event) {
+    typingEvent: function(event) {
       if (this.typing == false && event.key != "Enter") {
         this.typing = true;
         this.$emit("typing", true);

@@ -34,9 +34,7 @@
 
 <script>
 import Axios from "axios";
-var apiUrl = "http://localhost:3000";
-if (process.env.NODE_ENV == "production")
-  apiUrl = "https://apicord.herokuapp.com";
+var apiUri = process.env.API_URI || "http://1.1.0.10:3000";
 export default {
   data: function() {
     return {
@@ -66,7 +64,7 @@ export default {
         this.errorMode = true;
         this.error = "Please fill out all the required fields!";
       } else if (this.passwd == this.passwd_re) {
-        Axios.post(apiUrl + "/api/register", {
+        Axios.post(apiUri + "/api/register", {
           fname: this.fname,
           lname: this.lname,
           username: this.username,
