@@ -18,7 +18,7 @@
       @keyup.enter="sendMessage"
       @keyup="onKeyDownNotEnter"
       ref="inputBar"
-      autofocus
+      @focus="scrollChat"
     />
     <img
       @click="sendMessage"
@@ -87,6 +87,10 @@ export default {
         clearTimeout(this.timeout);
         this.timeout = setTimeout(this.timeoutFunction, 2000);
       }
+    },
+    scrollChat: function() {
+      this.showEmojiPicker = false;
+      this.$emit("scrollChat");
     }
   }
 };
@@ -94,9 +98,11 @@ export default {
 
 <style scoped>
 .show {
+  opacity: 1;
   visibility: visible;
 }
 .hide {
+  opacity: 0;
   visibility: hidden;
 }
 .icon {
@@ -117,11 +123,11 @@ export default {
   position: absolute;
   margin-top: -30rem;
   margin-left: 2rem;
+  transition: 0.2s;
 }
 .input_pane {
   display: flex;
   height: 4rem;
-  /* padding: 0 1rem; */
   justify-content: space-between;
   align-items: center;
 }

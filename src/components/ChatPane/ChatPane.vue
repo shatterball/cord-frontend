@@ -7,6 +7,7 @@
       :typing="typing"
     />
     <ChatBubblePane
+      ref="chatBubblePane"
       :chatArray="chatArray"
       :loadingChat="loadingChat"
       :currentUser="currentUser"
@@ -15,6 +16,7 @@
     <InputPane
       @send-message="sendMessage"
       @typing="typingEmit"
+      @scrollChat="scrollChat"
       :currentUser="currentUser"
       :selectedUser="selectedUser"
     />
@@ -51,6 +53,9 @@ export default {
     },
     typingEmit: function(status) {
       this.$emit("typing", status);
+    },
+    scrollChat: function() {
+      this.$refs.chatBubblePane.updated();
     }
   }
 };
