@@ -35,10 +35,7 @@ import ChatPane from "../components/ChatPane/ChatPane";
 import Axios from "axios";
 import io from "socket.io-client";
 import jwtDecode from "jwt-decode";
-var apiUri = "http://localhost:3000";
-if (process.env.NODE_ENV == "production") {
-  apiUri = "https://apicord.herokuapp.com";
-}
+var apiUri = "https://apicord.herokuapp.com";
 export default {
   name: "mainPane",
   data() {
@@ -153,22 +150,28 @@ export default {
       ) {
         this.chatArray.push(data);
       }
-      // var sentBy;
-      // for (let i = 0; i < this.usersArray.length; i++) {
-      //   if (this.usersArray[i].id == data.from) {
-      //     sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
-      //   }
-      // }
-      // if (data.from != this.selectedUser.id || !this.tabFocus) {
-      //   Notification.requestPermission().then(function(result) {
-      //     if (result == "granted") {
-      //       new Notification(sentBy, {
-      //         body: data.content,
-      //         icon: undefined
-      //       });
-      //     }
-      //   });
-      // }
+      var sentBy;
+      for (let i = 0; i < this.usersArray.length; i++) {
+        if (this.usersArray[i].id == data.from) {
+          sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
+        }
+      }
+      if (
+        (data.from == this.selectedUser.id && this.tabFocus) ||
+        data.from == this.currentUser.id
+      ) {
+        // eslint-disable-next-line no-console
+        console.log("No notification for you");
+      } else {
+        Notification.requestPermission().then(function(result) {
+          if (result == "granted") {
+            new Notification(sentBy, {
+              body: data.content,
+              icon: undefined
+            });
+          }
+        });
+      }
     });
     this.socket.on("online-list", users => {
       Axios.post(apiUri + "/api/users", {

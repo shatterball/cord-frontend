@@ -34,10 +34,7 @@
 
 <script>
 import Axios from "axios";
-var apiUri = "http://localhost:3000";
-if (process.env.NODE_ENV == "production") {
-  apiUri = "https://apicord.herokuapp.com";
-}
+var apiUri = "https://apicord.herokuapp.com";
 export default {
   data: function() {
     return {

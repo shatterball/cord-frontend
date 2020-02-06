@@ -37,10 +37,7 @@
 <script>
 import Axios from "axios";
 import jwtDecode from "jwt-decode";
-var apiUri = "http://localhost:3000";
-if (process.env.NODE_ENV == "production") {
-  apiUri = "https://apicord.herokuapp.com";
-}
+var apiUri = "https://apicord.herokuapp.com";
 export default {
   name: "loginPane",
   data: function() {
