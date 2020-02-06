@@ -150,25 +150,25 @@ export default {
       ) {
         this.chatArray.push(data);
       }
-      // var sentBy;
-      // for (let i = 0; i < this.usersArray.length; i++) {
-      //   if (this.usersArray[i].id == data.from) {
-      //     sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
-      //   }
-      // }
-      // if (
-      //   (data.from != this.selectedUser.id || !this.tabFocus) &&
-      //   data.from != this.currentUser.id
-      // ) {
-      //   Notification.requestPermission().then(function(result) {
-      //     if (result == "granted") {
-      //       new Notification(sentBy, {
-      //         body: data.content,
-      //         icon: undefined
-      //       });
-      //     }
-      //   });
-      // }
+      var sentBy;
+      for (let i = 0; i < this.usersArray.length; i++) {
+        if (this.usersArray[i].id == data.from) {
+          sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
+        }
+      }
+      if (
+        (data.from != this.selectedUser.id || !this.tabFocus) &&
+        data.from != this.currentUser.id
+      ) {
+        Notification.requestPermission().then(function(result) {
+          if (result == "granted") {
+            new Notification(sentBy, {
+              body: data.content,
+              icon: undefined
+            });
+          }
+        });
+      }
     });
     this.socket.on("online-list", users => {
       Axios.post(apiUri + "/api/users", {
