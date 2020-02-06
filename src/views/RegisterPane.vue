@@ -34,6 +34,9 @@
 
 <script>
 import Axios from "axios";
+var apiUrl = "http://localhost:3000";
+if (process.env.NODE_ENV == "production")
+  apiUrl = "https://apicord.herokuapp.com";
 export default {
   data: function() {
     return {
@@ -45,7 +48,8 @@ export default {
       passwd_re: "",
       sex: "",
       errorMode: false,
-      error: ""
+      error: "",
+      showLoader: false
     };
   },
   methods: {
@@ -62,7 +66,7 @@ export default {
         this.errorMode = true;
         this.error = "Please fill out all the required fields!";
       } else if (this.passwd == this.passwd_re) {
-        Axios.post("https://apicord.herokuapp.com/api/register", {
+        Axios.post(apiUrl + "/api/register", {
           fname: this.fname,
           lname: this.lname,
           username: this.username,
@@ -78,7 +82,10 @@ export default {
             this.username = "";
           })
           .then(() => {
-            if (!this.errorMode) this.$router.push({ name: "login" });
+            if (!this.errorMode) {
+              setTimeout(500);
+              this.$router.push({ name: "login" });
+            }
           });
       }
     }
@@ -171,6 +178,32 @@ body {
 }
 .button:active {
   transform: scale(0.9);
+}
+.overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: #eee;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  border: 0.3rem solid #f3f3f3;
+  border-top: 0.3rem solid #268bd2;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @media screen and (max-width: 700px) {
   .register_pane {

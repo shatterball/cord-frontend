@@ -37,6 +37,9 @@
 <script>
 import Axios from "axios";
 import jwtDecode from "jwt-decode";
+var apiUrl = "http://localhost:3000";
+if (process.env.NODE_ENV == "production")
+  apiUrl = "https://apicord.herokuapp.com";
 export default {
   name: "loginPane",
   data: function() {
@@ -57,7 +60,7 @@ export default {
         return;
       }
       document.getElementById("loader").style = "visibility:visible";
-      Axios.post("https://apicord.herokuapp.com/api/login/", {
+      Axios.post(apiUrl + "/api/login/", {
         username: this.username.trim(),
         passwd: this.passwd
       })
