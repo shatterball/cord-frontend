@@ -184,8 +184,8 @@ export default {
 .loader {
   visibility: hidden;
   align-self: center;
-  border: 0.3rem solid #f3f3f3; /* Light grey */
-  border-top: 0.3rem solid #3498db; /* Blue */
+  border: 0.3rem solid #f3f3f3;
+  border-top: 0.3rem solid #268bd2;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;

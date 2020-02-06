@@ -56,19 +56,14 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background: #eee;
   z-index: 2;
   display: flex;
   justify-content: center;
 }
 .loader {
-  align-self: center;
-  border: 0.3rem solid #f3f3f3; /* Light grey */
-  border-top: 0.3rem solid #3498db; /* Blue */
+  border: 0.3rem solid #f3f3f3;
+  border-top: 0.3rem solid #268bd2;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;

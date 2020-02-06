@@ -51,7 +51,11 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io("apicord.herokuapp.com", { secure: true })
+      socket: io("apicord.herokuapp.com", {
+        secure: true,
+        pingTimeout: 4000,
+        pingInterval: 3000
+      })
     };
   },
   components: {
@@ -137,34 +141,32 @@ export default {
       });
     });
     document.addEventListener("visibilitychange", this.setFocus);
-    // window.addEventListener("focus", this.setFocus);
-    // window.addEventListener("blur", this.setFocus);
   },
   created() {
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
-      // var sentBy;
-      // for (let i = 0; i < this.usersArray.length; i++) {
-      //   if (this.usersArray[i].id == data.from) {
-      //     sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
-      //   }
-      // }
+      var sentBy;
+      for (let i = 0; i < this.usersArray.length; i++) {
+        if (this.usersArray[i].id == data.from) {
+          sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
+        }
+      }
       if (
         data.from == this.selectedUser.id ||
         (data.from == this.currentUser.id && data.to == this.selectedUser.id)
       ) {
         this.chatArray.push(data);
       }
-      // if (data.from != this.selectedUser.id || !this.tabFocus) {
-      //   Notification.requestPermission().then(function(result) {
-      //     if (result == "granted") {
-      //       new Notification(sentBy, {
-      //         body: data.content,
-      //         icon: undefined
-      //       });
-      //     }
-      //   });
-      // }
+      if (data.from != this.selectedUser.id || !this.tabFocus) {
+        Notification.requestPermission().then(function(result) {
+          if (result == "granted") {
+            new Notification(sentBy, {
+              body: data.content,
+              icon: undefined
+            });
+          }
+        });
+      }
     });
     this.socket.on("online-list", users => {
       Axios.post("https://apicord.herokuapp.com/api/users", {
@@ -203,20 +205,15 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   position: fixed;
   height: 100vh;
   width: 100vw;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background: #eee;
   z-index: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .loader {
-  /* visibility: hidden; */
-  align-self: center;
-  border: 0.3rem solid #f3f3f3; /* Light grey */
-  border-top: 0.3rem solid #3498db; /* Blue */
+  border: 0.3rem solid #f3f3f3;
+  border-top: 0.3rem solid #268bd2;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
