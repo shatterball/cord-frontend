@@ -1,14 +1,5 @@
 import Vue from "vue";
 import App from "./App.vue";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faPaperPlane,
-  faSignOutAlt,
-  faComments,
-  faArrowLeft,
-  faLaugh
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import router from "./router";
 import store from "./store";
 
@@ -46,10 +37,6 @@ Vue.directive("$model", {
     el.oninput = () => (vnode.context[binding.expression] = el.value);
   }
 });
-
-library.add(faPaperPlane, faSignOutAlt, faComments, faArrowLeft, faLaugh);
-
-Vue.component("font-awesome", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
