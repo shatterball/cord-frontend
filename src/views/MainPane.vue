@@ -77,10 +77,12 @@ export default {
     },
     showChat: function() {
       document.getElementById("chat_pane").style = "display: flex";
+      document.getElementById("list_pane").style = "opacity: 0";
       document.getElementById("list_pane").style = "display: none";
     },
     showList: function() {
       document.getElementById("list_pane").style = "display: flex";
+      document.getElementById("chat_pane").style = "opacity: 0";
       document.getElementById("chat_pane").style = "display: none";
     },
     sendMessage: function(msg) {
@@ -106,9 +108,6 @@ export default {
   beforeCreate: function() {
     this.$store.commit("setToken", localStorage.getItem("jwt"));
     if (this.$store.getters.token == undefined) {
-      this.$router.push({ name: "login" });
-    }
-    if (Date.now() >= jwtDecode(this.$store.getters.token).exp * 1000) {
       this.$router.push({ name: "login" });
     }
     this.$store.commit(

@@ -69,5 +69,6 @@ export default {
   background: #ddd;
   flex: 1;
   overflow: auto;
+  transition: 0.2s;
 }
 </style>

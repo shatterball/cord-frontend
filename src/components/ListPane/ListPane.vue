@@ -60,6 +60,7 @@ export default {
   flex: 0 1 auto;
   width: 27rem;
   background: #ddd;
+  transition: 0.2s;
 }
 .user_list {
   flex: 1;
