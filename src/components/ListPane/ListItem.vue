@@ -1,13 +1,11 @@
 <template>
   <div @click="loadChat" class="userbox shared" :class="{selected: selected}">
-    <div class="image_container">
-      <div v-if="online" class="badge"></div>
-      <img :class="{male: user.sex == 1,female: user.sex == 0}" class="icon" />
-    </div>
+    <img :src="getProfilePhoto" alt="Photo" class="icon" />
     <div class="container">
       <p class="username shared">{{ fullname }}</p>
       <p class="username condensed">{{ "@" + user.username }}</p>
     </div>
+    <div class="badge" :class="{'show': online == true}"></div>
   </div>
 </template>
 
@@ -35,6 +33,13 @@ export default {
     },
     checkSelected() {
       return this.selected == true;
+    },
+    getProfilePhoto() {
+      var photo;
+      if (this.user.image == undefined) {
+        photo = require("@/assets/profile.svg");
+      }
+      return photo;
     }
   }
 };
@@ -44,8 +49,8 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
-  padding-left: 0;
+  margin: 0 1rem;
+  flex: 1;
 }
 .shared {
   font-family: sans-serif;
@@ -53,18 +58,8 @@ export default {
   color: #555;
   user-select: none;
 }
-.male {
-  content: url("../../assets/contact-male.png");
-}
-.female {
-  content: url("../../assets/contact-female.png");
-}
-.shadow {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
-}
 .condensed {
   color: #268bd2;
-  font-family: Roboto Condensed;
   font-weight: bold;
   font-size: 0.8rem;
 }
@@ -74,7 +69,7 @@ export default {
   margin: 1rem;
   border-bottom: 0;
   border-radius: 2rem;
-  background: #eee;
+  background: #ccc;
   height: 4rem;
   overflow: hidden;
   transition: 0.2s;
@@ -90,37 +85,28 @@ export default {
   margin-top: 0;
 }
 .selected {
-  background: #cfcfcf;
+  background: #bbb;
 }
 .username {
   font-family: sans-serif;
   margin: 0;
 }
-.online {
-  border: 0.2rem solid #268bd2;
-  background: #268bd2;
-}
-.offline {
-  border: 0.2rem solid #aaa;
-  background: #aaa;
-}
-.image_container {
-  position: relative;
-  padding-right: 1rem;
-}
 .icon {
   vertical-align: middle;
-  width: 3.8rem;
   height: 3.8rem;
   border-radius: 50%;
   margin-left: 0.1rem;
 }
 .badge {
-  position: absolute;
-  height: 0.9rem;
-  width: 0.9rem;
+  visibility: hidden;
+  height: 0.6em;
+  width: 0.6rem;
+  margin-right: 1.5rem;
   border-radius: 50%;
-  background: #268bd2;
+  background: #2a91dd;
   right: 1rem;
+}
+.show {
+  visibility: visible;
 }
 </style>

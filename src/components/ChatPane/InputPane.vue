@@ -154,7 +154,7 @@ export default {
   margin: 0 1rem;
   color: #888;
   transition: 0.2s;
-  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 .button:active {
   transform: scale(0.85);

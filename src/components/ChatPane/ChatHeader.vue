@@ -103,11 +103,12 @@ export default {
 }
 .button {
   color: #888;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.8rem;
+  width: 1.8rem;
   cursor: pointer;
   transition: 0.2s;
   margin: 0 1rem;
+  user-select: none;
 }
 .button:active {
   transform: scale(0.85);

@@ -1,9 +1,6 @@
 <template>
   <div class="list_pane">
     <div class="search_pane">
-      <button class="button" @click="hideList">
-        <font-awesome icon="arrow-left" />
-      </button>
       <input type="text" v-$model="searchText" class="search" placeholder="Search" />
     </div>
     <div class="user_list">
@@ -40,9 +37,6 @@ export default {
   methods: {
     loadChat: function(id) {
       this.$emit("load-chat", id);
-    },
-    hideList: function() {
-      this.$emit("hide-list");
     }
   },
   computed: {
@@ -76,23 +70,22 @@ export default {
 }
 .search {
   font-family: sans-serif;
-  height: 3rem;
-  font-size: 1.2rem;
+  height: 2rem;
+  font-size: 1rem;
   padding: 0 1rem;
-  width: 70%;
-  margin-right: 2rem;
+  width: 100%;
   text-align: center;
   outline: none;
   border: none;
-  background: #ddd;
+  border-radius: 2rem;
+  background: #eee;
   color: #555;
 }
 .search_pane {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
-  width: 100%;
+  padding: 0 2rem;
   height: 3.5rem;
 }
 .button {
@@ -117,9 +110,6 @@ export default {
 @media screen and (max-width: 700px) {
   .list_pane {
     width: 100%;
-  }
-  .search {
-    margin-right: 4rem;
   }
   .button {
     display: block;

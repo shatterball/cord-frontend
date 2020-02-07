@@ -5,9 +5,7 @@
     </div>
     <ListPane
       id="list_pane"
-      v-if="showListPane"
       @load-chat="loadChat"
-      @hide-list="showChat"
       :connectedUsers="connectedUsers"
       :usersArray="usersArray"
       :currentUser="currentUser"
@@ -15,7 +13,6 @@
     />
     <ChatPane
       id="chat_pane"
-      v-if="showChatPane"
       @send-message="sendMessage"
       @show-list="showList"
       @logout="logout"
@@ -79,12 +76,12 @@ export default {
       });
     },
     showChat: function() {
-      this.showListPane = false;
-      this.showChatPane = true;
+      document.getElementById("chat_pane").style = "display: flex";
+      document.getElementById("list_pane").style = "display: none";
     },
     showList: function() {
-      this.showListPane = true;
-      this.showChatPane = false;
+      document.getElementById("list_pane").style = "display: flex";
+      document.getElementById("chat_pane").style = "display: none";
     },
     sendMessage: function(msg) {
       this.socket.emit("message-send", msg);
@@ -132,6 +129,8 @@ export default {
     });
   },
   mounted() {
+    if (window.innerWidth < 700)
+      document.getElementById("chat_pane").style = "display:none";
     this.$nextTick(() => {
       window.addEventListener("resize", () => {
         this.windowHeight = window.innerHeight;
@@ -183,9 +182,6 @@ export default {
         this.typing = data.status;
       }
     });
-    if (window.innerWidth < 700) {
-      this.showChat();
-    }
   },
   beforeDestroy() {
     this.socket.emit("disconnect");
@@ -198,7 +194,6 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 <style >
 .main_pane {
   display: flex;
-  /* position: relative; */
   width: 100vw;
   height: 100vh;
   flex-direction: row;
