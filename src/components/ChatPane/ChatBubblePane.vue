@@ -1,5 +1,5 @@
 <template>
-  <div class="chat_bubble_pane">
+  <div class="wrapper_pane">
     <div class="overlay" v-if="loadingChat" id="loadingChat">
       <div id="loader" class="loader"></div>
     </div>
@@ -40,16 +40,21 @@ export default {
 </script>
 
 <style scoped>
+.wrapper_pane {
+  position: relative;
+  overflow: auto;
+  flex: 1;
+  display: flex;
+}
 .chat_bubble_pane {
   position: relative;
+  padding: 0.5rem 0;
   background: #eee;
-  padding: 1rem 0rem;
   overflow: auto;
   overscroll-behavior: none;
   flex: 1;
   display: flex;
   flex-direction: column;
-  transition: 0.2s;
 }
 .chat_bubble_pane::-webkit-scrollbar {
   display: none;
