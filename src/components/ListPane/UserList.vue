@@ -80,7 +80,7 @@ export default {
   padding: 0 2rem;
   height: 3.5rem;
 }
-::placeholder {
-  color: #888;
-}
+/* ::placeholder {
+  color: #999;
+} */
 </style>
