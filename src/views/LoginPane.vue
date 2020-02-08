@@ -37,7 +37,7 @@
 <script>
 import Axios from "axios";
 import jwtDecode from "jwt-decode";
-var apiUri = "https://apicord.herokuapp.com";
+var apiUri = "http://apicord.herokuapp.com";
 export default {
   name: "loginPane",
   data: function() {
