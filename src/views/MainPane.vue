@@ -103,9 +103,6 @@ export default {
     },
     setFocus: function() {
       this.tabFocus = document.hasFocus();
-    },
-    closeSidebar: function() {
-      document.getElementById("sidebar").style.width = "0";
     }
   },
   beforeCreate: function() {
@@ -131,8 +128,6 @@ export default {
     });
   },
   mounted() {
-    var vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
     if (window.innerWidth < 700)
       document.getElementById("chat_pane").style = "display:none";
     this.$nextTick(() => {
@@ -167,7 +162,7 @@ export default {
           if (result == "granted") {
             new Notification(sentBy, {
               body: data.content,
-              sidebar_button: undefined
+              icon: undefined
             });
           }
         });
@@ -192,9 +187,10 @@ export default {
     window.removeEventListener("resize", this.onResize);
   }
 };
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
-
-<style>
+<style >
 .main_pane {
   display: flex;
   width: 100vw;
