@@ -44,7 +44,7 @@ export default {
           " " +
           this.selectedUser.lname
         ).substring(0, 32);
-      else return "Empty";
+      else return "Devcord";
     }
   }
 };
@@ -88,7 +88,7 @@ export default {
   justify-content: space-around;
 }
 .name {
-  color: #444;
+  color: #333;
   font-weight: 500;
   font-size: 1.3rem;
   text-align: left;

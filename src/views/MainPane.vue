@@ -23,24 +23,36 @@
       :typing="typing"
       :loadingChat="loadingChat"
     />
+    <Sidebar :isPanelOpen="isPanelOpen">
+      <Profile :user="currentUser" />
+    </Sidebar>
   </div>
 </template>
 
 <script>
 import ListPane from "../components/ListPane/ListPane";
 import ChatPane from "../components/ChatPane/ChatPane";
+import Sidebar from "../components/Sidebar";
+import Profile from "../components/Profile";
 import Axios from "axios";
 import io from "socket.io-client";
 import jwtDecode from "jwt-decode";
 var apiUri = "https://apicord.herokuapp.com";
 export default {
   name: "mainPane",
+  components: {
+    ListPane,
+    ChatPane,
+    Sidebar,
+    Profile
+  },
   data() {
     return {
       showChatPane: true,
       showListPane: true,
       windowHeight: Number,
       tabFocus: Boolean,
+      isPanelOpen: false,
       typing: false,
       loadingChat: false,
       usersArray: [],
@@ -54,15 +66,12 @@ export default {
       })
     };
   },
-  components: {
-    ListPane,
-    ChatPane
-  },
   methods: {
     loadChat: function(id) {
       if (window.innerWidth < 700) {
         this.showChat();
       }
+      this.isPanelOpen = true;
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
       this.chatArray = [];
