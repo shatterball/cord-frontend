@@ -7,6 +7,7 @@
       id="list_pane"
       @load-chat="loadChat"
       @open-profile="openProfile"
+      @logout="logout"
       :connectedUsers="connectedUsers"
       :usersArray="usersArray"
       :currentUser="currentUser"
@@ -16,7 +17,6 @@
       id="chat_pane"
       @send-message="sendMessage"
       @show-list="showList"
-      @logout="logout"
       @typing="typingEmit"
       :currentUser="currentUser"
       :selectedUser="selectedUser"
@@ -100,9 +100,11 @@ export default {
       this.chatArray.push(msg);
     },
     logout: function() {
-      this.socket.disconnect();
-      localStorage.removeItem("jwt");
-      this.$router.push({ name: "login" });
+      if (confirm("Sure wanna logout?")) {
+        this.socket.disconnect();
+        localStorage.removeItem("jwt");
+        this.$router.push({ name: "login" });
+      }
     },
     typingEmit: function(status) {
       this.socket.emit("typing", {

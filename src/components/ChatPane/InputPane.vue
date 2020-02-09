@@ -136,7 +136,7 @@ export default {
   flex: 1 0 auto;
   color: #555;
   background: #eee;
-  margin: 0 1rem;
+  margin: 0;
   padding: 0 1rem;
   color: #222;
   height: 2.5rem;
@@ -151,10 +151,11 @@ export default {
   height: 1.5rem;
   width: 1.5rem;
   cursor: pointer;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
   color: #888;
   transition: 0.2s;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .button:active {
   transform: scale(0.85);

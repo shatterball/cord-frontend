@@ -1,9 +1,9 @@
 <template>
   <div class="sidebar">
     <transition name="slide">
-      <div v-if="isPanelOpen" class="sidebar-panel">
+      <div v-if="isPanelOpen" class="sidebar-panel shadow">
         <div class="header">
-          <img src="@/assets/hamburger.svg" class="back-button" @click="closeSidebarPanel" />
+          <img src="@/assets/back.svg" class="back-button" @click="closeSidebarPanel" />
         </div>
         <div class="content">
           <slot></slot>
@@ -45,7 +45,7 @@ export default {
   top: 0;
   height: 100vh;
   z-index: 999;
-  width: 27rem;
+  width: 30%;
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +58,7 @@ export default {
 .back-button {
   height: 1.5rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .content {
   flex: 1;

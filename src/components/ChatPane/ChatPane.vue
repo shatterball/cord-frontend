@@ -1,11 +1,6 @@
 <template>
   <div class="chat_pane">
-    <ChatHeader
-      @logout="logout"
-      @show-list="showList"
-      :selectedUser="selectedUser"
-      :typing="typing"
-    />
+    <ChatHeader @show-list="showList" :selectedUser="selectedUser" :typing="typing" />
     <ChatBubblePane
       ref="chatBubblePane"
       :chatArray="chatArray"
@@ -47,9 +42,6 @@ export default {
     },
     showList: function() {
       this.$emit("show-list");
-    },
-    logout: function() {
-      this.$emit("logout");
     },
     typingEmit: function(status) {
       this.$emit("typing", status);

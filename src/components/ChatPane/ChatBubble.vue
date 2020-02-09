@@ -33,17 +33,16 @@ export default {
 }
 .bubble {
   margin: 0.3rem 0;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   max-width: 30rem;
-  /* margin-left: auto; */
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 .send {
   align-self: flex-end;
   color: #333;
   border: 0.1rem solid #0087ff;
-  border-radius: 1rem 1rem 0.2rem 1rem;
   padding: 0;
+  border-bottom-right-radius: 0;
   margin-right: 5rem;
 }
 .send .time {
@@ -52,7 +51,7 @@ export default {
 .recv {
   align-self: flex-start;
   border: 0.1rem solid #d33682;
-  border-radius: 1rem 1rem 1rem 0.2rem;
+  border-bottom-left-radius: 0;
   margin-left: 5rem;
 }
 .recv .time {

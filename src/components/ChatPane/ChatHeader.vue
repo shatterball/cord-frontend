@@ -1,11 +1,10 @@
 <template>
   <div class="chat_header shared">
-    <img @click="showList" class="button shared" src="@/assets/chat.svg" alt="Chats" id="chats" />
+    <img @click="showList" class="button shared" src="@/assets/back.svg" id="chats" />
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
       <p :class="[typing == true ? 'show' : 'hide' ]" class="typing">Typing...</p>
     </div>
-    <img @click="logout" class="button shared" src="@/assets/logout.svg" alt="Chats" id="logout" />
   </div>
 </template>
 <script>
@@ -29,11 +28,6 @@ export default {
     },
     showList: function() {
       this.$emit("show-list");
-    },
-    logout() {
-      if (confirm("Logout?")) {
-        this.$emit("logout");
-      }
     }
   },
   computed: {
@@ -103,8 +97,8 @@ export default {
 }
 .button {
   color: #888;
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 1.3rem;
+  width: 1.3rem;
   cursor: pointer;
   transition: 0.2s;
   margin: 0 1rem;

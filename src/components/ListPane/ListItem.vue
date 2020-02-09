@@ -63,23 +63,19 @@ export default {
 .userbox {
   display: flex;
   align-items: center;
-  margin: 1rem;
   border-bottom: 0;
-  border-radius: 2rem;
-  background: #ccc;
-  height: 4rem;
+  background: #ddd;
+  height: 4.5rem;
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
+  border-bottom: 1px solid #ccc;
 }
 .userbox:hover {
   cursor: pointer;
 }
-.userbox:active {
-  border-bottom: 0;
-}
 .selected {
-  background: #bbb;
+  background: #ccc;
 }
 .username {
   font-family: sans-serif;
@@ -87,9 +83,9 @@ export default {
 }
 .icon {
   vertical-align: middle;
-  height: 3.8rem;
+  height: 3.5rem;
   border-radius: 50%;
-  margin-left: 0.1rem;
+  margin-left: 0.5rem;
 }
 .badge {
   visibility: hidden;

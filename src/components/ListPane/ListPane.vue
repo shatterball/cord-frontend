@@ -1,6 +1,6 @@
 <template>
   <div class="list_pane">
-    <ProfileBox @open-profile="openProfile" :currentUser="currentUser" />
+    <ProfileBox @logout="logout" @open-profile="openProfile" :currentUser="currentUser" />
     <UserList
       @load-chat="loadChat"
       :usersArray="usersArray"
@@ -37,6 +37,9 @@ export default {
     },
     openProfile: function() {
       this.$emit("open-profile");
+    },
+    logout: function() {
+      this.$emit("logout");
     }
   }
 };
@@ -47,7 +50,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex: 0 1 auto;
-  width: 27rem;
+  width: 30%;
   background: #ddd;
   transition: 0.2s;
 }
