@@ -43,10 +43,9 @@ export default {
     filterUsers() {
       return this.usersArray.filter(
         item =>
-          item.username.includes(this.searchText.toLowerCase()) ||
-          (item.fname.toLowerCase() + " " + item.lname.toLowerCase()).includes(
-            this.searchText.toLowerCase()
-          )
+          item.username.toLowerCase().includes(this.searchText.toLowerCase()) ||
+          item.fname.toLowerCase().includes(this.searchText.toLowerCase()) ||
+          item.lname.toLowerCase().includes(this.searchText.toLowerCase())
       );
     }
   }
