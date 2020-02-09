@@ -87,12 +87,10 @@ export default {
     },
     showChat: function() {
       document.getElementById("chat_pane").style = "display: flex";
-      document.getElementById("list_pane").style = "opacity: 0";
       document.getElementById("list_pane").style = "display: none";
     },
     showList: function() {
       document.getElementById("list_pane").style = "display: flex";
-      document.getElementById("chat_pane").style = "opacity: 0";
       document.getElementById("chat_pane").style = "display: none";
     },
     sendMessage: function(msg) {
@@ -167,17 +165,14 @@ export default {
       ) {
         this.chatArray.push(data);
       }
-      var sentBy;
       if (
         (data.from != this.selectedUser.id || !this.tabFocus) &&
         data.from != this.currentUser.id
       ) {
-        for (let i = 0; i < this.usersArray.length; i++) {
-          if (this.usersArray[i].id == data.from) {
-            sentBy = this.usersArray[i].fname + " " + this.usersArray[i].lname;
-          }
-        }
-        Notification.requestPermission().then(function(result) {
+        var sentBy = this.usersArray.find(user => {
+          return user.id == data.from;
+        }).fname;
+        Notification.requestPermission().then(result => {
           if (result == "granted") {
             new Notification(sentBy, {
               body: data.content,
