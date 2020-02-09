@@ -32,11 +32,6 @@ export default {
       }
       return photo;
     }
-  },
-  methods: {
-    openProfile: function() {
-      this.$emit("open-profile");
-    }
   }
 };
 </script>
