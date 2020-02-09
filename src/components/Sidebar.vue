@@ -14,13 +14,13 @@
 </template>
 <script>
 export default {
-  name: "idebar",
+  name: "Sidebar",
   props: {
     isPanelOpen: Boolean
   },
   methods: {
     closeSidebarPanel() {
-      this.isPanelOpen = false;
+      this.$emit("close-sidebar");
     }
   }
 };
@@ -34,7 +34,7 @@ export default {
 .slide-enter,
 .slide-leave-to {
   transform: translateX(-100%);
-  transition: all 100ms ease-in 0s;
+  transition: all 0.15s ease-in 0s;
 }
 
 .sidebar-panel {
@@ -52,17 +52,16 @@ export default {
 .header {
   display: flex;
   padding: 0 1rem;
-  height: 3.5rem;
-  /* justify-content: center; */
+  min-height: 3.5rem;
   align-items: center;
 }
 .back-button {
-  height: 2rem;
+  height: 1.5rem;
   cursor: pointer;
 }
 .content {
   flex: 1;
-  margin: 0 1rem;
+  margin: 1rem;
 }
 @media screen and (max-width: 700px) {
   .sidebar-panel {

@@ -62,23 +62,21 @@ export default {
 }
 .search {
   font-family: sans-serif;
-  height: 2rem;
   font-size: 1rem;
   padding: 0 1rem;
+  height: 3rem;
   width: 100%;
   text-align: center;
   outline: none;
   border: none;
-  border-radius: 2rem;
   background: #eee;
-  color: #555;
+  color: #444;
 }
 .search_pane {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
-  height: 3.5rem;
+  height: 3rem;
 }
 ::placeholder {
   color: #888;

@@ -28,9 +28,6 @@ export default {
     }
   },
   computed: {
-    trim(string) {
-      return string.substring(0, 32) + "...";
-    },
     checkSelected() {
       return this.selected == true;
     },
@@ -80,9 +77,6 @@ export default {
 }
 .userbox:active {
   border-bottom: 0;
-}
-.userbox:first-child {
-  margin-top: 0;
 }
 .selected {
   background: #bbb;

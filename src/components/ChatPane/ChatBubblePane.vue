@@ -56,9 +56,6 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.chat_bubble_pane::-webkit-scrollbar {
-  display: none;
-}
 .overlay {
   position: absolute;
   height: 100%;

@@ -1,5 +1,6 @@
 <template>
   <div class="list_pane">
+    <ProfileBox @open-profile="openProfile" :currentUser="currentUser" />
     <UserList
       @load-chat="loadChat"
       :usersArray="usersArray"
@@ -12,8 +13,13 @@
 
 <script>
 import UserList from "./UserList";
+import ProfileBox from "./ProfileBox";
 export default {
   name: "listPane",
+  components: {
+    UserList,
+    ProfileBox
+  },
   data: function() {
     return {
       searchText: ""
@@ -25,12 +31,12 @@ export default {
     currentUser: {},
     selectedUser: {}
   },
-  components: {
-    UserList
-  },
   methods: {
     loadChat: function(id) {
       this.$emit("load-chat", id);
+    },
+    openProfile: function() {
+      this.$emit("open-profile");
     }
   }
 };

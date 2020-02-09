@@ -1,15 +1,17 @@
 <template>
   <div class="container">
-    <img class="profile-photo" src="@/assets/profile.svg" alt />
+    <img class="profile-photo" :src="getProfilePhoto" />
     <h2>{{getName}}</h2>
     <h4>{{"@" + user.username}}</h4>
-    <p>Email: {{"@" + user.email}}</p>
-    <p>Gender: {{ }}</p>
-    <h4>Change Password</h4>
-    <input class="password-box" type="password" />
-    <input class="password-box" type="password" />
-    <input class="password-box" type="password" />
-    <button>Delete Profile</button>
+    <p>Email: {{user.email}}</p>
+    <div class="change-password">
+      <h4 class="banner">Change Password</h4>
+      <input class="password-box" type="password" placeholder="Old password" />
+      <input class="password-box" type="password" placeholder="New password" />
+      <input class="password-box" type="password" placeholder="Re-enter new password" />
+      <button class="button" id="change-password">Change password</button>
+    </div>
+    <button class="button" id="delete">Delete Profile</button>
   </div>
 </template>
 
@@ -22,6 +24,18 @@ export default {
   computed: {
     getName() {
       return this.user.fname + " " + this.user.lname;
+    },
+    getProfilePhoto() {
+      var photo;
+      if (this.user.image == undefined) {
+        photo = require("@/assets/profile.svg");
+      }
+      return photo;
+    }
+  },
+  methods: {
+    openProfile: function() {
+      this.$emit("open-profile");
     }
   }
 };
@@ -48,9 +62,12 @@ export default {
 .profile-photo {
   height: 10rem;
 }
-.password-input {
+.change-password {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  margin-top: 0;
 }
 .password-box {
   width: 15rem;
@@ -58,5 +75,30 @@ export default {
   border: none;
   height: 2rem;
   margin: 0.5rem;
+  padding: 0 1rem;
+}
+.button {
+  height: 2rem;
+  width: 10rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  color: #eee;
+  margin-top: 0.5rem;
+}
+#delete {
+  margin-top: 1rem;
+  background: #dc322f;
+}
+#change-password {
+  background: #268bd2;
+}
+.banner {
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 700px) {
+  .password-box {
+    height: 2.5rem;
+  }
 }
 </style>

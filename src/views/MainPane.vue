@@ -6,6 +6,7 @@
     <ListPane
       id="list_pane"
       @load-chat="loadChat"
+      @open-profile="openProfile"
       :connectedUsers="connectedUsers"
       :usersArray="usersArray"
       :currentUser="currentUser"
@@ -23,8 +24,8 @@
       :typing="typing"
       :loadingChat="loadingChat"
     />
-    <Sidebar :isPanelOpen="isPanelOpen">
-      <Profile :user="currentUser" />
+    <Sidebar @close-sidebar="closeSidebar" :isPanelOpen="isPanelOpen">
+      <Profile v-if="showProfile" :user="currentUser" />
     </Sidebar>
   </div>
 </template>
@@ -50,6 +51,7 @@ export default {
     return {
       showChatPane: true,
       showListPane: true,
+      showProfile: Boolean,
       windowHeight: Number,
       tabFocus: Boolean,
       isPanelOpen: false,
@@ -71,7 +73,6 @@ export default {
       if (window.innerWidth < 700) {
         this.showChat();
       }
-      this.isPanelOpen = true;
       this.selectedUser = this.usersArray.find(item => item.id == id);
       var target = this.selectedUser.id;
       this.chatArray = [];
@@ -112,6 +113,13 @@ export default {
     },
     setFocus: function() {
       this.tabFocus = document.hasFocus();
+    },
+    openProfile: function() {
+      this.showProfile = true;
+      this.isPanelOpen = true;
+    },
+    closeSidebar: function() {
+      this.isPanelOpen = false;
     }
   },
   beforeCreate: function() {
