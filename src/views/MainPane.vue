@@ -157,6 +157,11 @@ export default {
     document.addEventListener("visibilitychange", this.setFocus);
   },
   created() {
+    setInterval(() => {
+      if (!this.socket.connected && !this.socket.connecting) {
+        this.socket.emit("login", this.currentUser.id);
+      }
+    }, 1000);
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
       if (
