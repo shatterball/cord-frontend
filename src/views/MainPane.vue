@@ -38,7 +38,7 @@ import Profile from "../components/Profile";
 import Axios from "axios";
 import io from "socket.io-client";
 import jwtDecode from "jwt-decode";
-var apiUri = "http://apicord.herokuapp.com";
+var apiUri = "https://apicord.herokuapp.com";
 export default {
   name: "mainPane",
   components: {
