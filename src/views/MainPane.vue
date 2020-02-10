@@ -63,11 +63,10 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io(
-        apiUri
-        // secure: true
+      socket: io(apiUri, {
+        secure: true
         // reconnection: false
-      )
+      })
     };
   },
   methods: {
@@ -159,12 +158,12 @@ export default {
     document.addEventListener("visibilitychange", this.setFocus);
   },
   created() {
-    setInterval(() => {
-      if (!this.socket.connected && !this.socket.connecting) {
-        // this.socket.connect();
-        this.socket.emit("login", this.currentUser.id);
-      }
-    }, 1000);
+    // setInterval(() => {
+    //   if (!this.socket.connected && !this.socket.connecting) {
+    //     // this.socket.connect();
+    //     this.socket.emit("login", this.currentUser.id);
+    //   }
+    // }, 1000);
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
       if (
