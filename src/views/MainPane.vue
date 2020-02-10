@@ -196,6 +196,8 @@ export default {
         this.usersArray = res.data;
       });
       this.connectedUsers = users;
+      // eslint-disable-next-line no-console
+      console.log("List refreshed");
     });
     this.socket.on("typing", data => {
       if (this.selectedUser.id == data.from) {
