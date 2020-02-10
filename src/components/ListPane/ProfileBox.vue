@@ -9,6 +9,7 @@
       <img src="@/assets/hamburger.svg" alt="Photo" class="button" />
       <div :class="showMenu ? 'show' : 'hide'" class="dropdown shadow">
         <p class="option" @click="logout">Logout</p>
+        <p class="option" @click="openProfile">Profile</p>
       </div>
     </div>
   </div>
@@ -104,12 +105,18 @@ export default {
   align-items: center;
 }
 .option {
-  margin: 0.5rem 0;
+  margin: 0;
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   width: 3.5rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+.option:first-child {
+  margin-top: 0.3rem;
+}
+.option:last-child {
+  margin-bottom: 0.3rem;
 }
 .option:hover {
   background: #ddd;

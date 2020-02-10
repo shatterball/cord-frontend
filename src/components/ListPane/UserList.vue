@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="search_pane">
-      <input type="text" v-$model="searchText" class="search" placeholder="Search" />
+      <input type="search" v-$model="searchText" class="search" placeholder="Search chats" />
     </div>
     <div class="user_list">
       <ListItem

@@ -69,6 +69,9 @@ export default {
   padding-top: 0;
 }
 @media screen and (max-width: 700px) {
+  .bubble {
+    max-width: 80%;
+  }
   .send {
     margin-right: 1rem;
   }
