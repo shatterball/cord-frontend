@@ -38,7 +38,7 @@ import Profile from "../components/Profile";
 import Axios from "axios";
 import io from "socket.io-client";
 import jwtDecode from "jwt-decode";
-var apiUri = "https://apicord.herokuapp.com";
+var apiUri = "http://apicord.herokuapp.com";
 export default {
   name: "mainPane",
   components: {
@@ -63,10 +63,11 @@ export default {
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
-      socket: io(apiUri, {
-        secure: true
+      socket: io(
+        apiUri
+        // secure: true
         // reconnection: false
-      })
+      )
     };
   },
   methods: {
