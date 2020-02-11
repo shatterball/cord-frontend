@@ -51,9 +51,9 @@ export default {
     return {
       showChatPane: true,
       showListPane: true,
-      showProfile: Boolean,
+      showProfile: false,
       windowHeight: Number,
-      tabFocus: Boolean,
+      tabFocus: true,
       isPanelOpen: false,
       typing: false,
       loadingChat: false,
@@ -121,6 +121,7 @@ export default {
     },
     closeSidebar: function() {
       this.isPanelOpen = false;
+      this.showProfile = false;
     }
   },
   beforeCreate: function() {
@@ -160,7 +161,7 @@ export default {
   created() {
     setInterval(() => {
       if (!this.socket.connected && !this.socket.connecting) {
-        this.socket.connect();
+        // this.socket.connect();
         this.socket.emit("login", this.currentUser.id);
       }
     }, 1000);
@@ -196,8 +197,6 @@ export default {
         this.usersArray = res.data;
       });
       this.connectedUsers = users;
-      // eslint-disable-next-line no-console
-      console.log("List refreshed");
     });
     this.socket.on("typing", data => {
       if (this.selectedUser.id == data.from) {

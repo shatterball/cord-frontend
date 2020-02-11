@@ -8,8 +8,8 @@
     <div class="menu" @click="toggleMenu">
       <img src="@/assets/hamburger.svg" alt="Photo" class="button" />
       <div :class="showMenu ? 'show' : 'hide'" class="dropdown shadow">
-        <p class="option" @click="logout">Logout</p>
         <p class="option" @click="openProfile">Profile</p>
+        <p class="option" @click="logout">Logout</p>
       </div>
     </div>
   </div>
@@ -99,7 +99,6 @@ export default {
   background: #eee;
   margin-left: -3rem;
   z-index: 1;
-  /* width: 5rem; */
   border-radius: 0.3rem;
   transition: 0.2s;
   align-items: center;
