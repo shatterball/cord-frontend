@@ -50,7 +50,7 @@ export default {
 .send {
   align-self: flex-end;
   color: #333;
-  background: #75c0eb;
+  background: #97caef;
   padding: 0;
   border-top-right-radius: 0;
   margin-right: 5rem;
@@ -63,7 +63,7 @@ export default {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-left-color: #75c0eb;
+  border-left-color: #97caef;
   border-right: 0;
   border-top: 0;
   margin-right: -10px;
