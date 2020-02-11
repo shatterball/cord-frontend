@@ -86,7 +86,7 @@ export default {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-right-color: #ccc;
+  border-right-color: #97efe8;
   border-left: 0;
   border-top: 0;
   margin-top: 0px;

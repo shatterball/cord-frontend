@@ -61,10 +61,8 @@ export default {
   font-size: 0.8rem;
 }
 .userbox {
-  margin: 0.5rem;
   display: flex;
   align-items: center;
-  border-radius: 4rem;
   background: #ddd;
   min-height: 4rem;
   overflow: hidden;

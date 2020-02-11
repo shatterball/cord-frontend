@@ -244,9 +244,8 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 }
 @media screen and (max-width: 700px) {
   #list_pane {
-    flex: 1;
   }
-  .main_pane {
+  .chat_pane {
     height: calc(var(--vh, 1vh) * 100);
   }
 }
