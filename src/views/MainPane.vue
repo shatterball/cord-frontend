@@ -53,7 +53,7 @@ export default {
       showListPane: true,
       showProfile: false,
       windowHeight: Number,
-      tabFocus: true,
+      tabFocus: Boolean,
       isPanelOpen: false,
       typing: false,
       loadingChat: false,
