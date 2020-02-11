@@ -64,8 +64,7 @@ export default {
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
       socket: io(apiUri, {
-        secure: true,
-        reconnection: false
+        secure: true
       })
     };
   },
@@ -161,7 +160,6 @@ export default {
   created() {
     setInterval(() => {
       if (!this.socket.connected && !this.socket.connecting) {
-        // this.socket.connect();
         this.socket.emit("login", this.currentUser.id);
       }
     }, 1000);
