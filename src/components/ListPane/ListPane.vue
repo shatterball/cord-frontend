@@ -1,12 +1,17 @@
 <template>
   <div class="list_pane">
-    <ProfileBox @logout="logout" @open-profile="openProfile" :currentUser="currentUser" />
     <UserList
       @load-chat="loadChat"
       :usersArray="usersArray"
       :connectedUsers="connectedUsers"
       :currentUser="currentUser"
       :selectedUser="selectedUser"
+    />
+    <ProfileBox
+      @logout="logout"
+      @open-profile="openProfile"
+      :currentUser="currentUser"
+      class="profile-box"
     />
   </div>
 </template>
@@ -49,6 +54,7 @@ export default {
 .list_pane {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 0 1 auto;
   width: 30%;
   background: #ddd;

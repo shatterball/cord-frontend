@@ -51,8 +51,8 @@ export default {
 }
 .shared {
   font-family: sans-serif;
-  font-weight: bold;
-  color: #555;
+  font-weight: 500;
+  color: #333;
   user-select: none;
 }
 .condensed {
@@ -61,18 +61,19 @@ export default {
   font-size: 0.8rem;
 }
 .userbox {
+  margin: 0.5rem;
   display: flex;
   align-items: center;
-  border-bottom: 0;
+  border-radius: 4rem;
   background: #ddd;
-  height: 4.5rem;
+  min-height: 4rem;
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
-  border-bottom: 1px solid #ccc;
-}
-.userbox:hover {
   cursor: pointer;
+}
+.userbox:first-child {
+  margin-top: 0;
 }
 .selected {
   background: #ccc;
@@ -83,7 +84,7 @@ export default {
 }
 .icon {
   vertical-align: middle;
-  height: 3.5rem;
+  height: 3rem;
   border-radius: 50%;
   margin-left: 0.5rem;
 }

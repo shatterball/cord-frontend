@@ -35,7 +35,7 @@ export default {
   margin: 0.3rem 0;
   font-size: 0.8rem;
   max-width: 30rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 .send {
   align-self: flex-end;

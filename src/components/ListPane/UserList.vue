@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="search_pane">
-      <input type="search" v-$model="searchText" class="search" placeholder="Search chats" />
+      <input type="searchbox" v-$model="searchText" class="search" placeholder="Search chats" />
     </div>
     <div class="user_list">
       <ListItem
@@ -61,21 +61,28 @@ export default {
 }
 .search {
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   padding: 0 1rem;
-  height: 3rem;
-  width: 100%;
+  height: 2rem;
+  flex: 1;
+  margin: 0 2.5rem;
   text-align: center;
   outline: none;
   border: none;
+  border-radius: 2rem;
   background: #eee;
   color: #444;
+  transition: 0.2s;
+}
+.search:focus {
+  margin: 0 1rem;
 }
 .search_pane {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3rem;
+  height: 3.5rem;
 }
 ::placeholder {
   color: #888;

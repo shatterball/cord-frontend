@@ -58,7 +58,7 @@ export default {
 }
 .shared {
   font-family: sans-serif;
-  color: #aaa;
+  /* color: #aaa; */
   outline: none;
   margin: 0;
   padding: 0;
@@ -74,7 +74,6 @@ export default {
   height: 3.5rem;
 }
 .contact {
-  margin-left: 1rem;
   transition: 0.2s;
   flex: 1 0 auto;
   display: flex;
@@ -82,7 +81,7 @@ export default {
   justify-content: space-around;
 }
 .name {
-  color: #333;
+  color: #444;
   font-weight: 500;
   font-size: 1.3rem;
   text-align: left;
@@ -108,15 +107,9 @@ export default {
   transform: scale(0.85);
 }
 @media screen and (max-width: 700px) {
-  .contact {
-    margin-left: 0;
-  }
   .name {
     font-size: 1rem;
     margin-bottom: 0.2rem;
-  }
-  .chat_header {
-    height: 3.5rem;
   }
 }
 @media screen and (min-width: 700px) {

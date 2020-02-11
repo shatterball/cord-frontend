@@ -63,9 +63,4 @@ export default {
   overflow: auto;
   transition: 0.2s;
 }
-@media screen and (min-width: 700px) {
-  .chat_pane {
-    border-left: 1px solid #ccc;
-  }
-}
 </style>
