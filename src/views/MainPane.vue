@@ -164,9 +164,14 @@ export default {
     }, 1000);
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
+      // eslint-disable-next-line no-console
+      console.log(data);
+      var found = this.chatArray.some(el => el._id == data._id);
       if (
-        data.from == this.selectedUser.id ||
-        (data.from == this.currentUser.id && data.to == this.selectedUser.id)
+        (data.from == this.selectedUser.id ||
+          (data.from == this.currentUser.id &&
+            data.to == this.selectedUser.id)) &&
+        !found
       ) {
         this.chatArray.push(data);
       }

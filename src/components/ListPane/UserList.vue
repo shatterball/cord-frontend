@@ -66,7 +66,7 @@ export default {
   padding: 0 1rem;
   height: 2rem;
   flex: 1;
-  margin: 0 2.5rem;
+  margin: 0 2rem;
   text-align: center;
   outline: none;
   border: none;
@@ -74,9 +74,6 @@ export default {
   background: #eee;
   color: #444;
   transition: 0.2s;
-}
-.search:focus {
-  margin: 0 1rem;
 }
 .search_pane {
   display: flex;
