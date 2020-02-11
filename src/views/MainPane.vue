@@ -74,12 +74,11 @@ export default {
         this.showChat();
       }
       this.selectedUser = this.usersArray.find(item => item.id == id);
-      var target = this.selectedUser.id;
       this.chatArray = [];
       this.loadingChat = true;
       Axios.post(apiUri + "/api/messages/", {
         token: this.token,
-        target
+        target: this.selectedUser.id
       }).then(jsonData => {
         this.chatArray = jsonData.data;
         this.loadingChat = false;

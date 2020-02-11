@@ -14,7 +14,6 @@ export default {
 
 <style>
 .shadow {
-  /* box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.19); */
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.4);
 }
 * {
