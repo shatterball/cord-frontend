@@ -4,7 +4,7 @@
     <h2>{{getName}}</h2>
     <h4>{{"@" + user.username}}</h4>
     <p>Email: {{user.email}}</p>
-    <button class="button" id="delete">Delete Profile</button>
+    <button class="button" id="delete" @click="logout">Delete Profile</button>
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   name: "profile",
   props: {
     user: {}
+  },
+  methods: {
+    logout() {
+      this.$emit("logout");
+    }
   },
   computed: {
     getName() {

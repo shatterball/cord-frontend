@@ -25,7 +25,7 @@
       :loadingChat="loadingChat"
     />
     <Sidebar @close-sidebar="closeSidebar" :isPanelOpen="isPanelOpen">
-      <Profile v-if="showProfile" :user="currentUser" />
+      <Profile @logout="logout" v-if="showProfile" :user="currentUser" />
     </Sidebar>
   </div>
 </template>
