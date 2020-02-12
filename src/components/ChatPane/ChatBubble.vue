@@ -33,19 +33,21 @@ export default {
   position: relative;
   font-size: 0.8rem;
   max-width: 30rem;
+  display: flex;
+  align-items: center;
   border-radius: 0.3rem;
 }
 .message {
   color: #000;
   padding: 0.5rem 0.6rem;
-  padding-bottom: 0;
   word-break: break-word;
 }
 .time {
   color: #444;
   font-size: 0.6rem;
-  padding: 0.5rem 0.6rem;
-  padding-top: 0;
+  align-self: flex-end;
+  margin-bottom: 0.2rem;
+  min-width: 3rem;
 }
 .send {
   align-self: flex-end;
@@ -68,9 +70,6 @@ export default {
   border-top: 0;
   margin-right: -10px;
 }
-.send .time {
-  text-align: right;
-}
 .recv {
   align-self: flex-start;
   color: #222;
@@ -91,9 +90,6 @@ export default {
   border-top: 0;
   margin-top: 0px;
   margin-left: -10px;
-}
-.recv .time {
-  text-align: left;
 }
 @media screen and (max-width: 700px) {
   .bubble {
