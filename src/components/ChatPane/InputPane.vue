@@ -31,6 +31,7 @@
 </template>
 <script>
 import VEmoji from "v-emoji-picker";
+import uuid from "uuid";
 
 export default {
   name: "inputPane",
@@ -55,17 +56,19 @@ export default {
   },
   methods: {
     sendMessage: function() {
-      var message = {
-        from: this.currentUser.id,
-        to: this.selectedUser.id,
-        date: Date.now(),
-        content: ""
-      };
       if (this.text !== "") {
+        var message = {
+          _id: uuid.v1(),
+          from: this.currentUser.id,
+          to: this.selectedUser.id,
+          date: Date.now(),
+          content: this.text.trim()
+        };
+        // eslint-disable-next-line no-console
+        console.log(message);
         this.$refs.inputBar.focus();
         this.showEmojiPicker = false;
         if (this.selectedUser.id != undefined) {
-          message.content = this.text.trim();
           this.$emit("send-message", message);
         }
       }
