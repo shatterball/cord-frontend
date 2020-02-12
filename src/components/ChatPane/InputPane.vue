@@ -64,8 +64,6 @@ export default {
           date: Date.now(),
           content: this.text.trim()
         };
-        // eslint-disable-next-line no-console
-        console.log(message);
         this.$refs.inputBar.focus();
         this.showEmojiPicker = false;
         if (this.selectedUser.id != undefined) {
