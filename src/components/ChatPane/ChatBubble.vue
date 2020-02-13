@@ -130,5 +130,8 @@ export default {
   .recv {
     margin-left: 1rem;
   }
+  .status {
+    margin-bottom: 0.3rem;
+  }
 }
 </style>
