@@ -100,6 +100,9 @@ export default {
   margin-left: 5rem;
   border-top-left-radius: 0;
 }
+.recv .time {
+  margin-right: 0.4rem;
+}
 .recv:after {
   content: "";
   position: absolute;
