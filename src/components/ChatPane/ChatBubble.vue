@@ -1,11 +1,13 @@
 <template>
   <div :class="[type ? 'send' : 'recv']" class="bubble shared">
     <p class="shared message">{{ msg.content }}</p>
-    <p class="time shared">{{date}}</p>
-    <div
-      class="status shared"
-      :class="{'unread': msg.status == 0, 'sent': msg.status == 1 , 'read': msg.status == 2 }"
-    ></div>
+    <div class="info">
+      <p class="time shared">{{date}}</p>
+      <div
+        class="status shared"
+        :class="{'unread': msg.status == 0, 'sent': msg.status == 1 , 'read': msg.status == 2 }"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -37,7 +39,8 @@ export default {
   position: relative;
   font-size: 0.8rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   border-radius: 0.3rem;
 }
 .message {
@@ -45,22 +48,29 @@ export default {
   padding: 0.5rem 0.6rem;
   max-width: 30rem;
   word-break: break-word;
+  /* border: 1px solid #999; */
+}
+.info {
+  max-width: 5rem;
+  align-self: flex-end;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.3rem;
 }
 .time {
   color: #444;
   font-size: 0.6rem;
   align-self: flex-end;
-  margin-bottom: 0.2rem;
   text-align: right;
-  margin-right: 0.2rem;
-  min-width: 2.6rem;
+  margin-right: 0.3rem;
+  margin-left: 0.5rem;
 }
 .status {
   min-height: 0.5rem;
   min-width: 0.5rem;
+  margin-bottom: 0.14rem;
   align-self: flex-end;
-  margin-bottom: 0.4rem;
-  margin-right: 0.4rem;
   border-radius: 50%;
 }
 .unread {
@@ -100,8 +110,12 @@ export default {
   margin-left: 5rem;
   border-top-left-radius: 0;
 }
+.recv .info {
+  margin-left: 0.5rem;
+  align-self: flex-start;
+}
 .recv .time {
-  margin-right: 0.4rem;
+  margin-left: 0;
 }
 .recv:after {
   content: "";
@@ -130,8 +144,8 @@ export default {
   .recv {
     margin-left: 1rem;
   }
-  .status {
-    margin-bottom: 0.3rem;
+  .time {
+    margin-bottom: 0.1rem;
   }
 }
 </style>
