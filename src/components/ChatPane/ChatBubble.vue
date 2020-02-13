@@ -51,11 +51,13 @@ export default {
   font-size: 0.6rem;
   align-self: flex-end;
   margin-bottom: 0.2rem;
-  margin-right: 0.3rem;
+  text-align: right;
+  margin-right: 0.2rem;
+  min-width: 2.6rem;
 }
 .status {
-  height: 0.5rem;
-  width: 0.5rem;
+  min-height: 0.5rem;
+  min-width: 0.5rem;
   align-self: flex-end;
   margin-bottom: 0.4rem;
   margin-right: 0.4rem;
