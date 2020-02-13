@@ -84,10 +84,10 @@ export default {
       if (this.typing == false && event.key != "Enter") {
         this.typing = true;
         this.$emit("typing", true);
-        this.timeout = setTimeout(this.timeoutFunction, 1000);
+        this.timeout = setTimeout(this.timeoutFunction, 2000);
       } else {
         clearTimeout(this.timeout);
-        this.timeout = setTimeout(this.timeoutFunction, 1000);
+        this.timeout = setTimeout(this.timeoutFunction, 2000);
       }
     },
     scrollChat: function() {
