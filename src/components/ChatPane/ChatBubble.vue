@@ -68,7 +68,7 @@ export default {
   background: #888;
 }
 .read {
-  background: #268bd2;
+  background: #0288ff;
 }
 .send {
   align-self: flex-end;

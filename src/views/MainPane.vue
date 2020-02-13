@@ -136,6 +136,11 @@ export default {
       this.showProfile = false;
     }
   },
+  watch: {
+    selectedUser: function() {
+      this.typing = false;
+    }
+  },
   beforeCreate: function() {
     this.$store.commit("setToken", localStorage.getItem("jwt"));
     if (this.$store.getters.token == undefined) {
