@@ -62,7 +62,8 @@ export default {
           from: this.currentUser.id,
           to: this.selectedUser.id,
           date: Date.now(),
-          content: this.text.trim()
+          content: this.text.trim(),
+          status: 0
         };
         this.$refs.inputBar.focus();
         this.showEmojiPicker = false;

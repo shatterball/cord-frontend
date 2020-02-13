@@ -2,6 +2,10 @@
   <div :class="[type ? 'send' : 'recv']" class="bubble shared">
     <p class="shared message">{{ msg.content }}</p>
     <p class="time shared">{{date}}</p>
+    <div
+      class="status shared"
+      :class="{'unread': msg.status == 0, 'sent': msg.status == 1 , 'read': msg.status == 2 }"
+    ></div>
   </div>
 </template>
 
@@ -32,7 +36,6 @@ export default {
   margin: 0.3rem 0;
   position: relative;
   font-size: 0.8rem;
-  max-width: 30rem;
   display: flex;
   align-items: center;
   border-radius: 0.3rem;
@@ -40,6 +43,7 @@ export default {
 .message {
   color: #000;
   padding: 0.5rem 0.6rem;
+  max-width: 30rem;
   word-break: break-word;
 }
 .time {
@@ -49,6 +53,23 @@ export default {
   margin-bottom: 0.2rem;
   min-width: 3rem;
 }
+.status {
+  height: 0.5rem;
+  width: 0.5rem;
+  align-self: flex-end;
+  margin-bottom: 0.4rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+}
+.unread {
+  background: #aaa;
+}
+.sent {
+  background: #888;
+}
+.read {
+  background: #268bd2;
+}
 .send {
   align-self: flex-end;
   color: #333;
@@ -56,6 +77,11 @@ export default {
   padding: 0;
   border-top-right-radius: 0;
   margin-right: 5rem;
+}
+.send .time {
+  min-width: 2.5rem;
+  text-align: right;
+  margin-right: 0.2rem;
 }
 .send:after {
   content: "";
@@ -90,6 +116,9 @@ export default {
   border-top: 0;
   margin-top: 0px;
   margin-left: -10px;
+}
+.recv .status {
+  display: none;
 }
 @media screen and (max-width: 700px) {
   .bubble {

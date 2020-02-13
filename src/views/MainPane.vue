@@ -50,7 +50,6 @@ export default {
   data() {
     return {
       showChatPane: true,
-      showListPane: true,
       showProfile: false,
       windowHeight: Number,
       tabFocus: Boolean,
@@ -79,10 +78,25 @@ export default {
       Axios.post(apiUri + "/api/messages/", {
         token: this.token,
         target: this.selectedUser.id
-      }).then(jsonData => {
-        this.chatArray = jsonData.data;
-        this.loadingChat = false;
-      });
+      })
+        .then(jsonData => {
+          this.chatArray = jsonData.data;
+          this.loadingChat = false;
+        })
+        .then(() => {
+          var ids = [];
+          this.chatArray.forEach(el => {
+            if (el.from == this.selectedUser.id) {
+              ids.push(el._id);
+            }
+          });
+          this.socket.emit(
+            "message-r",
+            ids,
+            this.selectedUser.id,
+            this.currentUser.id
+          );
+        });
     },
     showChat: function() {
       document.getElementById("chat_pane").style = "display: flex";
@@ -145,8 +159,10 @@ export default {
     });
   },
   mounted() {
-    if (window.innerWidth < 700)
+    if (window.innerWidth < 700) {
       document.getElementById("chat_pane").style = "display:none";
+      this.showChatPane = false;
+    }
     this.$nextTick(() => {
       window.addEventListener("resize", () => {
         this.windowHeight = window.innerHeight;
@@ -164,6 +180,10 @@ export default {
     }, 1000);
     this.socket.emit("login", this.currentUser.id);
     this.socket.on("message-recv", data => {
+      if (data.from == this.selectedUser.id) {
+        var ids = [];
+        ids.push(data._id);
+      }
       var found = this.chatArray.some(el => el._id == data._id);
       if (
         (data.from == this.selectedUser.id ||
@@ -171,6 +191,8 @@ export default {
             data.to == this.selectedUser.id)) &&
         !found
       ) {
+        if (document.getElementById("chat_pane").style.display != "none")
+          this.socket.emit("message-r", ids, data.from, this.currentUser.id);
         this.chatArray.push(data);
       }
       if (
@@ -201,6 +223,23 @@ export default {
     this.socket.on("typing", data => {
       if (this.selectedUser.id == data.from) {
         this.typing = data.status;
+      }
+    });
+    this.socket.on("message-d", id => {
+      this.chatArray.forEach(el => {
+        if (el._id == id) {
+          el.status = 1;
+        }
+      });
+    });
+    this.socket.on("message-rn", (ids, sentBy) => {
+      if (sentBy == this.selectedUser.id) {
+        var i = 0;
+        for (i = 0; i < this.chatArray.length; i++) {
+          if (ids.includes(this.chatArray[i]._id)) {
+            this.chatArray[i].status = 2;
+          }
+        }
       }
     });
   },
