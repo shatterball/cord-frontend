@@ -1,6 +1,6 @@
 <template>
   <div class="chat_pane">
-    <ChatHeader @show-list="showList" :selectedUser="selectedUser" :typing="typing" />
+    <ChatHeader @show-list="showList" :typingArray="typingArray" :selectedUser="selectedUser" />
     <ChatBubblePane
       ref="chatBubblePane"
       :chatArray="chatArray"
@@ -26,9 +26,9 @@ export default {
   name: "chatPane",
   props: {
     chatArray: [],
+    typingArray: [],
     currentUser: {},
     selectedUser: {},
-    typing: Boolean,
     loadingChat: Boolean
   },
   components: {

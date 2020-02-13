@@ -12,7 +12,7 @@ export default {
   name: "chatHeader",
   props: {
     selectedUser: {},
-    typing: Boolean
+    typingArray: []
   },
   data: function() {
     return {
@@ -39,6 +39,9 @@ export default {
           this.selectedUser.lname
         ).substring(0, 32);
       else return "Devcord";
+    },
+    typing() {
+      return this.typingArray.includes(this.selectedUser.id);
     }
   }
 };

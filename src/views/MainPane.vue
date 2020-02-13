@@ -21,8 +21,8 @@
       :currentUser="currentUser"
       :selectedUser="selectedUser"
       :chatArray="chatArray"
-      :typing="typing"
       :loadingChat="loadingChat"
+      :typingArray="typingArray"
     />
     <Sidebar @close-sidebar="closeSidebar" :isPanelOpen="isPanelOpen">
       <Profile @logout="logout" v-if="showProfile" :user="currentUser" />
@@ -54,11 +54,11 @@ export default {
       windowHeight: Number,
       tabFocus: Boolean,
       isPanelOpen: false,
-      typing: false,
       loadingChat: false,
       usersArray: [],
       connectedUsers: [],
       chatArray: [],
+      typingArray: [],
       selectedUser: {},
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
@@ -73,7 +73,6 @@ export default {
         this.showChat();
       }
       this.selectedUser = this.usersArray.find(item => item.id == id);
-      this.chatArray = [];
       this.loadingChat = true;
       Axios.post(apiUri + "/api/messages/", {
         token: this.token,
@@ -134,11 +133,6 @@ export default {
     closeSidebar: function() {
       this.isPanelOpen = false;
       this.showProfile = false;
-    }
-  },
-  watch: {
-    selectedUser: function() {
-      this.typing = false;
     }
   },
   beforeCreate: function() {
@@ -226,8 +220,12 @@ export default {
       this.connectedUsers = users;
     });
     this.socket.on("typing", data => {
-      if (this.selectedUser.id == data.from) {
-        this.typing = data.status;
+      if (data.status == true) {
+        this.typingArray.push(data.from);
+      } else {
+        this.typingArray = this.typingArray.filter(el => {
+          el.id == data.from;
+        });
       }
     });
     this.socket.on("message-d", id => {

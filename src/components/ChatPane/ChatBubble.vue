@@ -51,7 +51,7 @@ export default {
   font-size: 0.6rem;
   align-self: flex-end;
   margin-bottom: 0.2rem;
-  min-width: 3rem;
+  margin-right: 0.3rem;
 }
 .status {
   height: 0.5rem;
@@ -77,11 +77,6 @@ export default {
   padding: 0;
   border-top-right-radius: 0;
   margin-right: 5rem;
-}
-.send .time {
-  min-width: 2.5rem;
-  text-align: right;
-  margin-right: 0.2rem;
 }
 .send:after {
   content: "";
