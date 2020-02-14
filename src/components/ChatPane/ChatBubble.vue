@@ -111,7 +111,7 @@ export default {
   border-top-left-radius: 0;
 }
 .recv .info {
-  margin-left: 0.5rem;
+  margin-left: 0.65rem;
   align-self: flex-start;
 }
 .recv .time {
