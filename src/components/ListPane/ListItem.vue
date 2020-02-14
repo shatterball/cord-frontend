@@ -74,7 +74,7 @@ export default {
   margin-top: 0;
 }
 .selected {
-  background: #ccc;
+  background: #eee;
 }
 .username {
   font-family: sans-serif;
@@ -88,8 +88,8 @@ export default {
 }
 .badge {
   visibility: hidden;
-  height: 0.6em;
-  width: 0.6rem;
+  height: 0.5em;
+  width: 0.5rem;
   margin-right: 1.5rem;
   border-radius: 50%;
   background: #2a91dd;
