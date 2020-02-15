@@ -84,14 +84,20 @@ export default {
   background: #888;
 }
 .read {
-  background: #0288ff;
+  background: #00c6ff;
 }
 .send {
   align-self: flex-end;
-  color: #333;
-  background: #97caef;
+  color: #eee;
+  background: #0084ff;
   padding: 0;
   margin-right: 5rem;
+}
+.send .message {
+  color: #eee;
+}
+.send .time {
+  color: #ddd;
 }
 ._send {
   border-top-right-radius: 0;
@@ -104,7 +110,7 @@ export default {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-left-color: #97caef;
+  border-left-color: #0084ff;
   border-right: 0;
   border-top: 0;
   margin-right: -10px;
