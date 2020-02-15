@@ -126,7 +126,7 @@ export default {
   margin-left: 5rem;
 }
 .recv .info {
-  margin-left: 0.65rem;
+  margin-left: 0.6rem;
   align-self: flex-start;
 }
 .recv .time {
