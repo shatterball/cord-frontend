@@ -154,13 +154,13 @@ export default {
 }
 @media screen and (max-width: 700px) {
   .bubble {
-    max-width: 80%;
+    max-width: 85%;
   }
   .send {
-    margin-right: 1.5rem;
+    margin-right: 1.2rem;
   }
   .recv {
-    margin-left: 1.5rem;
+    margin-left: 1.2rem;
   }
   .time {
     margin-bottom: 0.1rem;
