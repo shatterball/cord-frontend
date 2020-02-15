@@ -65,6 +65,9 @@ export default {
   align-items: center;
   background: #ddd;
   min-height: 4rem;
+  margin: 0.5rem;
+  border-radius: 2rem 0 0 2rem;
+  margin-right: 0;
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
@@ -97,5 +100,11 @@ export default {
 }
 .show {
   visibility: visible;
+}
+@media screen and (max-width: 700px) {
+  .userbox {
+    border-radius: 2rem;
+    margin: 0.5rem;
+  }
 }
 </style>

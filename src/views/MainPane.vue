@@ -268,6 +268,7 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   background: #eee;
   z-index: 2;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -279,6 +280,11 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   height: 2rem;
   animation: spin 0.5s linear infinite;
 }
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -288,8 +294,6 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 }
 @media screen and (max-width: 700px) {
-  #list_pane {
-  }
   .chat_pane {
     height: calc(var(--vh, 1vh) * 100);
   }

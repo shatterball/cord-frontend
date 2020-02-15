@@ -9,6 +9,7 @@
         :type="msg.from == currentUser.id"
         :key="msg._id"
         :msg="msg"
+        :shape="shaper(msg)"
       />
     </div>
   </div>
@@ -31,6 +32,17 @@ export default {
   },
   components: {
     ChatBubble
+  },
+  methods: {
+    shaper(msg) {
+      var res = true;
+      var index = this.chatArray.findIndex(el => el._id == msg._id);
+      if (index > 0)
+        if (this.chatArray[index].from == this.chatArray[index - 1].from) {
+          res = false;
+        }
+      return res;
+    }
   },
   updated() {
     var chatBubblePane = document.getElementById("chat_bubble_pane");
