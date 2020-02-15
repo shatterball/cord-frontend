@@ -45,7 +45,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
 }
 .message {
   color: #000;
@@ -146,10 +146,10 @@ export default {
     max-width: 80%;
   }
   .send {
-    margin-right: 1rem;
+    margin-right: 1.5rem;
   }
   .recv {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
   }
   .time {
     margin-bottom: 0.1rem;
