@@ -49,7 +49,7 @@ export default {
   border-radius: 0.2rem;
 }
 .space {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .message {
   color: #000;
