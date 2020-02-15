@@ -40,7 +40,7 @@ export default {
   padding: 0;
 }
 .bubble {
-  margin: 0.1rem 0;
+  margin: 0.15rem 0;
   position: relative;
   font-size: 0.8rem;
   display: flex;
