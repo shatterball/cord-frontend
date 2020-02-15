@@ -92,7 +92,7 @@ export default {
   visibility: hidden;
   height: 0.5em;
   width: 0.5rem;
-  margin-right: 1.5rem;
+  margin-right: 1.3rem;
   border-radius: 50%;
   background: #2a91dd;
   right: 1rem;
