@@ -50,6 +50,7 @@ export default {
 .message {
   color: #000;
   padding: 0.5rem 0.6rem;
+  padding-bottom: 0;
   max-width: 30rem;
   word-break: break-word;
 }
