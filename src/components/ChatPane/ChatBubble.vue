@@ -46,7 +46,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
 }
 .space {
   margin-bottom: 0.5rem;
