@@ -73,7 +73,6 @@ export default {
   border-radius: 2rem;
   background: #eee;
   color: #444;
-  transition: 0.2s;
 }
 .search_pane {
   display: flex;

@@ -68,7 +68,6 @@ export default {
   margin: 0.5rem;
   border-radius: 2rem;
   overflow: hidden;
-  transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 }
