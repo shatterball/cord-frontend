@@ -66,8 +66,7 @@ export default {
   background: #ddd;
   min-height: 4rem;
   margin: 0.5rem;
-  border-radius: 2rem 0 0 2rem;
-  margin-right: 0;
+  border-radius: 2rem;
   overflow: hidden;
   transition: 0.2s;
   -webkit-tap-highlight-color: transparent;
@@ -77,7 +76,7 @@ export default {
   margin-top: 0;
 }
 .selected {
-  background: #eee;
+  background: #ccc;
 }
 .username {
   font-family: sans-serif;
@@ -102,9 +101,5 @@ export default {
   visibility: visible;
 }
 @media screen and (max-width: 700px) {
-  .userbox {
-    border-radius: 2rem;
-    margin: 0.5rem;
-  }
 }
 </style>
