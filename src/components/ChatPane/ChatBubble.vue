@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{'send': type,'recv': !type, '_send': type && shape, '_recv': !type && shape}"
+    :class="{'send': type,'recv': !type, '_send': type && !shape, '_recv': !type && !shape, 'space': space == true}"
     class="bubble shared"
   >
     <p class="shared message">{{ msg.content }}</p>
@@ -19,7 +19,8 @@ export default {
   name: "chatBubble",
   props: {
     msg: {},
-    shape: Number,
+    shape: Boolean,
+    space: Boolean,
     type: Boolean
   },
   computed: {
@@ -39,13 +40,16 @@ export default {
   padding: 0;
 }
 .bubble {
-  margin: 0.2rem 0;
+  margin: 0.1rem 0;
   position: relative;
   font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 0.2rem;
+}
+.space {
+  margin-bottom: 1rem;
 }
 .message {
   color: #000;

@@ -10,6 +10,7 @@
         :key="msg._id"
         :msg="msg"
         :shape="shaper(msg)"
+        :space="space(msg)"
       />
     </div>
   </div>
@@ -35,11 +36,20 @@ export default {
   },
   methods: {
     shaper(msg) {
-      var res = true;
+      var res = false;
       var index = this.chatArray.findIndex(el => el._id == msg._id);
       if (index > 0)
         if (this.chatArray[index].from == this.chatArray[index - 1].from) {
-          res = false;
+          res = true;
+        }
+      return res;
+    },
+    space(msg) {
+      var res = false;
+      var index = this.chatArray.findIndex(el => el._id == msg._id);
+      if (index + 1 != this.chatArray.length)
+        if (this.chatArray[index].from != this.chatArray[index + 1].from) {
+          res = true;
         }
       return res;
     }
