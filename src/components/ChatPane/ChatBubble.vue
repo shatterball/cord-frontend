@@ -39,7 +39,7 @@ export default {
   padding: 0;
 }
 .bubble {
-  margin: 0.3rem 0;
+  margin: 0.2rem 0;
   position: relative;
   font-size: 0.8rem;
   display: flex;
@@ -57,7 +57,7 @@ export default {
 .info {
   max-width: 5rem;
   align-self: flex-end;
-  margin-right: 0.5rem;
+  margin-right: 0.45rem;
   display: flex;
   flex-direction: row;
   margin-bottom: 0.3rem;
@@ -71,17 +71,17 @@ export default {
   margin-left: 0.5rem;
 }
 .status {
-  min-height: 0.5rem;
-  min-width: 0.5rem;
-  margin-bottom: 0.14rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-bottom: 0.2rem;
   align-self: flex-end;
   border-radius: 50%;
 }
 .unread {
-  background: #aaa;
+  background: #0084ff;
 }
 .sent {
-  background: #888;
+  background: #aaa;
 }
 .read {
   background: #00c6ff;
@@ -160,6 +160,12 @@ export default {
   }
   .time {
     margin-bottom: 0.1rem;
+  }
+  .status {
+    margin-right: 0.2rem;
+  }
+  .info {
+    margin-right: 0.25rem;
   }
 }
 </style>
