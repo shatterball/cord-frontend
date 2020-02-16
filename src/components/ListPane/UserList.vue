@@ -61,16 +61,16 @@ export default {
 }
 .search {
   font-family: sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   padding: 0 1rem;
-  height: 2rem;
+  height: 3rem;
   flex: 1;
-  margin: 0 2rem;
+  /* margin: 0 2rem; */
   text-align: center;
   outline: none;
   border: none;
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
   background: #eee;
   color: #444;
 }
@@ -78,7 +78,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3.5rem;
+  height: 3rem;
 }
 ::placeholder {
   color: #888;

@@ -53,7 +53,7 @@ export default {
   visibility: hidden;
 }
 .profile-box {
-  height: 4.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   background: #ddd;
@@ -63,9 +63,6 @@ export default {
   margin: 0.75rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-}
-.container {
-  flex: 1;
 }
 .name {
   margin: 0;

@@ -65,11 +65,10 @@ export default {
   align-items: center;
   background: #ddd;
   min-height: 4rem;
-  margin: 0.5rem;
-  border-radius: 2rem;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+  transition: 0.2s;
 }
 .userbox:first-child {
   margin-top: 0;
