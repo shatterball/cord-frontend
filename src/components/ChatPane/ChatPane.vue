@@ -45,9 +45,6 @@ export default {
     },
     typingEmit: function(status) {
       this.$emit("typing", status);
-    },
-    scrollChat: function() {
-      this.$refs.chatBubblePane.$forceUpdate();
     }
   }
 };

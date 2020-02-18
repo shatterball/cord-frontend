@@ -17,7 +17,6 @@
       class="input_bar shared"
       @keyup.enter="sendMessage"
       @keyup="typingEvent"
-      @focus="scrollChat"
       ref="inputBar"
     />
     <img
@@ -69,7 +68,6 @@ export default {
         this.showEmojiPicker = false;
         if (this.selectedUser.id != undefined) {
           this.$emit("send-message", message);
-          this.$emit("scrollChat");
         }
       }
       this.text = "";
