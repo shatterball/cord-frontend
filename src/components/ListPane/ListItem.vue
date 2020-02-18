@@ -64,7 +64,7 @@ export default {
   display: flex;
   align-items: center;
   background: #ddd;
-  min-height: 4rem;
+  min-height: 4.5rem;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;

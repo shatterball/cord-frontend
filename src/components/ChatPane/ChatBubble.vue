@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import moment from "moment";
 export default {
   name: "chatBubble",
   props: {
@@ -25,9 +26,7 @@ export default {
   },
   computed: {
     date() {
-      return new Date(this.msg.date).toLocaleTimeString("en-IN", {
-        timeStyle: "short"
-      });
+      return moment(this.msg.date).format("hh:mm A");
     }
   }
 };
@@ -40,7 +39,7 @@ export default {
   padding: 0;
 }
 .bubble {
-  margin: 0.15rem 0;
+  margin: 1px 0;
   position: relative;
   font-size: 0.8rem;
   display: flex;
@@ -49,7 +48,7 @@ export default {
   border-radius: 0.25rem;
 }
 .space {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 .message {
   color: #000;
@@ -65,6 +64,7 @@ export default {
   display: flex;
   flex-direction: row;
   margin-bottom: 0.3rem;
+  align-items: center;
 }
 .time {
   color: #444;
@@ -77,8 +77,6 @@ export default {
 .status {
   height: 0.5rem;
   width: 0.5rem;
-  margin-bottom: 0.2rem;
-  align-self: flex-end;
   border-radius: 50%;
 }
 .unread {
@@ -170,6 +168,9 @@ export default {
   }
   .info {
     margin-right: 0.25rem;
+  }
+  .status {
+    margin-bottom: 0.1rem;
   }
 }
 </style>

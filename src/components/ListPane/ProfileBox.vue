@@ -59,14 +59,16 @@ export default {
   background: #ddd;
 }
 .profile-photo {
-  height: 3rem;
-  margin: 0.75rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 1rem;
+  /* margin-right: 1rem; */
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 .name {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: #333;
 }

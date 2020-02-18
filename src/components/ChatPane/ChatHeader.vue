@@ -1,6 +1,7 @@
 <template>
   <div class="chat_header shared">
     <img @click="showList" class="button shared" src="@/assets/back.svg" id="chats" />
+    <img @click="showList" class="shared" src="@/assets/profile.svg" id="icon" />
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
       <p :class="[typing == true ? 'show' : 'hide' ]" class="typing">Typing...</p>
@@ -61,7 +62,6 @@ export default {
 }
 .shared {
   font-family: sans-serif;
-  /* color: #aaa; */
   outline: none;
   margin: 0;
   padding: 0;
@@ -86,8 +86,9 @@ export default {
 .name {
   color: #444;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: left;
+  margin-left: 1rem;
 }
 .typing {
   transition: 0.2s;
@@ -104,15 +105,26 @@ export default {
   cursor: pointer;
   transition: 0.2s;
   margin: 0 1rem;
+  margin-right: 0.5rem;
   user-select: none;
 }
 .button:active {
   transform: scale(0.85);
 }
+#icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-left: 1rem;
+}
 @media screen and (max-width: 700px) {
   .name {
     font-size: 1rem;
-    margin-bottom: 0.2rem;
+  }
+  #icon {
+    margin-left: 0rem;
+  }
+  .name {
+    margin-left: 0.5rem;
   }
 }
 @media screen and (min-width: 700px) {
