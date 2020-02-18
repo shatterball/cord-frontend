@@ -69,6 +69,7 @@ export default {
         this.showEmojiPicker = false;
         if (this.selectedUser.id != undefined) {
           this.$emit("send-message", message);
+          this.$emit("scrollChat");
         }
       }
       this.text = "";
@@ -89,10 +90,6 @@ export default {
         clearTimeout(this.timeout);
         this.timeout = setTimeout(this.timeoutFunction, 1000);
       }
-    },
-    scrollChat: function() {
-      this.showEmojiPicker = false;
-      this.$emit("scrollChat");
     }
   }
 };
