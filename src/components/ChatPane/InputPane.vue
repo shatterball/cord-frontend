@@ -17,11 +17,11 @@
       class="input_bar shared"
       @keyup.enter="sendMessage"
       @keyup="typingEvent"
+      @focus="scrollChat"
       ref="inputBar"
     />
     <img
       @click="sendMessage"
-      @focus="scrollChat"
       :class="{ 'enable': this.text.length > 0}"
       class="button shared"
       id="sendButton"

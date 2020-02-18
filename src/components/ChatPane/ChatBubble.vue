@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     date() {
-      return moment(this.msg.date).format("hh:mm A");
+      return moment(this.msg.date).format("LT");
     }
   }
 };

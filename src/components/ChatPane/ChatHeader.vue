@@ -82,13 +82,13 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-left: 1rem;
 }
 .name {
   color: #444;
   font-weight: 500;
   font-size: 1rem;
   text-align: left;
-  margin-left: 1rem;
 }
 .typing {
   transition: 0.2s;
@@ -122,9 +122,6 @@ export default {
   }
   #icon {
     margin-left: 0rem;
-  }
-  .name {
-    margin-left: 0.5rem;
   }
 }
 @media screen and (min-width: 700px) {
