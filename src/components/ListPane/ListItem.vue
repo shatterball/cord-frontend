@@ -78,6 +78,7 @@ export default {
 }
 .username {
   font-family: sans-serif;
+  font-weight: bold;
   margin: 0;
 }
 .icon {
