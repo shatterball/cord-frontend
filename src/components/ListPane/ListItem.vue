@@ -99,6 +99,4 @@ export default {
 .show {
   visibility: visible;
 }
-@media screen and (max-width: 700px) {
-}
 </style>
