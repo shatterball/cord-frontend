@@ -1,7 +1,16 @@
 <template>
   <div class="chat_header shared">
-    <img @click="showList" class="button shared" src="@/assets/back.svg" id="chats" />
-    <img @click="showList" class="shared" src="@/assets/profile.svg" id="icon" />
+    <button @click="showList" class="button shared" src="@/assets/back.svg" id="chats">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+    </button>
+    <img class="shared" src="@/assets/profile.svg" id="icon" />
     <div class="contact">
       <p class="name shared">{{ trim }}</p>
       <p :class="[typing == true ? 'show' : 'hide' ]" class="typing">Typing...</p>
@@ -99,14 +108,19 @@ export default {
   padding: 0;
 }
 .button {
-  color: #888;
-  height: 1.3rem;
-  width: 1.3rem;
+  color: #666;
+  height: 2rem;
+  outline: 0;
+  border: 0;
+  width: 2rem;
   cursor: pointer;
   transition: 0.2s;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   margin-right: 0.5rem;
   user-select: none;
+}
+.button:hover {
+  color: #444;
 }
 .button:active {
   transform: scale(0.85);

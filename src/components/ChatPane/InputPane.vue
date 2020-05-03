@@ -4,12 +4,16 @@
       <div class="emoji_picker" :class="[showEmojiPicker == true ? 'show' : 'hide']">
         <VEmoji @select="appendEmoji" class="shadow" />
       </div>
-      <img
-        class="button shared"
-        @click="showEmojiPicker = !showEmojiPicker"
-        src="../../assets/emoji.svg"
-        id="emojiButton"
-      />
+      <button class="button shared" @click="showEmojiPicker = !showEmojiPicker" id="emojiButton">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </button>
     </div>
     <input
       v-model="text"
@@ -108,9 +112,8 @@ export default {
 }
 .shared {
   border: none;
-  border-radius: 2rem;
   outline: none;
-  font-family: Roboto;
+  font-family: sans-serif;
   background: #ccc;
 }
 .enable {
@@ -133,6 +136,7 @@ export default {
   flex: 1 0 auto;
   color: #555;
   background: #eee;
+  border-radius: 2rem;
   margin: 0;
   padding: 0 1rem;
   color: #222;
@@ -143,16 +147,20 @@ export default {
   color: #888;
 }
 .button {
+  padding: 0;
   background: #ddd;
   border-radius: 0;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
   margin: 0 1.5rem;
-  color: #888;
+  color: #666;
   transition: 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+.button:hover {
+  color: #444;
 }
 .button:active {
   transform: scale(0.85);

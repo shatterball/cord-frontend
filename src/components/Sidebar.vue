@@ -3,7 +3,16 @@
     <transition name="slide">
       <div v-if="isPanelOpen" class="sidebar-panel shadow">
         <div class="header">
-          <img src="@/assets/back.svg" class="back-button" @click="closeSidebarPanel" />
+          <button class="button" @click="closeSidebarPanel">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
         </div>
         <div class="content">
           <slot></slot>
@@ -51,14 +60,22 @@ export default {
 }
 .header {
   display: flex;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   min-height: 3.5rem;
   align-items: center;
 }
-.back-button {
-  height: 1.5rem;
+.button {
+  color: #666;
+  width: 2rem;
+  outline: 0;
+  padding: 0;
+  border: 0;
+  transition: 0.2s;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+.button:hover {
+  color: #444;
 }
 .content {
   flex: 1;
