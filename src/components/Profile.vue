@@ -80,10 +80,14 @@ export default {
   margin: 2rem;
 }
 .username {
+  margin: 0;
   margin-bottom: 2rem;
+  font-weight: bold;
+  color: #268bd2;
 }
 .email {
   margin-bottom: 2rem;
+  font-size: 0.9rem;
 }
 .button {
   border: 0;
@@ -100,7 +104,6 @@ export default {
 }
 .button-container {
   margin-top: auto;
-  align-self: flex-end;
   display: flex;
   justify-content: space-between;
   width: 100%;

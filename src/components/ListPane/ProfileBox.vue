@@ -3,7 +3,6 @@
     <img :src="getProfilePhoto" @click="openProfile" class="profile-photo" />
     <div class="container">
       <p class="name">{{ currentUser.fname + " " + currentUser.lname}}</p>
-      <p class="username">{{ "@" + currentUser.username}}</p>
     </div>
   </div>
 </template>
@@ -71,11 +70,5 @@ export default {
   font-size: 1.1rem;
   font-weight: 500;
   color: #333;
-}
-.username {
-  margin: 0;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #268bd2;
 }
 </style>

@@ -121,8 +121,8 @@ export default {
 }
 .emoji_picker {
   position: absolute;
-  margin-top: -30rem;
-  margin-left: 2rem;
+  margin-top: -28rem;
+  margin-left: 0.5rem;
   transition: 0.2s;
 }
 .input_pane {
