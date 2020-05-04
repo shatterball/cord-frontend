@@ -52,13 +52,6 @@ export default {
 };
 </script>
 <style scoped>
-.user_list {
-  flex: 1;
-  overflow: auto;
-}
-.user_list::-webkit-scrollbar {
-  display: none;
-}
 .search {
   font-family: sans-serif;
   font-size: 0.9rem;
@@ -66,19 +59,29 @@ export default {
   padding: 0 1rem;
   height: 3rem;
   flex: 1;
-  /* margin: 0 2rem; */
   text-align: center;
   outline: none;
   border: none;
-  /* border-radius: 2rem; */
   background: #eee;
   color: #444;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 .search_pane {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 3rem;
+}
+.user_list {
+  flex: 1;
+  overflow: scroll;
+  overscroll-behavior: none;
+  display: flex;
+  flex-direction: column;
 }
 ::placeholder {
   color: #888;

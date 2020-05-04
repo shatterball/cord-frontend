@@ -1,9 +1,6 @@
 <template>
   <div class="profile-box">
-    <img :src="getProfilePhoto" @click="openProfile" class="profile-photo" />
-    <div class="container">
-      <p class="name">{{ currentUser.fname + " " + currentUser.lname}}</p>
-    </div>
+    <p @click="openProfile" class="name">{{ currentUser.fname + " " + currentUser.lname}}</p>
   </div>
 </template>
 <script>
@@ -52,17 +49,15 @@ export default {
   visibility: hidden;
 }
 .profile-box {
-  height: 3.5rem;
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: #ddd;
 }
-.profile-photo {
-  height: 2.5rem;
-  width: 2.5rem;
-  margin: 1rem;
-  /* margin-right: 1rem; */
+.profile-box p {
   cursor: pointer;
+  font-size: 1.2rem;
   -webkit-tap-highlight-color: transparent;
 }
 .name {

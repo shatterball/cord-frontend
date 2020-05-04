@@ -41,14 +41,14 @@ export default {
 .bubble {
   margin: 1px 0;
   position: relative;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.25rem;
+  border-radius: 0.3rem;
 }
 .space {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 .message {
   color: #000;

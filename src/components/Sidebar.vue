@@ -79,7 +79,7 @@ export default {
 }
 .content {
   flex: 1;
-  margin: 1rem;
+  margin: 1rem 1.5rem;
 }
 @media screen and (max-width: 700px) {
   .sidebar-panel {

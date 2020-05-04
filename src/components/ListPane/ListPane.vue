@@ -54,7 +54,7 @@ export default {
 .list_pane {
   display: flex;
   flex-direction: column;
-  flex: 0 1 auto;
+  /* flex: 0 1 auto; */
   width: 30%;
   background: #ddd;
   transition: 0.2s;

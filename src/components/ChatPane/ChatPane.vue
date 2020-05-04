@@ -53,11 +53,9 @@ export default {
 <style scoped>
 .chat_pane {
   display: flex;
-  width: 100vw;
   flex-direction: column;
   background: #ddd;
   flex: 1;
-  overflow: auto;
   transition: 0.2s;
 }
 @media screen and (min-width: 700px) {
