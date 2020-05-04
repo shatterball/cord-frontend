@@ -161,6 +161,7 @@ body {
   margin: 0 0.5rem;
 }
 .button {
+  align-self: center;
   cursor: pointer;
   user-select: none;
   margin-top: 0.5rem;
@@ -170,6 +171,7 @@ body {
   outline: none;
   border-radius: 2rem;
   height: 2rem;
+  width: 40%;
   transition: 0.2s;
   background: #268bd2;
   -webkit-tap-highlight-color: transparent;
