@@ -41,7 +41,7 @@ export default {
 .bubble {
   margin: 1px 0;
   position: relative;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
