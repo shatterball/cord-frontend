@@ -1,13 +1,8 @@
 <template>
   <div class="chat_header shared">
     <button @click="showList" class="button shared" src="@/assets/back.svg" id="chats">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-          d="M15 19l-7-7 7-7"
-        />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z" />
       </svg>
     </button>
     <img class="shared" src="@/assets/profile.svg" id="icon" />
@@ -75,7 +70,7 @@ export default {
   margin: 0;
   padding: 0;
   font-weight: 600;
-  background: #ddd;
+  background: #e0e0e0;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -109,21 +104,14 @@ export default {
 }
 .button {
   color: #666;
-  height: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   outline: 0;
   border: 0;
-  width: 2rem;
   cursor: pointer;
   transition: 0.2s;
-  margin: 0 0.5rem;
-  margin-right: 0.5rem;
+  margin: 1rem;
   user-select: none;
-}
-.button:hover {
-  color: #444;
-}
-.button:active {
-  transform: scale(0.85);
 }
 #icon {
   height: 2.5rem;

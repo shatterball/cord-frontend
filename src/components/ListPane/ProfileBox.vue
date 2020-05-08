@@ -53,7 +53,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ddd;
+  background: #e0e0e0;
 }
 .profile-box p {
   cursor: pointer;

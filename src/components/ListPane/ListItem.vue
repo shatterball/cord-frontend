@@ -63,7 +63,7 @@ export default {
 .userbox {
   display: flex;
   align-items: center;
-  background: #ddd;
+  background: #eee;
   min-height: 4.5rem;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -74,7 +74,7 @@ export default {
   margin-top: 0;
 }
 .selected {
-  background: #ccc;
+  background: #ddd;
 }
 .username {
   font-family: sans-serif;

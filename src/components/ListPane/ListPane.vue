@@ -56,7 +56,7 @@ export default {
   flex-direction: column;
   /* flex: 0 1 auto; */
   width: 30%;
-  background: #ddd;
+  background: #eee;
   transition: 0.2s;
 }
 @media screen and (max-width: 700px) {

@@ -57,11 +57,13 @@ export default {
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0 1rem;
-  height: 3rem;
+  margin: 0 1rem;
+  height: 2rem;
   flex: 1;
   text-align: center;
   outline: none;
   border: none;
+  border-radius: 2rem;
   background: #eee;
   color: #444;
 }
@@ -74,7 +76,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #e8e8e8;
   height: 3rem;
+  border-bottom: 1px solid #cfcfcf;
 }
 .user_list {
   flex: 1;

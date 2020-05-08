@@ -11,7 +11,6 @@
     <InputPane
       @send-message="sendMessage"
       @typing="typingEmit"
-      @scrollChat="scrollChat"
       :currentUser="currentUser"
       :selectedUser="selectedUser"
     />
@@ -60,7 +59,7 @@ export default {
 }
 @media screen and (min-width: 700px) {
   .chat_pane {
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #cfcfc8;
   }
 }
 </style>

@@ -1,18 +1,19 @@
 <template>
   <div class="sidebar">
     <transition name="slide">
-      <div v-if="isPanelOpen" class="sidebar-panel shadow">
+      <div v-if="isPanelOpen" class="sidebar-panel">
         <div class="header">
-          <button class="button" @click="closeSidebarPanel">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+          <div class="info">
+            <button class="button" @click="closeSidebarPanel">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path
+                  fill="currentColor"
+                  d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z"
+                />
+              </svg>
+            </button>
+            <p>{{ sidebarHeader }}</p>
+          </div>
         </div>
         <div class="content">
           <slot></slot>
@@ -25,7 +26,8 @@
 export default {
   name: "Sidebar",
   props: {
-    isPanelOpen: Boolean
+    isPanelOpen: Boolean,
+    sidebarHeader: String
   },
   methods: {
     closeSidebarPanel() {
@@ -34,7 +36,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 0.2s ease;
@@ -48,7 +50,7 @@ export default {
 
 .sidebar-panel {
   overflow: auto;
-  background-color: #ddd;
+  background-color: #eee;
   position: fixed;
   left: 0;
   top: 0;
@@ -60,26 +62,34 @@ export default {
 }
 .header {
   display: flex;
-  padding: 0 0.5rem;
-  min-height: 3.5rem;
+  height: 5rem;
+  background: #e0e0e0;
+  align-items: flex-end;
+}
+.info {
+  display: flex;
+  height: 3rem;
+  width: 100%;
   align-items: center;
+}
+.info p {
+  font-size: 1.2rem;
 }
 .button {
   color: #666;
-  width: 2rem;
+  background: #e0e0e0;
+  width: 1.5rem;
   outline: 0;
   padding: 0;
   border: 0;
+  margin: 0 1rem;
   transition: 0.2s;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.button:hover {
-  color: #444;
-}
 .content {
   flex: 1;
-  margin: 1rem 1.5rem;
+  margin: 1rem;
 }
 @media screen and (max-width: 700px) {
   .sidebar-panel {

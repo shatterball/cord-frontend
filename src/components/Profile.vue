@@ -25,7 +25,7 @@
         <svg viewBox="0 0 24 24">
           <path
             fill="currentColor"
-            d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"
+            d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
           />
         </svg>
       </button>
@@ -90,20 +90,20 @@ export default {
 .button {
   border: 0;
   color: #666;
-  width: 1.8rem;
+  background: #eee;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
   outline: 0;
   transition: 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-.button:hover {
-  color: #444;
-}
 .button-container {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 2.5rem;
 }

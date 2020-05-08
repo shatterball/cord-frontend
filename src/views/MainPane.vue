@@ -24,7 +24,11 @@
       :loadingChat="loadingChat"
       :typingArray="typingArray"
     />
-    <Sidebar @close-sidebar="closeSidebar" :isPanelOpen="isPanelOpen">
+    <Sidebar
+      @close-sidebar="closeSidebar"
+      :isPanelOpen="isPanelOpen"
+      :sidebarHeader="sidebarHeader"
+    >
       <Profile @logout="logout" v-if="showProfile" :user="currentUser" />
     </Sidebar>
   </div>
@@ -59,7 +63,8 @@ export default {
       connectedUsers: [],
       chatArray: [],
       typingArray: [],
-      selectedUser: {},
+      selectedUser: Object,
+      sidebarHeader: String,
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
       socket: io(apiUri, {
@@ -129,6 +134,7 @@ export default {
     openProfile: function() {
       this.showProfile = true;
       this.isPanelOpen = true;
+      this.sidebarHeader = "Profile";
     },
     closeSidebar: function() {
       this.isPanelOpen = false;

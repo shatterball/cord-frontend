@@ -5,10 +5,10 @@
         <VEmoji @select="appendEmoji" class="shadow" />
       </div>
       <button class="button shared" @click="showEmojiPicker = !showEmojiPicker" id="emojiButton">
-        <svg viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path
             fill="currentColor"
-            d="M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M15.5,8A1.5,1.5 0 0,1 17,9.5A1.5,1.5 0 0,1 15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8M8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8M12,17.5C9.67,17.5 7.69,16.04 6.89,14H17.11C16.3,16.04 14.33,17.5 12,17.5Z"
+            d="M9.153 11.603c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962zm-3.204 1.362c-.026-.307-.131 5.218 6.063 5.551 6.066-.25 6.066-5.551 6.066-5.551-6.078 1.416-12.129 0-12.129 0zm11.363 1.108s-.669 1.959-5.051 1.959c-3.505 0-5.388-1.164-5.607-1.959 0 0 5.912 1.055 10.658 0zM11.804 1.011C5.609 1.011.978 6.033.978 12.228s4.826 10.761 11.021 10.761S23.02 18.423 23.02 12.228c.001-6.195-5.021-11.217-11.216-11.217zM12 21.354c-5.273 0-9.381-3.886-9.381-9.159s3.942-9.548 9.215-9.548 9.548 4.275 9.548 9.548c-.001 5.272-4.109 9.159-9.382 9.159zm3.108-9.751c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962z"
           />
         </svg>
       </button>
@@ -118,7 +118,7 @@ export default {
   border: none;
   outline: none;
   font-family: sans-serif;
-  background: #ccc;
+  background: #e0e0e0;
 }
 .enable {
   color: #888;
@@ -154,17 +154,14 @@ export default {
   padding: 0;
   background: #ddd;
   border-radius: 0;
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
   margin: 0 1.5rem;
   color: #666;
   transition: 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-}
-.button:hover {
-  color: #444;
 }
 #sendButton {
   transform: rotateZ(90deg);
