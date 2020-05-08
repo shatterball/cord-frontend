@@ -71,7 +71,8 @@ export default {
   height: 100%;
 }
 .profile-photo {
-  width: 10rem;
+  width: 15rem;
+  margin-top: 2rem;
 }
 .name {
   font-weight: 400;

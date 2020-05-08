@@ -49,20 +49,17 @@ export default {
   visibility: hidden;
 }
 .profile-box {
-  min-height: 3.5rem;
+  min-height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #e0e0e0;
 }
-.profile-box p {
-  cursor: pointer;
-  font-size: 1.2rem;
-  -webkit-tap-highlight-color: transparent;
-}
 .name {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #333;
 }

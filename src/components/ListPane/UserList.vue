@@ -74,10 +74,10 @@ export default {
 }
 .search_pane {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: #e8e8e8;
-  height: 3rem;
+  background: #e0e0e0;
+  height: 2.5rem;
   border-bottom: 1px solid #cfcfcf;
 }
 .user_list {

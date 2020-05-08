@@ -1,11 +1,13 @@
 <template>
   <div @click="loadChat" class="userbox shared" :class="{selected: selected}">
     <img :src="getProfilePhoto" alt="Photo" class="icon" />
-    <div class="container">
-      <p class="username shared">{{ fullname }}</p>
-      <p class="username condensed">{{ "@" + user.username }}</p>
+    <div class="ultra">
+      <div class="container">
+        <p class="username shared">{{ fullname }}</p>
+        <p class="username condensed">{{ "@" + user.username }}</p>
+      </div>
+      <div class="badge" :class="{'show': online == true}"></div>
     </div>
-    <div class="badge" :class="{'show': online == true}"></div>
   </div>
 </template>
 
@@ -43,11 +45,18 @@ export default {
 </script>
 
 <style scoped>
+.ultra {
+  display: flex;
+  height: 4.5rem;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+  justify-content: space-between;
+  flex: 1;
+}
 .container {
   display: flex;
   flex-direction: column;
-  margin: 0 1rem;
-  flex: 1;
 }
 .shared {
   font-family: sans-serif;
@@ -70,11 +79,11 @@ export default {
   cursor: pointer;
   transition: 0.2s;
 }
-.userbox:first-child {
-  margin-top: 0;
+.userbox:last-child .ultra {
+  border-bottom-color: #eee;
 }
 .selected {
-  background: #ddd;
+  background: #e0e0e0;
 }
 .username {
   font-family: sans-serif;
@@ -85,7 +94,7 @@ export default {
   vertical-align: middle;
   height: 3rem;
   border-radius: 50%;
-  margin-left: 0.5rem;
+  margin: 0 1rem;
 }
 .badge {
   visibility: hidden;
@@ -98,5 +107,10 @@ export default {
 }
 .show {
   visibility: visible;
+}
+@media screen and (max-width: 700px) {
+  .selected {
+    background: initial;
+  }
 }
 </style>
