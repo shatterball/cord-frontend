@@ -78,7 +78,6 @@ export default {
   justify-content: center;
   background: #e0e0e0;
   height: 2.5rem;
-  border-bottom: 1px solid #cfcfcf;
 }
 .user_list {
   flex: 1;
