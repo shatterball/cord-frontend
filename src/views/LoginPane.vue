@@ -110,7 +110,7 @@ export default {
   overflow: auto;
   height: 100%;
   width: 100%;
-  background: #ddd;
+  background: #efefef;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,7 +138,7 @@ export default {
 }
 .inputs input {
   border-radius: 2rem;
-  border: 0.1rem solid #fff;
+  border: 2px solid #ccc;
   width: 100%;
   padding: 0 1rem;
   margin: 0.5rem;
@@ -147,7 +147,7 @@ export default {
   transition: 0.2s;
 }
 .inputs input:focus {
-  border: 0.1rem solid #268bd2;
+  border: 2px solid #268bd2;
 }
 .button {
   cursor: pointer;

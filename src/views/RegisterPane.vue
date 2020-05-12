@@ -122,11 +122,11 @@ body {
   height: 2rem;
   border-radius: 2rem;
   outline: none;
-  border: 0.1rem solid #fff;
+  border: 2px solid #ccc;
   padding: 0 1rem;
 }
 .inp2:focus {
-  border: 0.1rem solid #268bd2;
+  border: 2px solid #268bd2;
 }
 .sex {
   margin: 0.5rem 0;
@@ -144,7 +144,7 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
-  background: #ddd;
+  background: #efefef;
   align-items: center;
 }
 .inputs_name {
