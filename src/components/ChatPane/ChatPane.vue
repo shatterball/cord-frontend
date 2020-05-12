@@ -55,7 +55,7 @@ export default {
   flex-direction: column;
   background: #ddd;
   flex: 1;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 @media screen and (min-width: 700px) {
   .chat_pane {

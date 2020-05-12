@@ -57,7 +57,7 @@ export default {
   /* flex: 0 1 auto; */
   width: 30%;
   background: #eee;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 @media screen and (max-width: 700px) {
   .list_pane {
