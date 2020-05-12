@@ -64,7 +64,7 @@ export default {
   outline: none;
   border: none;
   border-radius: 2rem;
-  background: #eee;
+  background: #fff;
   color: #444;
 }
 .container {

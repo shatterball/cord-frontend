@@ -47,7 +47,7 @@ export default {
 <style scoped>
 .ultra {
   display: flex;
-  height: 4.5rem;
+  height: calc(4.5rem - 1px);
   width: 100%;
   align-items: center;
   border-bottom: 1px solid #dfdfdf;
