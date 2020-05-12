@@ -50,7 +50,7 @@ export default {
   height: calc(4.5rem - 1px);
   width: 100%;
   align-items: center;
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid #efefef;
   justify-content: space-between;
   flex: 1;
 }
@@ -60,8 +60,8 @@ export default {
 }
 .shared {
   font-family: sans-serif;
-  font-weight: 500;
-  color: #333;
+  font-weight: bold;
+  color: #505050;
   user-select: none;
 }
 .condensed {
@@ -72,7 +72,7 @@ export default {
 .userbox {
   display: flex;
   align-items: center;
-  background: #eee;
+  background: #fff;
   min-height: 4.5rem;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -80,10 +80,10 @@ export default {
   transition: 0.2s;
 }
 .userbox:last-child .ultra {
-  border-bottom-color: #eee;
+  border-bottom-color: #fff;
 }
 .selected {
-  background: #e0e0e0;
+  background: #efefef;
 }
 .username {
   font-family: sans-serif;
@@ -110,7 +110,7 @@ export default {
 }
 @media screen and (max-width: 700px) {
   .selected {
-    background: initial;
+    background: #fff;
   }
 }
 </style>

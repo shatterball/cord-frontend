@@ -51,12 +51,6 @@ export default {
 </script>
 
 <style scoped>
-.list_pane {
-  display: flex;
-  flex-direction: column;
-  background: #eee;
-  transition: 0.2s;
-}
 @media screen and (max-width: 700px) {
   .button {
     display: block;

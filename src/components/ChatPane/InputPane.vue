@@ -138,14 +138,13 @@ export default {
 .input_bar {
   font-family: sans-serif;
   flex: 1 0 auto;
-  color: #555;
-  background: #eee;
+  color: #333;
+  background: #fff;
   border-radius: 2rem;
   margin: 0;
   padding: 0 1rem;
-  color: #222;
   height: 2.5rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 ::placeholder {
   color: #888;
@@ -154,8 +153,8 @@ export default {
   padding: 0;
   background: #ddd;
   border-radius: 0;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.85rem;
+  width: 1.85rem;
   cursor: pointer;
   margin: 0 1.5rem;
   color: #666;

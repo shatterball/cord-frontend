@@ -173,6 +173,9 @@ export default {
         this.windowHeight = window.innerHeight;
         let vh = this.windowHeight * 0.01;
         document.documentElement.style.setProperty("--vh", `${vh}px`);
+        if (window.innerWidth > 700) {
+          this.showList();
+        }
       });
     });
     document.addEventListener("visibilitychange", this.setFocus);
@@ -261,7 +264,7 @@ export default {
 var vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
-<style >
+<style>
 .main_pane {
   display: flex;
   width: 100vw;
@@ -273,7 +276,7 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   background: #eee;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -298,7 +301,7 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 .list_pane {
   display: flex;
   flex-direction: column;
-  background: #eee;
+  background: #fff;
   width: 30%;
   transition: 0.2s;
 }
@@ -311,7 +314,7 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   .list_pane {
     position: absolute;
     width: 100vw;
-    z-index: 1;
+    z-index: 2;
     height: calc(var(--vh, 1vh) * 100);
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="search_pane">
-      <input type="searchbox" v-$model="searchText" class="search" placeholder="Search chats" />
+      <input type="searchbox" @keyup="debouncedSearch" class="search" placeholder="Search chats" />
     </div>
     <div class="user_list">
       <ListItem
@@ -18,6 +18,7 @@
 
 <script>
 import ListItem from "./ListItem";
+let timeout = null;
 export default {
   name: "UserList",
   data: function() {
@@ -37,6 +38,17 @@ export default {
   methods: {
     loadChat: function(id) {
       this.$emit("load-chat", id);
+    },
+    debouncedSearch: function(e) {
+      var input = e.target.value.trim();
+      if (e.keyCode === 27 && input !== "") {
+        input = "";
+        e.target.value = "";
+      }
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        this.searchText = input;
+      }, 300);
     }
   },
   computed: {
@@ -55,7 +67,7 @@ export default {
 .search {
   font-family: sans-serif;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: bold;
   padding: 0 1rem;
   margin: 0 1rem;
   height: 2rem;
@@ -65,10 +77,12 @@ export default {
   border: none;
   border-radius: 2rem;
   background: #fff;
-  color: #444;
+  color: #555;
+  caret-color: #888;
 }
 .container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   overflow: auto;
 }

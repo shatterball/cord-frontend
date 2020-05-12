@@ -83,7 +83,7 @@ export default {
   height: 100%;
   width: 100%;
   background: #fff;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

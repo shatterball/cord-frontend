@@ -91,14 +91,15 @@ export default {
 .button {
   border: 0;
   color: #666;
-  background: #eee;
-  width: 1.5rem;
-  height: 1.5rem;
+  background: #fff;
+  width: 1.85rem;
+  height: 1.85rem;
   cursor: pointer;
   outline: 0;
   transition: 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  margin: 0 0.5rem;
 }
 .button-container {
   margin-top: auto;
