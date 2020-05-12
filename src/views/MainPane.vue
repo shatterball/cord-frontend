@@ -103,12 +103,12 @@ export default {
         });
     },
     showChat: function() {
-      document.getElementById("chat_pane").style = "width: 100%";
-      document.getElementById("list_pane").style = "width: 0";
+      document.getElementById("chat_pane").style.width = "100%";
+      document.getElementById("list_pane").style.width = "0";
     },
     showList: function() {
-      document.getElementById("list_pane").style = "width: 100%";
-      document.getElementById("chat_pane").style = "width: 0";
+      document.getElementById("list_pane").style.width = "100%";
+      document.getElementById("chat_pane").style.width = "0";
     },
     sendMessage: function(msg) {
       this.socket.emit("message-send", msg);
@@ -165,7 +165,7 @@ export default {
   },
   mounted() {
     if (window.innerWidth < 700) {
-      document.getElementById("chat_pane").style = "width: 0";
+      this.showList();
       this.showChatPane = false;
     }
     this.$nextTick(() => {
