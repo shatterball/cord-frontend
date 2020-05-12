@@ -8,7 +8,8 @@
               <path fill="currentColor" d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z" />
             </svg>
           </button>
-          <p>{{ sidebarHeader }}</p>
+          <h1>{{ sidebarHeader }}</h1>
+          <div class="button" style="cursor: default" />
         </div>
         <div class="content">
           <slot></slot>
@@ -57,15 +58,18 @@ export default {
 }
 .header {
   display: flex;
-  height: 3.5rem;
+  height: 4rem;
   background: #e0e0e0;
   align-items: center;
+  justify-content: space-between;
 }
-.header p {
+.header h1 {
   font-size: 1.2rem;
+  font-weight: 500;
+  user-select: none;
 }
 .button {
-  color: #666;
+  color: #555;
   background: #e0e0e0;
   width: 1.85rem;
   height: 1.85rem;

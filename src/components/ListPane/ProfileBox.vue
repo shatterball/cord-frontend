@@ -49,7 +49,7 @@ export default {
   visibility: hidden;
 }
 .profile-box {
-  min-height: 4rem;
+  min-height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

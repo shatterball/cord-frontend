@@ -157,7 +157,7 @@ export default {
   width: 1.85rem;
   cursor: pointer;
   margin: 0 1.5rem;
-  color: #666;
+  color: #555;
   transition: 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
