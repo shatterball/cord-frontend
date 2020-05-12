@@ -54,10 +54,8 @@ export default {
 .list_pane {
   display: flex;
   flex-direction: column;
-  width: 25rem;
   background: #eee;
   transition: 0.2s;
-  position: relative;
 }
 @media screen and (max-width: 700px) {
   .button {

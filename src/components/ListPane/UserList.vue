@@ -86,6 +86,12 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.user_list::-webkit-scrollbar {
+  display: none;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
 ::placeholder {
   color: #888;
 }

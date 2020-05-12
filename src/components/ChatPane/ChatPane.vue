@@ -56,11 +56,9 @@ export default {
   background: #ddd;
   flex: 1;
   transition: 0.2s;
-  position: relative;
 }
 @media screen and (min-width: 700px) {
   .chat_pane {
-    width: 100%;
     border-left: 1px solid #cfcfc8;
   }
 }

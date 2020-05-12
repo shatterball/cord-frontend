@@ -103,12 +103,13 @@ export default {
         });
     },
     showChat: function() {
-      document.getElementById("chat_pane").style.width = "100%";
-      document.getElementById("list_pane").style.width = "0";
+      this.showChatPane = true;
+      document.getElementById("list_pane").style.transform =
+        "translateX(-100%)";
     },
     showList: function() {
-      document.getElementById("list_pane").style.width = "100%";
-      document.getElementById("chat_pane").style.width = "0";
+      this.showChatPane = false;
+      document.getElementById("list_pane").style.transform = "translateX(0)";
     },
     sendMessage: function(msg) {
       this.socket.emit("message-send", msg);
@@ -165,7 +166,6 @@ export default {
   },
   mounted() {
     if (window.innerWidth < 700) {
-      this.showList();
       this.showChatPane = false;
     }
     this.$nextTick(() => {
@@ -196,13 +196,14 @@ export default {
             data.to == this.selectedUser.id)) &&
         !found
       ) {
-        if (document.getElementById("chat_pane").style.display != "none")
+        if (this.showChatPane)
           this.socket.emit("message-r", ids, data.from, this.currentUser.id);
         this.chatArray.push(data);
       }
       if (
         (data.from != this.selectedUser.id || !this.tabFocus) &&
-        data.from != this.currentUser.id
+        data.from != this.currentUser.id &&
+        !this.showChatPane
       ) {
         var sentBy = this.usersArray.find(user => {
           return user.id == data.from;
@@ -269,7 +270,7 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 }
 .overlay {
   position: fixed;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   background: #eee;
   z-index: 2;
@@ -294,11 +295,23 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
     transform: rotate(360deg);
   }
 }
+.list_pane {
+  display: flex;
+  flex-direction: column;
+  background: #eee;
+  width: 30%;
+  transition: 0.2s;
+}
 @media screen and (max-width: 700px) {
   .chat_pane {
+    position: absolute;
+    width: 100vw;
     height: calc(var(--vh, 1vh) * 100);
   }
   .list_pane {
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
     height: calc(var(--vh, 1vh) * 100);
   }
 }
