@@ -41,7 +41,7 @@ export default {
 .slide-enter,
 .slide-leave-to {
   transform: translateX(-100%);
-  transition: all 0.15s ease-in 0s;
+  transition: all 0.2s ease-in 0s;
 }
 
 .sidebar-panel {
@@ -51,6 +51,7 @@ export default {
   left: 0;
   top: 0;
   height: 100%;
+  width: 30%;
   z-index: 999;
   display: flex;
   flex-direction: column;

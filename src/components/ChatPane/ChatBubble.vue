@@ -90,7 +90,7 @@ export default {
 }
 .send {
   align-self: flex-end;
-  color: #eee;
+  color: #fff;
   background: #0084ff;
   padding: 0;
   margin-right: 5rem;
