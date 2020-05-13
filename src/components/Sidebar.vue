@@ -52,7 +52,6 @@ export default {
   top: 0;
   height: 100%;
   z-index: 999;
-  width: 30%;
   display: flex;
   flex-direction: column;
 }
@@ -88,6 +87,7 @@ export default {
 @media screen and (max-width: 700px) {
   .sidebar-panel {
     width: 100%;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.25);
   }
 }
 </style>

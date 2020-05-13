@@ -52,6 +52,9 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 700px) {
+  .list_pane {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.25);
+  }
   .button {
     display: block;
   }

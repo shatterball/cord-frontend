@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="search_pane">
-      <input type="searchbox" @keyup="debouncedSearch" class="search" placeholder="Search chats" />
+      <input type="searchbox" @keyup="debouncedSearch" class="search" placeholder="Search" />
     </div>
     <div class="user_list">
       <ListItem
