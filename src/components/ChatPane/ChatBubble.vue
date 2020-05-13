@@ -83,10 +83,10 @@ export default {
   background: #0084ff;
 }
 .sent {
-  background: #aaa;
+  background: #ccc;
 }
 .read {
-  background: #00c6ff;
+  background: #00eeff;
 }
 .send {
   align-self: flex-end;
