@@ -109,4 +109,9 @@ export default {
 ::placeholder {
   color: #888;
 }
+@media screen and (max-width: 700px) {
+  .search {
+    font-weight: 500;
+  }
+}
 </style>

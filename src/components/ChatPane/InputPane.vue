@@ -179,8 +179,7 @@ export default {
     margin-left: 1rem;
   }
   #emojiButton {
-    margin-left: 1rem;
-    margin-right: 0rem;
+    display: none;
   }
   #sendButton {
     margin-right: 1rem;
