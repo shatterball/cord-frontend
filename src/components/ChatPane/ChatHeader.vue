@@ -114,9 +114,11 @@ export default {
   user-select: none;
 }
 #icon {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 3rem;
+  width: 3rem;
   margin-left: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.18);
 }
 @media screen and (max-width: 700px) {
   .name {
