@@ -72,8 +72,8 @@ export default {
 .button {
   color: #555;
   background: #e0e0e0;
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.5rem;
+  height: 1.5rem;
   outline: 0;
   padding: 0;
   border: 0;

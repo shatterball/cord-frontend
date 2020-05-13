@@ -153,8 +153,8 @@ export default {
   padding: 0;
   background: #ddd;
   border-radius: 0;
-  height: 1.85rem;
-  width: 1.85rem;
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
   margin: 0 1.5rem;
   color: #555;

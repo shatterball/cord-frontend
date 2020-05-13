@@ -104,8 +104,8 @@ export default {
 }
 .button {
   color: #666;
-  height: 1.85rem;
-  width: 1.85rem;
+  height: 1.5rem;
+  width: 1.5rem;
   outline: 0;
   border: 0;
   cursor: pointer;

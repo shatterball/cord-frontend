@@ -92,8 +92,8 @@ export default {
   border: 0;
   color: #666;
   background: #fff;
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
   outline: 0;
   transition: 0.2s;
