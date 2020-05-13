@@ -19,6 +19,7 @@
 <script>
 import ListItem from "./ListItem";
 let timeout = null;
+
 export default {
   name: "UserList",
   data: function() {

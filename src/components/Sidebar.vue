@@ -55,6 +55,7 @@ export default {
   z-index: 999;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #cfcfcf;
 }
 .header {
   display: flex;
@@ -89,6 +90,7 @@ export default {
   .sidebar-panel {
     width: 100%;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.25);
+    border-right: 0;
   }
 }
 </style>

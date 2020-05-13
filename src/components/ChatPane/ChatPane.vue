@@ -58,7 +58,7 @@ export default {
 }
 @media screen and (min-width: 700px) {
   .chat_pane {
-    border-left: 1px solid #cfcfc8;
+    border-left: 1px solid #cfcfcf;
   }
 }
 </style>

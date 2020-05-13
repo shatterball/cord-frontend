@@ -184,6 +184,8 @@ export default {
   #sendButton {
     margin-right: 1rem;
     margin-left: 0rem;
+    height: 2rem;
+    width: 2rem;
   }
 }
 </style>
