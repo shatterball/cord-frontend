@@ -54,6 +54,7 @@ export default {
   align-items: center;
   justify-content: center;
   background: #e0e0e0;
+  user-select: none;
 }
 .name {
   cursor: pointer;

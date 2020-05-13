@@ -18,7 +18,7 @@
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
-      @keyup="typingEvent"
+      @keydown="typingEvent"
       ref="inputBar"
     />
     <button
