@@ -1,6 +1,12 @@
 <template>
   <div class="profile-box">
-    <p @click="openProfile" class="name">{{ currentUser.fname + " " + currentUser.lname}}</p>
+    <img class="image" :src="getProfilePhoto" alt="Profile" @click="openProfile" />
+    <svg class="button" viewBox="0 0 24 24" @click="logout">
+      <path
+        fill="currentColor"
+        d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+      />
+    </svg>
   </div>
 </template>
 <script>
@@ -52,16 +58,22 @@ export default {
   min-height: 4.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: #e0e0e0;
   user-select: none;
+  padding: 0 1rem;
 }
-.name {
+.image {
+  width: 3rem;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #333;
+}
+.button {
+  width: 1.5rem;
+  color: #666;
+  border: none;
+  margin-right: 0.5rem;
 }
 </style>

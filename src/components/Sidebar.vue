@@ -77,14 +77,13 @@ export default {
   outline: 0;
   padding: 0;
   border: 0;
-  margin: 0 1rem;
+  margin: 1rem;
   transition: 0.2s;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 .content {
   flex: 1;
-  margin: 1rem;
 }
 @media screen and (max-width: 700px) {
   .sidebar-panel {
