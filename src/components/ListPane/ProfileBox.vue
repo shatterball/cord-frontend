@@ -66,7 +66,6 @@ export default {
 .image {
   width: 3rem;
   border-radius: 50%;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
