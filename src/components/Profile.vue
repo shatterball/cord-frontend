@@ -73,6 +73,7 @@ export default {
 .profile-photo {
   width: 15rem;
   margin-top: 2rem;
+  border-radius: 50%;
 }
 .name {
   font-weight: 400;
