@@ -55,7 +55,7 @@ export default {
   visibility: hidden;
 }
 .profile-box {
-  min-height: 4.5rem;
+  min-height: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
