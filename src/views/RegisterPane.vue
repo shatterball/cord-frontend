@@ -3,15 +3,15 @@
     <div class="container">
       <h1 class="banner">Register</h1>
       <label>Name:</label>
-      <input v-model="fname" class="inp2" type="text" placeholder="Firstname" />
-      <input v-model="lname" class="inp2" type="text" placeholder="Lastname" />
+      <input v-model="fname" class="input" type="text" placeholder="Firstname" />
+      <input v-model="lname" class="input" type="text" placeholder="Lastname" />
       <label>Email:</label>
-      <input v-model="email" class="inp2" type="email" placeholder="someone@mail.com" />
+      <input v-model="email" class="input" type="email" placeholder="someone@mail.com" />
       <label>Username:</label>
-      <input v-model="username" class="inp2" type="text" placeholder="Username" />
+      <input v-model="username" class="input" type="text" placeholder="Username" />
       <label>Password:</label>
-      <input v-$model="passwd" class="inp2" type="password" placeholder="Enter password" />
-      <input v-$model="passwd_re" class="inp2" type="password" placeholder="Enter password again" />
+      <input v-$model="passwd" class="input" type="password" placeholder="Enter password" />
+      <input v-$model="passwd_re" class="input" type="password" placeholder="Enter password again" />
       <div class="error" v-if="noMatch">Passwords do not match</div>
       <div class="sex">
         <label>Sex:</label>
@@ -116,7 +116,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.inp2 {
+.input {
   transition: 0.2s;
   margin: 0.5rem 0;
   height: 2rem;
@@ -125,7 +125,7 @@ body {
   border: 2px solid #ccc;
   padding: 0 1rem;
 }
-.inp2:focus {
+.input:focus {
   border: 2px solid #268bd2;
 }
 .sex {
@@ -205,6 +205,9 @@ body {
     transform: rotate(360deg);
   }
 }
+label {
+  font-weight: 500;
+}
 @media screen and (max-width: 700px) {
   .register_pane {
     align-items: flex-start;
@@ -220,7 +223,7 @@ body {
     width: 90%;
     height: 2.5rem;
   }
-  .inp2 {
+  .input {
     height: 2.5rem;
   }
   .button {
