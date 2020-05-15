@@ -47,6 +47,7 @@ export default {
   align-items: center;
   height: 100%;
   background: #fff;
+  overflow-y: scroll;
 }
 .profile-photo {
   width: 13rem;
@@ -73,7 +74,7 @@ export default {
 }
 .name-container {
   width: 100%;
-  height: 5rem;
+  min-height: 5rem;
   margin: 1rem 0;
   display: flex;
   flex-direction: column;

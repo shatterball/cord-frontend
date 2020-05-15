@@ -59,7 +59,7 @@ export default {
 }
 .header {
   display: flex;
-  height: 4rem;
+  min-height: 4rem;
   background: #e0e0e0;
   align-items: center;
   justify-content: space-between;
@@ -84,6 +84,7 @@ export default {
 }
 .content {
   flex: 1;
+  overflow: hidden;
 }
 @media screen and (max-width: 700px) {
   .sidebar-panel {
