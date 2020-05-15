@@ -47,7 +47,8 @@ export default {
   align-items: center;
   height: 100%;
   background: #fff;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overscroll-behavior: none;
 }
 .profile-photo {
   width: 13rem;
