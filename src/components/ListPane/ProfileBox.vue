@@ -74,5 +74,6 @@ export default {
   color: #666;
   border: none;
   margin-right: 0.5rem;
+  cursor: pointer;
 }
 </style>
