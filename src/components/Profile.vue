@@ -77,7 +77,7 @@ export default {
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 1px 5px rgba(0, 0, 0, 0.2);
   user-select: none;
 }
 .name-container h3 {
@@ -91,5 +91,6 @@ export default {
   margin: 0.5rem 2rem;
   margin-bottom: 1rem;
   color: #666;
+  font-size: 0.95rem;
 }
 </style>
