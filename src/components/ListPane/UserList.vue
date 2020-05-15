@@ -85,6 +85,7 @@ export default {
   display: flex;
   flex: 1;
   flex-direction: column;
+  overscroll-behavior: none;
   overflow: auto;
 }
 .search_pane {
@@ -96,13 +97,10 @@ export default {
 }
 .user_list {
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
   overscroll-behavior: none;
   display: flex;
   flex-direction: column;
-}
-.user_list::-webkit-scrollbar {
-  display: none;
 }
 .container::-webkit-scrollbar {
   display: none;

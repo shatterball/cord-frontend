@@ -37,4 +37,18 @@ body {
 .fade-leave-active {
   opacity: 0;
 }
+@media screen and (min-width: 700px) {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #aaa;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+}
 </style>
