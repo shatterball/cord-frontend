@@ -45,7 +45,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
 }
 .space {
   margin-bottom: 0.5rem;
@@ -54,7 +54,7 @@ export default {
   color: #000;
   padding: 0.5rem 0.6rem;
   padding-bottom: 0;
-  max-width: 30rem;
+  max-width: 35rem;
   word-break: break-word;
 }
 .info {
@@ -80,7 +80,7 @@ export default {
   border-radius: 50%;
 }
 .unread {
-  background: #0084ff;
+  background: #0080ff;
 }
 .sent {
   background: #ccc;
@@ -91,7 +91,7 @@ export default {
 .send {
   align-self: flex-end;
   color: #fff;
-  background: #0084ff;
+  background: #0080ff;
   padding: 0;
   margin-right: 5rem;
 }
@@ -112,7 +112,7 @@ export default {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-left-color: #0084ff;
+  border-left-color: #0080ff;
   border-right: 0;
   border-top: 0;
   margin-right: -10px;
@@ -120,7 +120,7 @@ export default {
 .recv {
   align-self: flex-start;
   color: #222;
-  background: #ccc;
+  background: #ddd;
   margin-left: 5rem;
 }
 .recv .info {
@@ -141,7 +141,7 @@ export default {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-right-color: #ccc;
+  border-right-color: #ddd;
   border-left: 0;
   border-top: 0;
   margin-top: 0px;
@@ -152,7 +152,7 @@ export default {
 }
 @media screen and (max-width: 700px) {
   .bubble {
-    max-width: 85%;
+    max-width: 80%;
   }
   .send {
     margin-right: 1.2rem;
