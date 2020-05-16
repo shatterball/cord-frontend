@@ -268,8 +268,8 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 .main_pane {
   display: flex;
   flex-direction: row;
-  height: -webkit-fill-available;
-  width: -webkit-fill-available;
+  height: 100vh;
+  width: webkit-fill-available;
 }
 .overlay {
   position: fixed;
