@@ -18,7 +18,7 @@
       placeholder="Write something..."
       class="input_bar shared"
       @keyup.enter="sendMessage"
-      @keydown="typingEvent"
+      @keyup="typingEvent"
       ref="inputBar"
     />
     <button
@@ -87,8 +87,8 @@ export default {
       this.typing = false;
       this.$emit("typing", false);
     },
-    typingEvent: function(event) {
-      if (this.typing == false && event.key != "Enter") {
+    typingEvent: function() {
+      if (this.typing == false) {
         this.typing = true;
         this.$emit("typing", true);
         this.timeout = setTimeout(this.timeoutFunction, 1000);
