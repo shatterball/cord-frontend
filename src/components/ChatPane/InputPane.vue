@@ -19,6 +19,7 @@
       class="input_bar shared"
       @keyup.enter="sendMessage"
       @keyup="typingEvent"
+      @focus="hide"
       ref="inputBar"
     />
     <button
@@ -96,6 +97,9 @@ export default {
         clearTimeout(this.timeout);
         this.timeout = setTimeout(this.timeoutFunction, 1000);
       }
+    },
+    hide: function() {
+      this.showEmojiPicker = false;
     }
   }
 };
@@ -125,7 +129,7 @@ export default {
 }
 .emoji_picker {
   position: absolute;
-  margin-top: -28rem;
+  margin-top: -28.5rem;
   margin-left: 0.5rem;
   transition: 0.2s;
 }
