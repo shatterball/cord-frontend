@@ -15,6 +15,7 @@ export default {
 <style>
 * {
   font-family: sans-serif;
+  overscroll-behavior: none;
 }
 body {
   margin: 0;
