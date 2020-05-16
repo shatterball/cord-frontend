@@ -267,14 +267,14 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 <style>
 .main_pane {
   display: flex;
-  width: 100vw;
-  height: 100vh;
   flex-direction: row;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 .overlay {
   position: fixed;
-  height: calc(var(--vh, 1vh) * 100);
-  width: 100vw;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
   background: #eee;
   z-index: 3;
   display: flex;
@@ -303,19 +303,19 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
   flex-direction: column;
   background: #fff;
   width: 30%;
-  transition: 0.2s;
+  transition: 0.2s ease-in-out 0s;
 }
 @media screen and (max-width: 700px) {
   .chat_pane {
     position: absolute;
-    width: 100vw;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
+    width: 100%;
   }
   .list_pane {
     position: absolute;
-    width: 100vw;
     z-index: 2;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
+    width: 100%;
   }
 }
 </style>
