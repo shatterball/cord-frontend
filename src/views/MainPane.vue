@@ -35,21 +35,21 @@
 </template>
 
 <script>
-import ListPane from "../components/ListPane/ListPane";
-import ChatPane from "../components/ChatPane/ChatPane";
-import Sidebar from "../components/Sidebar";
-import Profile from "../components/Profile";
-import Axios from "axios";
-import io from "socket.io-client";
-import jwtDecode from "jwt-decode";
-var apiUri = "https://apicord.herokuapp.com";
+import ListPane from '../components/ListPane/ListPane';
+import ChatPane from '../components/ChatPane/ChatPane';
+import Sidebar from '../components/Sidebar';
+import Profile from '../components/Profile';
+import Axios from 'axios';
+import io from 'socket.io-client';
+import jwtDecode from 'jwt-decode';
+var apiUri = 'https://apicord.herokuapp.com';
 export default {
-  name: "mainPane",
+  name: 'mainPane',
   components: {
     ListPane,
     ChatPane,
     Sidebar,
-    Profile
+    Profile,
   },
   data() {
     return {
@@ -68,8 +68,8 @@ export default {
       currentUser: this.$store.getters.currentUser,
       token: this.$store.getters.token,
       socket: io(apiUri, {
-        secure: true
-      })
+        secure: true,
+      }),
     };
   },
   methods: {
@@ -77,25 +77,25 @@ export default {
       if (window.innerWidth < 700) {
         this.showChat();
       }
-      this.selectedUser = this.usersArray.find(item => item.id == id);
+      this.selectedUser = this.usersArray.find((item) => item.id == id);
       this.loadingChat = true;
-      Axios.post(apiUri + "/api/messages/", {
+      Axios.post(apiUri + '/api/messages/', {
         token: this.token,
-        target: this.selectedUser.id
+        target: this.selectedUser.id,
       })
-        .then(jsonData => {
+        .then((jsonData) => {
           this.chatArray = jsonData.data;
           this.loadingChat = false;
         })
         .then(() => {
           var ids = [];
-          this.chatArray.forEach(el => {
+          this.chatArray.forEach((el) => {
             if (el.from == this.selectedUser.id) {
               ids.push(el._id);
             }
           });
           this.socket.emit(
-            "message-r",
+            'message-r',
             ids,
             this.selectedUser.id,
             this.currentUser.id
@@ -104,29 +104,29 @@ export default {
     },
     showChat: function() {
       this.showChatPane = true;
-      document.getElementById("list_pane").style.transform =
-        "translateX(-100%)";
+      document.getElementById('list_pane').style.transform =
+        'translateX(-100%)';
     },
     showList: function() {
       this.showChatPane = false;
-      document.getElementById("list_pane").style.transform = "translateX(0)";
+      document.getElementById('list_pane').style.transform = 'translateX(0)';
     },
     sendMessage: function(msg) {
-      this.socket.emit("message-send", msg);
+      this.socket.emit('message-send', msg);
       this.chatArray.push(msg);
     },
     logout: function() {
-      if (confirm("Sure wanna logout?")) {
+      if (confirm('Sure wanna logout?')) {
         this.socket.disconnect();
-        localStorage.removeItem("jwt");
-        this.$router.push({ name: "login" });
+        localStorage.removeItem('jwt');
+        this.$router.push({ name: 'login' });
       }
     },
     typingEmit: function(status) {
-      this.socket.emit("typing", {
+      this.socket.emit('typing', {
         from: this.currentUser.id,
         to: this.selectedUser.id,
-        status
+        status,
       });
     },
     setFocus: function() {
@@ -135,64 +135,54 @@ export default {
     openProfile: function() {
       this.showProfile = true;
       this.isPanelOpen = true;
-      this.sidebarHeader = "Profile";
+      this.sidebarHeader = 'Profile';
     },
     closeSidebar: function() {
       this.isPanelOpen = false;
       this.showProfile = false;
-    }
+    },
   },
   beforeCreate: function() {
-    this.$store.commit("setToken", localStorage.getItem("jwt"));
+    this.$store.commit('setToken', localStorage.getItem('jwt'));
     if (this.$store.getters.token == undefined) {
-      this.$router.push({ name: "login" });
+      this.$router.push({ name: 'login' });
     }
     this.$store.commit(
-      "setCurrentUser",
+      'setCurrentUser',
       jwtDecode(this.$store.getters.token).user
     );
     this.currentUser = this.$store.getters.currentUser;
     this.token = this.$store.getters.token;
 
     if (this.currentUser.username == undefined) {
-      this.$router.push({ name: "login" });
+      this.$router.push({ name: 'login' });
     }
-    Axios.post(apiUri + "/api/users", {
-      token: this.token
-    }).then(res => {
+    Axios.post(apiUri + '/api/users', {
+      token: this.token,
+    }).then((res) => {
       this.usersArray = res.data;
-      document.getElementById("overlay").style.display = "none";
+      document.getElementById('overlay').style.display = 'none';
     });
   },
   mounted() {
     if (window.innerWidth < 700) {
       this.showChatPane = false;
     }
-    this.$nextTick(() => {
-      window.addEventListener("resize", () => {
-        this.windowHeight = window.innerHeight;
-        let vh = this.windowHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-        if (window.innerWidth > 700) {
-          this.showList();
-        }
-      });
-    });
-    document.addEventListener("visibilitychange", this.setFocus);
+    document.addEventListener('visibilitychange', this.setFocus);
   },
   created() {
     setInterval(() => {
       if (!this.socket.connected && !this.socket.connecting) {
-        this.socket.emit("login", this.currentUser.id);
+        this.socket.emit('login', this.currentUser.id);
       }
     }, 1000);
-    this.socket.emit("login", this.currentUser.id);
-    this.socket.on("message-recv", data => {
+    this.socket.emit('login', this.currentUser.id);
+    this.socket.on('message-recv', (data) => {
       if (data.from == this.selectedUser.id) {
         var ids = [];
         ids.push(data._id);
       }
-      var found = this.chatArray.some(el => el._id == data._id);
+      var found = this.chatArray.some((el) => el._id == data._id);
       if (
         (data.from == this.selectedUser.id ||
           (data.from == this.currentUser.id &&
@@ -200,52 +190,35 @@ export default {
         !found
       ) {
         if (this.showChatPane)
-          this.socket.emit("message-r", ids, data.from, this.currentUser.id);
+          this.socket.emit('message-r', ids, data.from, this.currentUser.id);
         this.chatArray.push(data);
       }
-      if (
-        (data.from != this.selectedUser.id || !this.tabFocus) &&
-        data.from != this.currentUser.id &&
-        !this.showChatPane
-      ) {
-        var sentBy = this.usersArray.find(user => {
-          return user.id == data.from;
-        }).fname;
-        Notification.requestPermission().then(result => {
-          if (result == "granted") {
-            new Notification(sentBy, {
-              body: data.content,
-              icon: undefined
-            });
-          }
-        });
-      }
     });
-    this.socket.on("online-list", users => {
-      Axios.post(apiUri + "/api/users", {
-        token: this.token
-      }).then(res => {
+    this.socket.on('online-list', (users) => {
+      Axios.post(apiUri + '/api/users', {
+        token: this.token,
+      }).then((res) => {
         this.usersArray = res.data;
       });
       this.connectedUsers = users;
     });
-    this.socket.on("typing", data => {
+    this.socket.on('typing', (data) => {
       if (data.status == true) {
         this.typingArray.push(data.from);
       } else {
-        this.typingArray = this.typingArray.filter(el => {
+        this.typingArray = this.typingArray.filter((el) => {
           el.id == data.from;
         });
       }
     });
-    this.socket.on("message-d", id => {
-      this.chatArray.forEach(el => {
+    this.socket.on('message-d', (id) => {
+      this.chatArray.forEach((el) => {
         if (el._id == id) {
           el.status = 1;
         }
       });
     });
-    this.socket.on("message-rn", (ids, sentBy) => {
+    this.socket.on('message-rn', (ids, sentBy) => {
       if (sentBy == this.selectedUser.id) {
         var i = 0;
         for (i = 0; i < this.chatArray.length; i++) {
@@ -257,12 +230,10 @@ export default {
     });
   },
   beforeDestroy() {
-    this.socket.emit("disconnect");
-    window.removeEventListener("resize", this.onResize);
-  }
+    this.socket.emit('disconnect');
+    window.removeEventListener('resize', this.onResize);
+  },
 };
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
 </script>
 <style>
 .main_pane {
