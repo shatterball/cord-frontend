@@ -80,7 +80,6 @@ export default {
   color: #444;
   font-size: 0.6rem;
   align-self: flex-end;
-  text-align: right;
   margin-right: 0.3rem;
   margin-left: 0.5rem;
 }
