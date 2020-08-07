@@ -68,7 +68,6 @@ export default {
   word-break: break-word;
 }
 .info {
-  max-width: 5rem;
   align-self: flex-end;
   margin-right: 0.45rem;
   display: flex;
@@ -80,7 +79,6 @@ export default {
   color: #444;
   font-size: 0.6rem;
   align-self: flex-end;
-  width: 50%;
   text-align: right;
   margin-right: 0.3rem;
   margin-left: 0.5rem;
