@@ -1,34 +1,44 @@
 <template>
   <div
-    :class="{'send': type,'recv': !type, '_send': type && !shape, '_recv': !type && !shape, 'space': space == true}"
+    :class="{
+      send: type,
+      recv: !type,
+      _send: type && !shape,
+      _recv: !type && !shape,
+      space: space == true,
+    }"
     class="bubble shared"
   >
     <p class="shared message">{{ msg.content }}</p>
     <div class="info">
-      <p class="time shared">{{date}}</p>
+      <p class="time shared">{{ date }}</p>
       <div
         class="status shared"
-        :class="{'unread': msg.status == 0, 'sent': msg.status == 1 , 'read': msg.status == 2 }"
+        :class="{
+          unread: msg.status == 0,
+          sent: msg.status == 1,
+          read: msg.status == 2,
+        }"
       ></div>
     </div>
   </div>
 </template>
 
 <script>
-import moment from "moment";
+import moment from 'moment';
 export default {
-  name: "chatBubble",
+  name: 'chatBubble',
   props: {
     msg: {},
     shape: Boolean,
     space: Boolean,
-    type: Boolean
+    type: Boolean,
   },
   computed: {
     date() {
-      return moment(this.msg.date).format("LT");
-    }
-  }
+      return moment(this.msg.date).format('lll');
+    },
+  },
 };
 </script>
 
@@ -105,7 +115,7 @@ export default {
   border-top-right-radius: 0;
 }
 ._send:after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: 0;
@@ -134,7 +144,7 @@ export default {
   border-top-left-radius: 0;
 }
 ._recv:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
